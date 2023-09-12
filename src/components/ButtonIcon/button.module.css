@@ -1,0 +1,127 @@
+.button-icon {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 24px;
+    box-sizing: border-box;
+    transition: background-color .2s ease-in-out;
+}
+
+/* --- Disabled --- */
+.button-icon:disabled {
+    background: rgba(14, 14, 14, 0.05);
+    box-shadow: none;
+    pointer-events: none;
+}
+
+/* --- Sizes --- */
+.button-icon__48, .button-icon__large {
+    height: 48px;
+    width: 48px;
+    padding: 14px;
+}
+
+.button-icon__40, .button-icon__medium {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+}
+
+.button-icon__32, .button-icon__small {
+    height: 32px;
+    width: 32px;
+    padding: 6px;
+}
+
+/* --- Types --- */
+/* --- Primary --- */
+.button-icon__primary {
+    background: var(--gradients-simple-blue-vertical, linear-gradient(180deg, #457EFF 0%, #3568DD 100%));
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.button-icon__primary:hover {
+    background: #1A3D8D;
+    box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+}
+
+.button-icon__primary:focus {
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
+
+/* --- Secondary --- */
+.button-icon__secondary {
+    background: var(--yellow-600-accent, #FF5E0D);
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.button-icon__secondary:hover {
+    background: var(--yellow-700, #732C17);
+    box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+}
+
+.button-icon__secondary:focus {
+    border: 2px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
+
+/* --- Tetiary ---- */
+.button-icon__tetiary {
+    background: rgba(14, 14, 14, 0.05);
+}
+
+.button-icon__tetiary:hover {
+    background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
+}
+
+.button-icon__tetiary:focus {
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
+
+/* --- Plain --- */
+.button-icon__plain {
+    background: transparent;
+}
+
+.button-icon__plain:hover {
+    background: rgba(14, 14, 14, 0.05);
+}
+
+.button-icon__plain:focus {
+    background: rgba(14, 14, 14, 0.05);
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
+
+ /*--- Destructive ---*/
+.button-icon__destructive {
+    background: #FF4747;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.button-icon__destructive:hover {
+    background: #CC2626;
+    box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+}
+
+.button-icon__destructive:focus {
+    background: #FF4747;
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
+
+/* --- Grey --- */
+.button-icon__grey {
+    background: var(--neutral-400, #676B73);
+    box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+}
+
+.button-icon__grey:hover {
+    background: var(--neutral-600, #393B40);
+    box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
+}
+
+.button-icon__grey:focus {
+    background: var(--neutral-400, #676B73);
+    box-shadow: 0px 0px 0px 3px #99B8FF;
+}
