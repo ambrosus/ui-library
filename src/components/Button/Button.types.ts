@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import {JSX, MouseEventHandler} from "react";
 
 export interface ButtonProps {
   children?: any;
@@ -6,4 +6,7 @@ export interface ButtonProps {
   size: 'small' | 'medium' | 'large';
   type: 'primary' | 'secondary' | 'tetiary' | 'plain' | 'destructive' | 'grey';
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  leadIcon?: JSX.Element;
+  tailIcon?: JSX.Element;
+  disabled?: boolean;
 }

@@ -8,6 +8,8 @@ export function Button({
   className,
   size,
   type,
+  leadIcon,
+  tailIcon,
   ...props
 }: ButtonProps) {
   const classNames = [
@@ -19,7 +21,9 @@ export function Button({
 
   return (
     <button className={classNames.join(' ')} {...props}>
+      {leadIcon || null}
       {children}
+      {tailIcon || null}
     </button>
   );
 }
@@ -27,7 +31,10 @@ export function Button({
 Button.propTypes = {
   children: propTypes.node,
   className: propTypes.string,
-  size: propTypes.oneOf(['small', 'medium', 'large']),
-  type: propTypes.oneOf(['primary', 'secondary', 'tetiary', 'plain', 'destructive', 'gray']),
+  size: propTypes.oneOf(['small', 'medium', 'large']).isRequired,
+  type: propTypes.oneOf(['primary', 'secondary', 'tetiary', 'plain', 'destructive', 'gray']).isRequired,
   onClick: propTypes.func,
+  disabled: propTypes.bool,
+  leadIcon: propTypes.node,
+  tailIcon: propTypes.node,
 }
