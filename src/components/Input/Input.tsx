@@ -12,10 +12,11 @@ export function Input({
   value,
   placeholder,
   onChange,
-  disabled
+  disabled,
+  error,
 }: InputProps) {
   return (
-    <div className={`${s.container} ${className || ''} ${disabled ? s.disabled : ''}`}>
+    <div className={`${s.container} ${className || ''} ${disabled ? s.disabled : ''} ${error ? s.inputError : ''}`}>
       {label && <span className={s.label}>{label}</span>}
       <div className={s.field}>
         {leadIcon || null}
@@ -29,6 +30,7 @@ export function Input({
         />
         {tailIcon || null}
       </div>
+      <span className={s.error}>{error}</span>
     </div>
   )
 }
@@ -43,4 +45,5 @@ Input.propTypes = {
   tailIcon: propTypes.node,
   disabled: propTypes.bool,
   onChange: propTypes.func,
+  error: propTypes.string,
 }

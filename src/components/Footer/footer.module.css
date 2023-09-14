@@ -2,18 +2,16 @@
     width: 100%;
     padding: 0 70px 44px;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
     align-items: center;
-
 }
 
 .links {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 53px;
+    gap: 16px 53px;
 }
 
 .link {
@@ -45,4 +43,26 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
+}
+
+@media screen and (max-width: 975px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .version {
+        order: 1;
+    }
+
+    .links {
+        order: 2;
+        flex-wrap: wrap;
+    }
+
+    .socials {
+        order: 3;
+        flex-wrap: wrap;
+    }
 }
