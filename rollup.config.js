@@ -35,7 +35,7 @@ export default [
 			}),
 			image()
 		],
-		external: ["react", "react-dom"],
+		external: ["react", "react-dom", "process"],
 	},
 	{
 		input: "src/index.ts",

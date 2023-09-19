@@ -1,21 +1,24 @@
-export interface AddressInfoProps {
-  address: string;
-  isOpen: boolean;
-  logout: () => void;
-  close: () => void;
+export interface HeaderProps {
+  loginMetamask: () => void;
+  loginWalletConnect: () => void;
+  disconnect: () => void;
+  account: string;
 }
 
-export interface HeaderConnectedNavProps {
-  close: () => void;
-  isOpen: boolean;
-  // TODO: headerInfoProps
-  headerInfo: any;
+export interface AddressInfoProps {
+  address?: string;
+  isOpen?: boolean;
+  logout?: () => void;
+  close?: () => void;
 }
 
 export interface HeaderNavProps {
-  close: () => void;
-  isOpen: boolean;
-  // TODO: headerInfoProps
-  headerInfo: any;
   className?: string;
+  data?: [any]
+}
+
+export interface MobileMenuProps {
+  close?: () => void;
+  isOpen?: boolean;
+  data?: { [key: string]: any };
 }

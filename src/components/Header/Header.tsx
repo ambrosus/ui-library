@@ -2,32 +2,33 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import HeaderNav from './components/HeaderNav';
 
-import HeaderConnectedNav from './components/HeaderConnectedNav';
 import AddressInfo from './components/AddressInfo';
-// import { useWeb3React } from '@web3-react/core';
-// import { useAuthorization } from 'airdao-components-and-tools/hooks';
-// import LoginModal from '../LoginModal/LoginModal';
-import styles from './Header.module.css';
+import s from './Header.module.css';
 
 import logo from './assets/logo.svg';
 import airdaoIcon from './assets/airdao.svg';
 import metamaskIcon from './assets/metamask.svg';
 import hamburgerIcon from './assets/hamburger.svg';
 import pocketIcon from './assets/pocket.svg';
+import {Button} from "../Button";
+import {HeaderProps} from "./Header.types";
+import {ConnectWalletModal} from "../ConnectWalletModal/ConnectWalletModal";
+import {MobileMenu} from "./components/MobileMenu";
+import {PrismicProvider} from "@prismicio/react";
 
-export function Header() {
+import {client} from "./prismic";
+import {usePrismicData} from "./usePrismicData";
+
+function HeaderBody({ disconnect, account, loginMetamask, loginWalletConnect }: HeaderProps) {
   const [address, setAddress] = useState('');
-  const [isNavOpen, setIsNavOpen] = useState(true);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [isConnectedNavOpen, setIsConnectedNavOpen] = useState(false);
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
 
-  // const web3ReactInstance = useWeb3React();
-  // const { account } = useWeb3React();
-
   const headerRef = useRef(null);
+
+  const data = usePrismicData();
 
   useEffect(() => {
     // @ts-ignore
@@ -46,161 +47,125 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleFixed);
   }, []);
 
-  // useEffect(() => {
-  //   if (account) {
-  //     setAddress(account);
-  //     setIsLoginModalOpen(false);
-  //   }
-  // }, [account]);
-
-  // const { loginMetamask, loginWalletConnect, logout } =
-  //   useAuthorization(web3ReactInstance);
+  useEffect(() => {
+    if (account) {
+      setAddress(account);
+      setIsLoginModalOpen(false);
+    }
+  }, [account]);
 
   const handleLogout = () => {
-    // logout();
+    disconnect();
     setAddress('');
     setIsAddressInfoOpen(false);
-    setIsNavOpen(false);
     setIsLoginModalOpen(false);
   };
 
   const handleLoginModal = () => setIsLoginModalOpen((state) => !state);
   const handleAddressInfo = () => setIsAddressInfoOpen((state) => !state);
-  const handleConnectedNav = () => setIsConnectedNavOpen((state) => !state);
-  const handleNav = () => setIsNavOpen((state) => !state);
   const handleMobileNav = () => setIsMobileNavOpen((state) => !state);
 
   return (
     <>
-      {isLoginModalOpen && <div className={styles['blur-overlay']} />}
+      {isLoginModalOpen && <div className={s['blur-overlay']} />}
       <header
-        className={`${styles.header} ${isFixed ? styles.header_fixed : ''}`}
+        className={`${s.header} ${isFixed ? s.header_fixed : ''}`}
         ref={headerRef}
       >
         <img
           src={logo}
           width="160"
           height="34"
-          className={styles.header__logo}
+          className={s.header__logo}
           alt="logo"
         />
+
+        <HeaderNav
+          className={s["nav-item-wrapper_desktop"]}
+          data={data.products}
+        />
+
         {address ? (
           <>
-            <div className={styles.header__products}>
-              <a
-                className={styles.header__product}
-              >
-                product
-              </a>
-              <a
-                className={styles.header__product}
-              >
-                product
-              </a>
-              {/*{header.products.map((el) => (*/}
-              {/*  <a*/}
-              {/*    key={asText(el.productname)}*/}
-              {/*    className={styles.header__product}*/}
-              {/*  >*/}
-              {/*    {asText(el.productname)}*/}
-              {/*  </a>*/}
-              {/*))}*/}
-            </div>
-            <div className={styles.header__balance}>
+            <div className={s.balance}>
               <img
                 src={airdaoIcon}
                 width="30"
                 height="30"
-                className={styles['header__balance-img']}
-                alt="balance"
+                className={s.balance__img}
+                alt="airdao-icon"
               />
-              <span>0.00 AMB</span>
+              <span className={s.balance__amount}>0.00 AMB</span>
             </div>
-            <div className={styles.header__address} onClick={handleAddressInfo}>
+            <div className={s.header__address} onClick={handleAddressInfo}>
               <img
                 src={metamaskIcon}
                 width="20"
                 height="20"
                 alt="metamask"
               />
-              <span className={styles['header__address-text']}>
+              <span className={s['header__address-text']}>
                 {`${address.substring(0, 5)}...${address.substring(
                   address.length - 5,
                   address.length
                 )}`}
               </span>
             </div>
-            <button
-              className={styles.header__hamburger}
-              onClick={handleConnectedNav}
-            >
-              <img src={hamburgerIcon} width="24" height="24" alt="menu" />
-            </button>
-            {isConnectedNavOpen && (
-              <HeaderConnectedNav
-                close={handleConnectedNav}
-                // headerInfo={header}
-                headerInfo={{}}
-                isOpen={isConnectedNavOpen}
-              />
-            )}
-            {isAddressInfoOpen && (
-              <AddressInfo
-                isOpen={isAddressInfoOpen}
-                logout={handleLogout}
-                address={address}
-                close={handleAddressInfo}
-              />
-            )}
           </>
         ) : (
           <>
-            <HeaderNav
-              close={handleNav}
-              // headerInfo={header}
-              headerInfo={{}}
-              className="nav-item-wrapper_desktop"
-              isOpen={isNavOpen}
-            />
-            <button className={styles['ui-button']} onClick={handleLoginModal}>
+            <Button size="medium" type='secondary' onClick={handleLoginModal} className={s.connect_button}>
               <img
                 src={pocketIcon}
                 height="20"
                 width="20"
                 alt="connect wallet"
-                className={styles['connect-wallet-img']}
+                className={s['connect-wallet-img']}
               />
-              <span className={styles['connect-wallet-text']}>
+              <span className={s['connect-wallet-text']}>
                 Connect wallet
               </span>
-            </button>
-            <button
-              onClick={handleMobileNav}
-              className={styles['hamburger-btn']}
-            >
-              <img src={hamburgerIcon} width="24" height="24" alt="menu" />
-            </button>
-            {isMobileNavOpen && (
-              <HeaderNav
-                isOpen={isMobileNavOpen}
-                close={handleMobileNav}
-                // headerInfo={header}
-                headerInfo={{}}
-                className="nav-item-wrapper_not-desktop"
-              />
-            )}
+            </Button>
           </>
         )}
+
+        <button
+          onClick={handleMobileNav}
+          className={s['hamburger-btn']}
+        >
+          <img src={hamburgerIcon} width="24" height="24" alt="menu" />
+        </button>
+
+        {isAddressInfoOpen && (
+          <AddressInfo
+            isOpen={isAddressInfoOpen}
+            logout={handleLogout}
+            address={address}
+            close={handleAddressInfo}
+          />
+        )}
+
+        {isMobileNavOpen && (
+          <MobileMenu close={handleMobileNav} isOpen={isMobileNavOpen} data={data} />
+        )}
       </header>
+
       {isLoginModalOpen && (
-        'loginmodal'
-        // <LoginModal
-        //   isOpen={isLoginModalOpen}
-        //   closeModal={handleLoginModal}
-        //   loginMetamask={loginMetamask}
-        //   loginWalletConnect={loginWalletConnect}
-        // />
+        <ConnectWalletModal
+          isOpen={isLoginModalOpen}
+          close={handleLoginModal}
+          loginMetamask={loginMetamask}
+          loginWalletConnect={loginWalletConnect}
+        />
       )}
     </>
   );
-};
+}
+
+export function Header(props: HeaderProps) {
+  return (
+    <PrismicProvider client={client}>
+      <HeaderBody {...props} />
+    </PrismicProvider>
+  );
+}

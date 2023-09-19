@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useClickOutside from '../hooks/useClickOutside';
+import useClickOutside from '../../../hooks/useClickOutside';
 import { useRef } from 'react';
 import styles from '../Header.module.css';
 
