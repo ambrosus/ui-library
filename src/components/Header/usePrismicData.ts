@@ -10,7 +10,6 @@ export function usePrismicData() {
     name: product.productname,
     url: product.producturl,
   }))
-  console.log('products', products);
 
   const slices = [ ...document.data.slices ];
   slices.shift();
@@ -20,7 +19,6 @@ export function usePrismicData() {
     url: item.navitemurl,
   }));
 
-  console.log('socials', socials);
 
   const submenus = slices.map((slice) => {
     const content = slice.items.map((item) => ({
@@ -33,7 +31,6 @@ export function usePrismicData() {
     }
   })
 
-  console.log('submenus', submenus);
 
   return {
     products,
