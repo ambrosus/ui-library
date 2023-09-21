@@ -18,8 +18,9 @@ import {PrismicProvider} from "@prismicio/react";
 
 import {client} from "./prismic";
 import {usePrismicData} from "./usePrismicData";
+import propTypes from "prop-types";
 
-function HeaderBody({ disconnect, account, loginMetamask, loginWalletConnect }: HeaderProps) {
+function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletConnect }: HeaderProps) {
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
@@ -95,7 +96,7 @@ function HeaderBody({ disconnect, account, loginMetamask, loginWalletConnect }: 
                 className={s.balance__img}
                 alt="airdao-icon"
               />
-              <span className={s.balance__amount}>0.00 AMB</span>
+              <span className={s.balance__amount}>{balance} AMB</span>
             </div>
             <div className={s.header__address} onClick={handleAddressInfo}>
               <img
@@ -168,4 +169,12 @@ export function Header(props: HeaderProps) {
       <HeaderBody {...props} />
     </PrismicProvider>
   );
+}
+
+Header.propTypes = {
+  loginMetamask: propTypes.func.isRequired,
+  loginWalletConnect: propTypes.func.isRequired,
+  disconnect: propTypes.func.isRequired,
+  account: propTypes.string.isRequired,
+  balance: propTypes.string.isRequired,
 }

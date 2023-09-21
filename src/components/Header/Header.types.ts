@@ -3,6 +3,7 @@ export interface HeaderProps {
   loginWalletConnect: () => void;
   disconnect: () => void;
   account: string;
+  balance: string;
 }
 
 export interface AddressInfoProps {
