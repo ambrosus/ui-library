@@ -10,5 +10,5 @@ export interface InputProps {
   tailIcon?: JSX.Element;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  error?: string;
+  error?: string | boolean;
 }

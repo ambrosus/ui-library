@@ -30,7 +30,10 @@ export function Input({
         />
         {tailIcon || null}
       </div>
-      <span className={s.error}>{error}</span>
+      {
+        typeof error === 'string' && error &&
+        (<span className={s.error}>{error}</span>)
+      }
     </div>
   )
 }
@@ -45,5 +48,8 @@ Input.propTypes = {
   tailIcon: propTypes.node,
   disabled: propTypes.bool,
   onChange: propTypes.func,
-  error: propTypes.string,
+  error: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.bool,
+  ]),
 }

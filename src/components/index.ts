@@ -6,3 +6,5 @@ export * from './Footer';
 export * from './Loader';
 export * from './Header';
 export * from './Modal';
+export * from './Notification';
+export * from './Spinner';
