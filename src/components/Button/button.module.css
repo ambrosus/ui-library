@@ -12,6 +12,9 @@
     letter-spacing: -0.16px;
 
     border-radius: 1000px;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
 }
 
 .button:disabled {

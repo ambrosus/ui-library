@@ -83,6 +83,8 @@
   line-height: 24px; /* 150% */
   letter-spacing: -0.16px;
 
+  text-decoration: none;
+
   cursor: pointer;
 
   @media screen and (max-width: 1150px) {
@@ -375,6 +377,10 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .blur-overlay {
@@ -429,6 +435,11 @@
 .hamburger-btn {
   display: block;
   height: 24px;
+
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .mobile-menu {
@@ -513,6 +524,8 @@
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.16px;
+
+  text-decoration: none;
 }
 
 .mobile-menu__divider {

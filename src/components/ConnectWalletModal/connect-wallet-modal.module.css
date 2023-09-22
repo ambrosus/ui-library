@@ -22,6 +22,8 @@
     padding: 16px;
     box-shadow: 0px 16px 32px rgba(105, 142, 226, 0.2);
     border-radius: 16px;
+
+    border: none;
 }
 
 .login-modal__btn:last-child {
@@ -41,10 +43,12 @@
 .login-modal__title {
     font-weight: 600;
     color: #0E0E0E;
+    margin: 0;
 }
 
 .login-modal__text {
     color: #A4BBF0;
+    margin: 0;
 }
 
 .login-modal__arrow {
