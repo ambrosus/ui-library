@@ -15,7 +15,7 @@
 }
 
 .link {
-    color: var(--neutral-400, #676B73);
+    color: var(--neutral-300, #A1A6B2);
     text-align: center;
 
     font-family: Inter, sans-serif;
