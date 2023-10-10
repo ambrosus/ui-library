@@ -63,18 +63,6 @@
 }
 
 .nav-item {
-  /*&:not(:last-child) {*/
-  /*  margin-right: 80px;*/
-
-  /*  @media screen and (max-width: 1100px) {*/
-  /*    margin-right: 40px;*/
-  /*  }*/
-
-  /*  @media screen and (max-width: 1150px) {*/
-  /*    margin-right: 0;*/
-  /*  }*/
-  /*}*/
-
   color: #222426;
   font-family: Inter, sans-serif;
   font-size: 16px;
@@ -86,16 +74,10 @@
   text-decoration: none;
 
   cursor: pointer;
+  user-select: none;
 
   @media screen and (max-width: 1210px) {
     width: 100%;
-
-    /*&:not(:first-child) {*/
-    /*  margin-top: 16px;*/
-    /*}*/
-    /*&:not(:last-child) {*/
-    /*  margin-bottom: 24px;*/
-    /*}*/
   }
 }
 
@@ -565,6 +547,7 @@
   letter-spacing: -0.16px;
 
   text-decoration: none;
+  user-select: none;
 }
 
 .mobile-menu__divider {
