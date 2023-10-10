@@ -9,6 +9,7 @@ import logo from './assets/logo.svg';
 import airdaoIcon from './assets/airdao.svg';
 import metamaskIcon from './assets/metamask.svg';
 import hamburgerIcon from './assets/hamburger.svg';
+import cross from './assets/cross.svg';
 import pocketIcon from './assets/pocket.svg';
 import {Button} from "../Button";
 import {HeaderProps} from "./Header.types";
@@ -54,6 +55,16 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
       setIsLoginModalOpen(false);
     }
   }, [account]);
+
+  useEffect(() => {
+    if (window.innerWidth > 610) {
+      const body = document.querySelector("body");
+
+      if (body) {
+        body.style.overflow = isMobileNavOpen ? 'hidden' : 'auto'
+      }
+    }
+  }, [isMobileNavOpen])
 
   const handleLogout = () => {
     disconnect();
@@ -134,7 +145,7 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
           onClick={handleMobileNav}
           className={s['hamburger-btn']}
         >
-          <img src={hamburgerIcon} width="24" height="24" alt="menu" />
+          <img src={isMobileNavOpen ? cross : hamburgerIcon} width="24" height="24" alt="menu" />
         </button>
 
         {isAddressInfoOpen && (
@@ -147,7 +158,7 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
         )}
 
         {isMobileNavOpen && (
-          <MobileMenu close={handleMobileNav} isOpen={isMobileNavOpen} data={data} />
+          <MobileMenu close={handleMobileNav} isOpen={isMobileNavOpen} data={data} balance={balance} />
         )}
       </header>
 

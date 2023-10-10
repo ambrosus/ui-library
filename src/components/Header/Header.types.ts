@@ -22,4 +22,5 @@ export interface MobileMenuProps {
   close?: () => void;
   isOpen?: boolean;
   data?: { [key: string]: any };
+  balance: any
 }

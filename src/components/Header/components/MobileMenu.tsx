@@ -4,16 +4,29 @@ import useClickOutside from "../../../hooks/useClickOutside";
 import {MobileMenuProps} from "../Header.types";
 import {PrismicImage, PrismicLink, PrismicText} from "@prismicio/react";
 import { asText } from "@prismicio/client";
+import airdaoIcon from "../assets/airdao.svg";
 
-export function MobileMenu ({ close, isOpen, data }: MobileMenuProps) {
-
+export function MobileMenu ({ close, isOpen, data, balance }: MobileMenuProps) {
   const ref = useRef(null);
   useClickOutside(ref, close, isOpen);
 
+  const isActive = (productName) => {
+    return window.location.pathname.includes(productName.toLowerCase());
+  }
   return (
     <div className={s['mobile-menu']} ref={ref}>
+      <div className={s['mobile-menu__balance']}>
+        <img
+          src={airdaoIcon}
+          width="30"
+          height="30"
+          alt="airdao-icon"
+        />
+        <span>{balance} AMB</span>
+      </div>
+      <div className={s['mobile-menu__divider']} />
       {data && data.products.map((product) => (
-        <PrismicLink field={product.url} className={s['mobile-menu__link']}>
+        <PrismicLink field={product.url} className={`${s['mobile-menu__link']} ${isActive(asText(product.name)) ? s['mobile-menu__link_active'] : ''}`}>
           <PrismicText field={product.name} />
         </PrismicLink>
       ))}
