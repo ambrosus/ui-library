@@ -53,9 +53,9 @@
     box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
 }
 
-.button__primary:focus {
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-}
+/*.button__primary:focus {*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*}*/
 
 /* --- Secondary --- */
 .button__secondary {
@@ -69,10 +69,10 @@
     box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
 }
 
-.button__secondary:focus {
-    border: 2px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-}
+/*.button__secondary:focus {*/
+/*    border: 2px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*}*/
 
 /* --- Tetiary ---- */
 .button__tetiary {
@@ -84,9 +84,9 @@
     background: var(--alpha-black-10, rgba(14, 14, 14, 0.10));
 }
 
-.button__tetiary:focus {
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-}
+/*.button__tetiary:focus {*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*}*/
 
 /* --- Plain --- */
 .button__plain {
@@ -99,11 +99,11 @@
     color: var(--neutral-900, #0E0E0E);
 }
 
-.button__plain:focus {
-    background: rgba(14, 14, 14, 0.05);
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-    color: var(--neutral-900, #0E0E0E);
-}
+/*.button__plain:focus {*/
+/*    background: rgba(14, 14, 14, 0.05);*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*    color: var(--neutral-900, #0E0E0E);*/
+/*}*/
 
 /*--- Destructive ---*/
 .button__destructive {
@@ -117,10 +117,10 @@
     box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
 }
 
-.button__destructive:focus {
-    background: #FF4747;
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-}
+/*.button__destructive:focus {*/
+/*    background: #FF4747;*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*}*/
 
 /* --- Grey --- */
 .button__grey {
@@ -134,7 +134,7 @@
     box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px -1px 0px 0px rgba(47, 43, 67, 0.10) inset;
 }
 
-.button__grey:focus {
-    background: var(--neutral-400, #676B73);
-    box-shadow: 0px 0px 0px 3px #99B8FF;
-}
+/*.button__grey:focus {*/
+/*    background: var(--neutral-400, #676B73);*/
+/*    box-shadow: 0px 0px 0px 3px #99B8FF;*/
+/*}*/
