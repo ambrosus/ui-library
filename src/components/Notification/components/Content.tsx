@@ -5,7 +5,7 @@ export function Content({ message, description }: ContentProps) {
     return (
         <div className={s.content}>
           <h6 className={s.heading}>{message}</h6>
-          <p className={s.description}>{description}</p>
+          {description && <p className={s.description}>{description}</p>}
         </div>
     )
 }
