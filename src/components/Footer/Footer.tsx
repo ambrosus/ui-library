@@ -70,7 +70,7 @@ export function Footer(props: FooterProps) {
           FAQs
         </a>
       </div>
-      <div className={s.link}>Version 2.0</div>
+      <div className={s.version}>Version 2.0</div>
       <div className={s.socials}>
         {socials.map(({href, icon}, i) => (
           <a
