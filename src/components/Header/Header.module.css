@@ -356,6 +356,7 @@
   padding: 0 8px;
   border: 1px solid rgba(47, 43, 67, 0.1);
   border-radius: 20px;
+  margin-right: 8px;
 }
 
 .address-info__check {
@@ -371,7 +372,7 @@
 .address-info__copy {
   position: relative;
   cursor: pointer;
-  top: 4px;
+  top: 2px;
 }
 
 .address-info__disconnect {
