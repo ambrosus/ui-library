@@ -16,14 +16,16 @@ export function usePrismicData() {
 
   const socials = slices.pop().items.map((item) => ({
     img: item.navitemimg,
-    url: item.navitemurl,
+    url: item.navitemlink.url,
+    target: item.navitemlink.target,
   }));
 
 
   const submenus = slices.map((slice) => {
     const content = slice.items.map((item) => ({
       name: item.navitemlabel,
-      url: item.navitemurl,
+      url: item.navitemlink.url,
+      target: item.navitemlink.target,
     }))
     return {
       name: slice.primary.navlabel,
@@ -37,5 +39,4 @@ export function usePrismicData() {
     socials,
     submenus,
   }
-
 }

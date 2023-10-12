@@ -38,7 +38,7 @@ export function MobileMenu ({ close, isOpen, data, balance }: MobileMenuProps) {
           </div>
           <div className={s['mobile-menu__sublist-content']}>
             {submenu.content.map((item) => (
-              <a href={asText(item.url)} key={item.name} className={s['mobile-menu__sublist-link']}>
+              <a href={item.url} target={item.target} key={item.name} className={s['mobile-menu__sublist-link']}>
                 <PrismicText field={item.name} />
               </a>
             ))}
@@ -53,7 +53,7 @@ export function MobileMenu ({ close, isOpen, data, balance }: MobileMenuProps) {
         </div>
         <div className={s['mobile-menu__socials-content']}>
           {data && data.socials.map((social) => (
-            <a href={asText(social.url)} target={'_blank'} className={s['mobile-menu__socials-link']}>
+            <a href={social.url} target={social.target} className={s['mobile-menu__socials-link']}>
               <PrismicImage field={social.img} className={s['mobile-menu__social-img']} />
             </a>
           ))}

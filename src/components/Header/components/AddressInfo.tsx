@@ -18,7 +18,7 @@ export default function AddressInfo({ address, logout, close, isOpen }: AddressI
   const copy = () => {
     navigator.clipboard.writeText(address);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000)
+    setTimeout(() => setCopied(false), 20000)
   }
 
   return (
@@ -42,7 +42,7 @@ export default function AddressInfo({ address, logout, close, isOpen }: AddressI
       <svg
         width={24}
         height={24}
-        className={styles['address-info__check']}
+        className={styles['address-info__check-copy']}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={!copied ? {display: 'none'} : {}}
