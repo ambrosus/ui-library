@@ -18,7 +18,7 @@ export default function AddressInfo({ address, logout, close, isOpen }: AddressI
   const copy = () => {
     navigator.clipboard.writeText(address);
     setCopied(true);
-    setTimeout(() => setCopied(false), 20000)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
