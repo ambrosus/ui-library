@@ -14,31 +14,31 @@ import githubIcon from './assets/github-icon.svg';
 const socials = [
   {
     icon: twitterIcon,
-    href: 'https://twitter.com',
+    href: 'https://twitter.com/airdao_io',
   },
   {
     icon: telegramIcon,
-    href: 'https://telegram.com',
+    href: 'https://t.me/airDAO_official',
   },
   {
     icon: redditIcon,
-    href: 'https://reddit.com',
+    href: 'https://www.reddit.com/r/AirDAO/',
   },
   {
     icon: mediumIcon,
-    href: 'https://medium.com',
+    href: 'https://blog.airdao.io/',
   },
   {
     icon: youtubeIcon,
-    href: 'https://youtube.com',
+    href: 'https://www.youtube.com/c/AmbrosusEcosystem',
   },
   {
     icon: discordIcon,
-    href: 'https://discord.com',
+    href: 'https://discord.gg/airdao',
   },
   {
     icon: linkedinIcon,
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/company/airdaoio',
   },
   {
     icon: githubIcon,
