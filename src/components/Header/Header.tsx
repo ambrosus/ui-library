@@ -57,7 +57,7 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
   }, [account]);
 
   useEffect(() => {
-    if (window.innerWidth > 610) {
+    if (window.innerWidth < 610) {
       const body = document.querySelector("body");
 
       if (body) {
