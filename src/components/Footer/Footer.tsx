@@ -9,6 +9,7 @@ import mediumIcon from './assets/medium-icon.svg'
 import youtubeIcon from './assets/youtube-icon.svg'
 import discordIcon from './assets/discord-icon.svg'
 import linkedinIcon from './assets/linkedin-icon.svg'
+import githubIcon from './assets/github-icon.svg';
 
 const socials = [
   {
@@ -38,6 +39,10 @@ const socials = [
   {
     icon: linkedinIcon,
     href: 'https://linkedin.com',
+  },
+  {
+    icon: githubIcon,
+    href: 'https://github.com/ambrosus',
   }
 ]
 
@@ -47,7 +52,7 @@ export function Footer(props: FooterProps) {
       <div className={s.links}>
         <a
           className={s.link}
-          href="https://google.com"
+          href="https://staging-testnet.airdao.io/"
           target="_blank"
           rel="noreferrer"
         >
@@ -55,19 +60,19 @@ export function Footer(props: FooterProps) {
         </a>
         <a
           className={s.link}
-          href="https://google.com"
+          href="https://airdao.academy/"
           target="_blank"
           rel="noreferrer"
         >
-          Blog
+          Academy
         </a>
         <a
           className={s.link}
-          href="https://google.com"
+          href="https://staging-testnet.airdao.io/contact-us"
           target="_blank"
           rel="noreferrer"
         >
-          FAQs
+          Contact us
         </a>
       </div>
       <div className={s.version}>Version 2.0</div>

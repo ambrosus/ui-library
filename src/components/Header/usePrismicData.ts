@@ -8,7 +8,7 @@ export function usePrismicData() {
 
   const products = document.data.products.map((product) => ({
     name: product.productname,
-    url: product.producturl,
+    url: product.producturl.url,
   }))
 
   const slices = [ ...document.data.slices ];

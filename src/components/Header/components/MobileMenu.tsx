@@ -26,9 +26,9 @@ export function MobileMenu ({ close, isOpen, data, balance }: MobileMenuProps) {
       </div>
       <div className={s['mobile-menu__divider']} />
       {data && data.products.map((product) => (
-        <PrismicLink field={product.url} className={`${s['mobile-menu__link']} ${isActive(asText(product.name)) ? s['mobile-menu__link_active'] : ''}`}>
+        <a href={product?.url} className={`${s['mobile-menu__link']} ${isActive(asText(product.name)) ? s['mobile-menu__link_active'] : ''}`}>
           <PrismicText field={product.name} />
-        </PrismicLink>
+        </a>
       ))}
 
       {data && data.submenus.map((submenu) => (

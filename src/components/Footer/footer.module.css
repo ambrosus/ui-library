@@ -45,6 +45,9 @@
     gap: 32px;
 }
 
+.icon:hover {
+    opacity: 0.4;
+}
 @media screen and (max-width: 975px) {
     .footer {
         display: flex;
