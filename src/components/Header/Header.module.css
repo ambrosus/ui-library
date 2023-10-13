@@ -35,7 +35,14 @@
   top: 20px;
 }
 
-.header__logo {
+
+@media screen and (max-width: 1210px) {
+  .header__logo {
+    margin-right: auto;
+  }
+}
+
+.header__logo img {
   height: 48px;
 
   @media screen and (max-width: 1210px) {
