@@ -57,6 +57,7 @@ const notifyLoading = (message: React.ReactNode, description: React.ReactNode, o
 }
 
 export const Notify = {
+  ...toast,
   info: notifyInfo,
   success: notifySuccess,
   warn: notifyWarning,
