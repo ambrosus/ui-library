@@ -18,7 +18,7 @@
 }
 
 .button:disabled {
-    color: var(--alpha-black-30, rgba(14, 14, 14, 0.30));
+    color: var(--alpha-black-30, rgba(14, 14, 14, 0.30)) !important;
     border-radius: 1000px;
     background: rgba(14, 14, 14, 0.05);
     box-shadow: none;
