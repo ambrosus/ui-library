@@ -18,9 +18,9 @@
 }
 
 .button:disabled {
-    color: var(--alpha-black-30, rgba(14, 14, 14, 0.30)) !important;
+    color: var(--alpha-black-30, rgba(14, 14, 14, 0.30));
     border-radius: 1000px;
-    background: rgba(14, 14, 14, 0.05);
+    background: rgba(14, 14, 14, 0.05) !important;
     box-shadow: none;
     pointer-events: none;
 }
