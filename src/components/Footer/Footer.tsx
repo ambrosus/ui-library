@@ -52,7 +52,7 @@ export function Footer(props: FooterProps) {
       <div className={s.links}>
         <a
           className={s.link}
-          href="https://staging-testnet.airdao.io/"
+          href="https://airdao.io/"
           target="_blank"
           rel="noreferrer"
         >
@@ -68,7 +68,7 @@ export function Footer(props: FooterProps) {
         </a>
         <a
           className={s.link}
-          href="https://staging-testnet.airdao.io/contact-us"
+          href="https://airdao.io/contact-us"
           target="_blank"
           rel="noreferrer"
         >

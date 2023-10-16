@@ -84,7 +84,7 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
         className={`${s.header} ${isFixed ? s.header_fixed : ''}`}
         ref={headerRef}
       >
-        <a href="https://staging-testnet.airdao.io/" className={s.header__logo}>
+        <a href="https://airdao.io/" className={s.header__logo}>
           <img
             src={logo}
             width="160"
