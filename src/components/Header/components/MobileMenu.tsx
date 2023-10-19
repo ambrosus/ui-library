@@ -53,7 +53,7 @@ export function MobileMenu ({ close, isOpen, data, balance }: MobileMenuProps) {
         </div>
         <div className={s['mobile-menu__socials-content']}>
           {data && data.socials.map((social) => (
-            <a href={social.url} target={social.target} className={s['mobile-menu__socials-link']}>
+            <a href={social.url} target={social.target} rel="nofollow" className={s['mobile-menu__socials-link']}>
               <PrismicImage field={social.img} className={s['mobile-menu__social-img']} />
             </a>
           ))}

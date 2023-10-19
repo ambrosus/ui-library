@@ -62,7 +62,7 @@ export function Footer(props: FooterProps) {
           className={s.link}
           href="https://airdao.academy/"
           target="_blank"
-          rel="noreferrer"
+          rel="nofollow"
         >
           Academy
         </a>
@@ -83,7 +83,7 @@ export function Footer(props: FooterProps) {
             className={s.icon}
             href={href}
             target="_blank"
-            rel="noreferrer"
+            rel="nofollow"
           >
             <img src={icon} alt="icon"/>
           </a>
