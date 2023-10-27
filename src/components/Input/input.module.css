@@ -86,3 +86,7 @@
     border: 1px solid #FFD9CD;
     color: #FF4747;
 }
+
+.inputError .field input::placeholder {
+    color: #FF4747;
+}
