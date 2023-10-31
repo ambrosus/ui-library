@@ -26,8 +26,8 @@ export default function AddressInfo({ address, logout, close, isOpen }: AddressI
       <p className={styles['address-info__label']}>Connected wallet</p>
       <div className={styles['address-info__block-wrapper']}>
         <div className={styles['address-info__block']}>
-          <Image
-            src="/circle-check.svg"
+          <img
+            src={circleCheck}
             width="16"
             height="16"
             className={styles['address-info__check']}
@@ -46,8 +46,8 @@ export default function AddressInfo({ address, logout, close, isOpen }: AddressI
         >
           Address copied!
         </span>
-        <Image
-          src="/copy.svg"
+        <img
+          src={copyIcon}
           width="20"
           height="20"
           onClick={copy}
