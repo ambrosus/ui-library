@@ -399,7 +399,6 @@
 .address-info__copy {
   position: relative;
   cursor: pointer;
-  top: 4px;
 }
 
 .address-info__disconnect {
