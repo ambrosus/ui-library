@@ -4,7 +4,7 @@ import s from '../notification.module.css'
 export function Content({ message, description }: ContentProps) {
     return (
         <div className={s.content}>
-          <h6 className={s.heading}>{message}</h6>
+          {message && <h6 className={s.heading}>{message}</h6>}
           {description && <p className={s.description}>{description}</p>}
         </div>
     )

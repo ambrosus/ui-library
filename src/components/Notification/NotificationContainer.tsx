@@ -1,6 +1,7 @@
 import React from 'react';
 import {ToastContainer} from "react-toastify";
 import {CloseButton} from "./components/CloseButton";
+import 'react-toastify/dist/ReactToastify.css';
 import s from './notification.module.css';
 
 export function NotificationContainer() {
@@ -15,7 +16,6 @@ export function NotificationContainer() {
       bodyClassName={s.body}
       theme={'colored'}
       closeOnClick={false}
-      //todo: remove
       autoClose={false}
     />
   )
