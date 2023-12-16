@@ -1,0 +1,60 @@
+.tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.toggler {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.message {
+  position: fixed;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  padding: 12px;
+  transition: opacity 0.3s ease-out;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  background-color: #fff;
+  color: #51545a;
+  border: none;
+  box-shadow: 0px 4px 8px 0px rgba(47, 43, 67, 0.1), 0px 0px 1px 0px #c2c5cc;
+}
+
+.message.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.message::after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.message::after {
+  margin-left: -9px;
+  bottom: -11px;
+  left: 50%;
+  box-sizing: border-box;
+  border: 6px solid black;
+  border-color: transparent transparent #fff #fff;
+  transform-origin: 0 0;
+  transform: rotate(-45deg);
+  box-shadow: -3px 3px 3px 0 rgba(47, 43, 67, 0.05);
+}
+
+.message.place_top {
+  margin-top: -10px;
+}

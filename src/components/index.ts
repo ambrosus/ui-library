@@ -8,3 +8,4 @@ export * from './Header';
 export * from './Modal';
 export * from './Notification';
 export * from './Spinner';
+export * from './Tooltip';
