@@ -11,12 +11,12 @@ type TooltipProps = {
   isMultiline?: boolean;
 };
 
-export const Tooltip = ({
+export function Tooltip({
   position = 'top',
   message = '',
   isMultiline = false,
   children,
-}: React.PropsWithChildren<TooltipProps>) => {
+}: React.PropsWithChildren<TooltipProps>) {
   const [isVisible, setIsVisible] = useState(false);
   const node = useRef<HTMLDivElement>(null);
   const tooltip = useRef<HTMLDivElement>(null);
@@ -60,4 +60,4 @@ export const Tooltip = ({
       </div>
     </div>
   );
-};
+}
