@@ -25,17 +25,17 @@
     pointer-events: none;
 }
 
-.button__large {
+.button__large, .button__48 {
     padding: 12px 16px;
     gap: 8px;
 }
 
-.button__medium {
+.button__medium, .button__40 {
     padding: 8px 16px;
     gap: 8px;
 }
 
-.button__small {
+.button__small, .button__32 {
     padding: 6px 12px;
     gap: 4px;
 }

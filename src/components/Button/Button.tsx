@@ -31,7 +31,7 @@ export function Button({
 Button.propTypes = {
   children: propTypes.node,
   className: propTypes.string,
-  size: propTypes.oneOf(['small', 'medium', 'large']).isRequired,
+  size: propTypes.oneOf(['small', 'medium', 'large', 32, 40, 48]).isRequired,
   type: propTypes.oneOf(['primary', 'secondary', 'tetiary', 'plain', 'destructive', 'gray']).isRequired,
   onClick: propTypes.func,
   disabled: propTypes.bool,
