@@ -20,7 +20,7 @@ export function Textarea({
       <div className={s.field}>
         {leadIcon || null}
         <textarea
-          className={s.input}
+          className={s.textarea}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
