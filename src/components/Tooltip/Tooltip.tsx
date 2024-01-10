@@ -55,7 +55,11 @@ export function Tooltip({
       >
         {children}
       </div>
-      <div className={classNames} ref={tooltip}>
+      <div
+        style={{ visibility: 'hidden', opacity: 0, position: 'fixed' }}
+        className={classNames}
+        ref={tooltip}
+      >
         {content}
       </div>
     </div>
