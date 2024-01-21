@@ -6,22 +6,29 @@ import AddressInfo from './components/AddressInfo';
 import s from './Header.module.css';
 
 import logo from './assets/logo.svg';
-import airdaoIcon from './assets/airdao.svg';
 import metamaskIcon from './assets/metamask.svg';
 import hamburgerIcon from './assets/hamburger.svg';
 import cross from './assets/cross.svg';
 import pocketIcon from './assets/pocket.svg';
-import {Button} from "../Button";
-import {HeaderProps} from "./Header.types";
-import {ConnectWalletModal} from "../ConnectWalletModal/ConnectWalletModal";
-import {MobileMenu} from "./components/MobileMenu";
-import {PrismicProvider} from "@prismicio/react";
+import { Button } from '../Button';
+import { HeaderProps } from './Header.types';
+import { ConnectWalletModal } from '../ConnectWalletModal/ConnectWalletModal';
+import { MobileMenu } from './components/MobileMenu';
+import { PrismicProvider } from '@prismicio/react';
 
-import {client} from "./prismic";
-import {usePrismicData} from "./usePrismicData";
-import propTypes from "prop-types";
+import { client } from './prismic';
+import { usePrismicData } from './usePrismicData';
+import propTypes from 'prop-types';
+import TailArrow from '../Icons/TailArrow';
+import ArrowTop from '../Icons/ArrowTop';
 
-function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletConnect }: HeaderProps) {
+function HeaderBody({
+  disconnect,
+  account,
+  balance,
+  loginMetamask,
+  loginWalletConnect,
+}: HeaderProps) {
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
@@ -58,13 +65,13 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
 
   useEffect(() => {
     if (window.innerWidth < 610) {
-      const body = document.querySelector("body");
+      const body = document.querySelector('body');
 
       if (body) {
-        body.style.overflow = isMobileNavOpen ? 'hidden' : 'auto'
+        body.style.overflow = isMobileNavOpen ? 'hidden' : 'auto';
       }
     }
-  }, [isMobileNavOpen])
+  }, [isMobileNavOpen]);
 
   const handleLogout = () => {
     disconnect();
@@ -85,73 +92,80 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
         ref={headerRef}
       >
         <a href="https://airdao.io/" className={s.header__logo}>
-          <img
-            src={logo}
-            width="160"
-            height="34"
-            alt="logo"
-          />
+          <img src={logo} width="160" height="34" alt="logo" />
         </a>
 
         <HeaderNav
-          className={s["nav-item-wrapper_desktop"]}
+          className={s['nav-item-wrapper_desktop']}
           data={data.products}
         />
 
         {address ? (
           <>
-            <div className={s.balance}>
-              <img
-                src={airdaoIcon}
-                width="30"
-                height="30"
-                className={s.balance__img}
-                alt="airdao-icon"
-              />
-              <span className={s.balance__amount}>{balance} AMB</span>
+            <div className={s['header__buttons']}>
+              <a href={data.amburl} className={s['header__button-tetiary']}>
+                <Button type="tetiary" size="medium">
+                  <span>Get AMB</span>
+                  <TailArrow />
+                </Button>
+              </a>
             </div>
             <div className={s.header__address} onClick={handleAddressInfo}>
-              <img
-                src={metamaskIcon}
-                width="20"
-                height="20"
-                alt="metamask"
-              />
+              <img src={metamaskIcon} width="20" height="20" alt="metamask" />
               <span className={s['header__address-text']}>
                 {`${address.substring(0, 5)}...${address.substring(
                   address.length - 5,
                   address.length
                 )}`}
               </span>
+              <ArrowTop
+                className={`${s['header__address-arrow']} ${
+                  isAddressInfoOpen ? '' : s['open']
+                }`}
+              />
             </div>
           </>
         ) : (
           <>
-            <Button size="medium" type='secondary' onClick={handleLoginModal} className={s.connect_button}>
-              <img
-                src={pocketIcon}
-                height="20"
-                width="20"
-                alt="connect wallet"
-                className={s['connect-wallet-img']}
-              />
-              <span className={s['connect-wallet-text']}>
-                Connect wallet
-              </span>
-            </Button>
+            <div className={s['header__buttons']}>
+              <a href={data.amburl} className={s['header__button-tetiary']}>
+                <Button type="tetiary" size="medium">
+                  <span>Get AMB</span>
+                  <TailArrow />
+                </Button>
+              </a>
+              <Button
+                size="medium"
+                type="secondary"
+                onClick={handleLoginModal}
+                className={s.connect_button}
+              >
+                <img
+                  src={pocketIcon}
+                  height="20"
+                  width="20"
+                  alt="connect wallet"
+                  className={s['connect-wallet-img']}
+                />
+                <span className={s['connect-wallet-text']}>Connect wallet</span>
+              </Button>
+            </div>
           </>
         )}
 
-        <button
-          onClick={handleMobileNav}
-          className={s['hamburger-btn']}
-        >
-          <img src={isMobileNavOpen ? cross : hamburgerIcon} width="24" height="24" alt="menu" />
+        <button onClick={handleMobileNav} className={s['hamburger-btn']}>
+          <img
+            src={isMobileNavOpen ? cross : hamburgerIcon}
+            width="24"
+            height="24"
+            alt="menu"
+          />
         </button>
 
         {isAddressInfoOpen && (
           <AddressInfo
             isOpen={isAddressInfoOpen}
+            balance={balance}
             logout={handleLogout}
             address={address}
             close={handleAddressInfo}
@@ -159,7 +173,12 @@ function HeaderBody({ disconnect, account, balance, loginMetamask, loginWalletCo
         )}
 
         {isMobileNavOpen && (
-          <MobileMenu close={handleMobileNav} isOpen={isMobileNavOpen} data={data} balance={balance} />
+          <MobileMenu
+            close={handleMobileNav}
+            isOpen={isMobileNavOpen}
+            data={data}
+            balance={balance}
+          />
         )}
       </header>
 
@@ -189,4 +208,4 @@ Header.propTypes = {
   disconnect: propTypes.func.isRequired,
   account: propTypes.string.isRequired,
   balance: propTypes.string.isRequired,
-}
+};

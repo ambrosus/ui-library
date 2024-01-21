@@ -11,16 +11,17 @@ export interface AddressInfoProps {
   isOpen?: boolean;
   logout?: () => void;
   close?: () => void;
+  balance: string;
 }
 
 export interface HeaderNavProps {
   className?: string;
-  data?: [any]
+  data?: [any];
 }
 
 export interface MobileMenuProps {
   close?: () => void;
   isOpen?: boolean;
   data?: { [key: string]: any };
-  balance: any
+  balance: any;
 }
