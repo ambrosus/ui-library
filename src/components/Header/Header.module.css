@@ -521,7 +521,7 @@
 }
 
 .connect_button {
-  margin-right: 32px;
+  /* margin-right: 32px; */
 }
 
 @media screen and (max-width: 610px) {
@@ -551,7 +551,6 @@
 
 .hamburger-btn {
   margin-left: 24px;
-  display: none;
   line-height: 0;
 }
 
@@ -562,9 +561,9 @@
 }
 
 @media screen and (max-width: 660px) {
-  .hamburger-btn {
+  /* .hamburger-btn {
     margin-left: 12px;
-  }
+  } */
 }
 
 .mobile-menu {
