@@ -21,6 +21,7 @@ export function ConnectWalletModal ({
   useClickOutside(ref, close, isOpen);
 
   return (
+      // @ts-ignore
     <Modal close={close} ref={ref}>
       <div className={s['login-modal']}>
         <img src={airdaoIcon} width="65" height="65" alt="login" />
