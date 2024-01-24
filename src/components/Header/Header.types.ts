@@ -4,6 +4,7 @@ export interface HeaderProps {
   disconnect: () => void;
   account: string;
   balance: string;
+  connector: 'metamask' | 'walletconnect';
 }
 
 export interface AddressInfoProps {

@@ -6,7 +6,6 @@ import AddressInfo from './components/AddressInfo';
 import s from './Header.module.css';
 
 import logo from './assets/logo.svg';
-import metamaskIcon from './assets/metamask.svg';
 import hamburgerIcon from './assets/hamburger.svg';
 import cross from './assets/cross.svg';
 import pocketIcon from './assets/pocket.svg';
@@ -21,6 +20,8 @@ import { usePrismicData } from './usePrismicData';
 import propTypes from 'prop-types';
 import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
+import WalletConnectIcon from '../Icons/WalletConnectIcon';
+import MetaMaskIcon from '../Icons/MetaMaskIcon';
 
 function HeaderBody({
   disconnect,
@@ -28,6 +29,7 @@ function HeaderBody({
   balance,
   loginMetamask,
   loginWalletConnect,
+  connector = 'metamask',
 }: HeaderProps) {
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -111,7 +113,11 @@ function HeaderBody({
               </a>
             </div>
             <div className={s.header__address} onClick={handleAddressInfo}>
-              <img src={metamaskIcon} width="20" height="20" alt="metamask" />
+              {connector === 'metamask' ? (
+                <MetaMaskIcon />
+              ) : (
+                <WalletConnectIcon />
+              )}
               <span className={s['header__address-text']}>
                 {`${address.substring(0, 5)}...${address.substring(
                   address.length - 5,
