@@ -6,6 +6,7 @@ import { Modal } from "../Modal";
 import {ConnectWalletModalProps} from "./ConnectWalletModal.types";
 
 import {ConnectWallet} from "../ConnectWallet";
+import PropTypes from "prop-types";
 
 export function ConnectWalletModal ({
   close,
@@ -21,4 +22,11 @@ export function ConnectWalletModal ({
       <ConnectWallet {...{ loginMetamask, loginWalletConnect }} />
     </Modal>
   );
+}
+
+ConnectWalletModal.propTypes = {
+  close: PropTypes.func,
+  loginMetamask: PropTypes.func,
+  loginWalletConnect: PropTypes.func,
+  isOpen: PropTypes.bool,
 }

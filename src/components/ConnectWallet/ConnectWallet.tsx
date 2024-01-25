@@ -1,4 +1,3 @@
-
 import React from "react";
 import s from './connect-wallet.module.css';
 import {ConnectWalletProps} from "./ConnectWallet.types";
@@ -7,6 +6,7 @@ import airdaoIcon from './assets/airdao-icon.svg';
 import metamaskIcon from './assets/metamask.svg';
 import walletConnectIcon from './assets/wallet-connect.svg';
 import arrowIcon from './assets/arrow.svg';
+import PropTypes from "prop-types";
 
 export function ConnectWallet ({
   loginMetamask,
@@ -70,4 +70,9 @@ export function ConnectWallet ({
       </button>
     </div>
   );
+}
+
+ConnectWallet.propTypes = {
+  loginMetamask: PropTypes.func,
+  loginWalletConnect: PropTypes.func,
 }
