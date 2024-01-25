@@ -4,9 +4,9 @@ import {ModalProps} from "./Modal.types";
 import cross from './assets/cross.svg'
 import PropTypes from "prop-types";
 
-export function Modal({ children, close, ...props }: ModalProps) {
+export function Modal({ children, close, passRef }: ModalProps) {
   return (
-    <div className={s.modal} {...props}>
+    <div className={s.modal} ref={passRef}>
       {children}
       <button className={s.close} onClick={close}>
         <img src={cross} width="24" height="24" alt="close" />
