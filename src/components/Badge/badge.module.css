@@ -1,0 +1,56 @@
+.badge {
+  display: inline-flex;
+  border-radius: 20px;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+
+  color: #222;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.14px;
+}
+
+.small {
+  height: 20px;
+  padding: 0 8px;
+}
+
+.medium {
+  height: 24px;
+  padding: 0 8px;
+}
+
+.large {
+  height: 24px;
+  padding: 4px 8px;
+}
+
+.neutral {
+  background: rgba(47, 43, 67, 0.05);
+  color: #222;
+}
+
+.destructive {
+  background: #FDE9E9;
+  color: #CD3636;
+}
+
+.warning {
+  background: #FBF2CB;
+  color: #C8811A;
+}
+
+.success {
+  background: #D9F9E6;
+  color: #2F9461;
+}
+
+.white {
+  background: #fff;
+  color: #222;
+}
