@@ -11,3 +11,5 @@ export * from './Spinner';
 export * from './Tooltip';
 export * from './Textarea';
 export * from './ConnectWalletModal';
+export * from './ConnectWallet';
+export * from './Badge';
