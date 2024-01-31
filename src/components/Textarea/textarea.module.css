@@ -22,18 +22,15 @@
 
 .field {
     display: flex;
-    height: 48px;
-    padding: 0px 16px;
+    padding: 4px;
     justify-content: center;
     align-items: center;
     gap: 12px;
     align-self: stretch;
 
-    border-radius: 82px;
+    border-radius: 12px;
     border: 1px solid var(--alpha-black-10, rgba(14, 14, 14, 0.10));
     background: var(--neutral-0, #FFF);
-
-    overflow: hidden;
 }
 
 .field:hover {
@@ -50,8 +47,10 @@
 }
 
 .textarea {
-    height: 100%;
+    min-height: 112px;
     width: 100%;
+
+    padding: 8px 12px;
 
     color: var(--neutral-900, #0E0E0E);
     font-family: Inter, sans-serif;
@@ -62,6 +61,8 @@
     letter-spacing: -0.16px;
 
     border: none;
+    outline: none !important;
+    resize: vertical;
 }
 
 .textarea::placeholder {
