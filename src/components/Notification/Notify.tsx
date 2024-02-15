@@ -11,7 +11,7 @@ import {Spinner} from "../Spinner";
 
 import s from './notification.module.css'
 
-const notifyInfo = (message: React.ReactNode, description: React.ReactNode, options: ToastOptions) => {
+const notifyInfo = (message: React.ReactNode, description: React.ReactNode, options?: ToastOptions) => {
   toast.info(
     <Content message={message} description={description}/>,
 {
@@ -21,7 +21,7 @@ const notifyInfo = (message: React.ReactNode, description: React.ReactNode, opti
   });
 }
 
-const notifySuccess = (message: React.ReactNode, description: React.ReactNode, options: ToastOptions) => {
+const notifySuccess = (message: React.ReactNode, description: React.ReactNode, options?: ToastOptions) => {
   toast.success(
     <Content message={message} description={description}/>, {
     icon: SuccessIcon,
@@ -30,7 +30,7 @@ const notifySuccess = (message: React.ReactNode, description: React.ReactNode, o
   });
 }
 
-const notifyWarning = (message: React.ReactNode, description: React.ReactNode, options: ToastOptions) => {
+const notifyWarning = (message: React.ReactNode, description: React.ReactNode, options?: ToastOptions) => {
   toast.warn(<Content message={message} description={description} />, {
     icon: WarningIcon,
     className: `${s.border_warning} ${s.toast}`,
@@ -38,7 +38,7 @@ const notifyWarning = (message: React.ReactNode, description: React.ReactNode, o
   });
 }
 
-const notifyError = (message: React.ReactNode, description: React.ReactNode, options: ToastOptions) => {
+const notifyError = (message: React.ReactNode, description: React.ReactNode, options?: ToastOptions) => {
   toast.error(<Content message={message} description={description} />, {
     icon: ErrorIcon,
     className: `${s.border_error} ${s.toast}`,
@@ -46,7 +46,7 @@ const notifyError = (message: React.ReactNode, description: React.ReactNode, opt
   });
 }
 
-const notifyLoading = (message: React.ReactNode, description: React.ReactNode, options: ToastOptions) => {
+const notifyLoading = (message: React.ReactNode, description: React.ReactNode, options?: ToastOptions) => {
   toast(
     <Content message={message} description={description} />,
     {
