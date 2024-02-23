@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface CheckboxProps {
-  label?: string;
+  label?: string | React.ReactNode;
   size?: 24 | 20;
   disabled?: boolean;
   className?: string;
