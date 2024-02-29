@@ -5,6 +5,7 @@ export interface HeaderProps {
   account: string;
   balance: string;
   connector: 'metamask' | 'walletconnect';
+  disabled?: boolean;
 }
 
 export interface AddressInfoProps {
