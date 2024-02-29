@@ -30,6 +30,7 @@ function HeaderBody({
   loginMetamask,
   loginWalletConnect,
   connector = 'metamask',
+  disabled = false,
 }: HeaderProps) {
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -145,6 +146,7 @@ function HeaderBody({
                 type="secondary"
                 onClick={handleLoginModal}
                 className={s.connect_button}
+                disabled={disabled}
               >
                 <img
                   src={pocketIcon}
