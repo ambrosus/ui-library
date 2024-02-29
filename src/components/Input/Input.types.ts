@@ -6,8 +6,8 @@ export interface InputProps {
   type?: string;
   value?: string;
   label?: string;
-  leadIcon?: JSX.Element;
-  tailIcon?: JSX.Element;
+  leadIcon?: JSX.Element | string;
+  tailIcon?: JSX.Element | string;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   error?: string | boolean;
