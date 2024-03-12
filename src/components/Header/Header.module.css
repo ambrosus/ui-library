@@ -587,7 +587,7 @@
   letter-spacing: -0.16px;
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 1211px) {
   .mobile-menu__link {
     display: none;
   }
