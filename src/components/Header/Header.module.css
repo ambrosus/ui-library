@@ -33,7 +33,7 @@
 }
 
 .header__logo {
-  @media screen and (max-width: 1210px) {
+  @media screen and (max-width: 1305px) {
     margin-right: auto;
   }
 }
@@ -60,7 +60,7 @@
   padding: 0 50px;
   gap: 40px;
 
-  @media screen and (max-width: 1210px) {
+  @media screen and (max-width: 1305px) {
     display: none;
   }
 }
@@ -587,7 +587,7 @@
   letter-spacing: -0.16px;
 }
 
-@media screen and (min-width: 1211px) {
+@media screen and (min-width: 1306px) {
   .mobile-menu__link {
     display: none;
   }
