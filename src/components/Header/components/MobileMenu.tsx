@@ -11,8 +11,10 @@ export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
   const ref = useRef(null);
   useClickOutside(ref, close, isOpen);
 
-  const isActive = (productName) => {
-    return window.location.pathname.includes(productName.toLowerCase());
+  const isActive = (productName: string) => {
+    return window.location.pathname
+      .replace(/\/+/g, '')
+      .includes(productName.toLowerCase().replace(/\s+/g, '-'));
   };
   return (
     <>
