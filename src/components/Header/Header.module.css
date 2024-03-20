@@ -471,6 +471,7 @@
   height: 130vh;
   top: -200px;
   backdrop-filter: blur(6px);
+  z-index: 1;
 }
 
 .connected-nav__products {
