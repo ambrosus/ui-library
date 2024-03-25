@@ -10,7 +10,7 @@ export function Checkbox({
   className = '',
   checked = false,
   name = '',
-  onChange = (e) => {},
+  onChange = () => {},
 }: CheckboxProps) {
   const classNames = [
     s.container,

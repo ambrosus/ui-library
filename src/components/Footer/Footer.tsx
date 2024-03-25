@@ -46,7 +46,7 @@ const socials = [
   },
 ];
 
-export function Footer(props: FooterProps) {
+export function Footer() {
   return (
     <footer className={s.footer}>
       <div className={s.links}>

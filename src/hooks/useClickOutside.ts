@@ -19,7 +19,7 @@ const useOutsideClick = (
     return () => {
       document.removeEventListener('click', handleClick);
     };
-  }, [isOpen]);
+  }, [isOpen, handleClick]);
 };
 
 export default useOutsideClick;

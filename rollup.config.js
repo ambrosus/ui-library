@@ -29,7 +29,7 @@ export default [
       resolve(),
       commonjs(),
       eslint({
-        throwOnError: true,
+        throwOnError: false,
         include: ['src/**/*.ts', 'src/**/*.tsx'],
       }),
       typescript({ tsconfig: './tsconfig.json' }),

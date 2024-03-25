@@ -1,9 +1,9 @@
-import { JSX } from 'react';
+import { ReactNode } from 'react';
 
 export default interface BadgeProps {
-  children?: any;
-  leadIcon?: JSX.Element;
-  tailIcon?: JSX.Element;
+  children?: ReactNode;
+  leadIcon?: ReactNode;
+  tailIcon?: ReactNode;
   className?: string;
   size: 'small' | 'medium' | 'large';
   type: 'neutral' | 'destructive' | 'warning' | 'success' | 'white';
