@@ -36,7 +36,7 @@ export default function AddressInfo({
             {address &&
               `${address.substring(0, 5)}...${address.substring(
                 address.length - 5,
-                address.length
+                address.length,
               )}`}
           </span>
           <span
@@ -47,28 +47,28 @@ export default function AddressInfo({
           </span>
           <img
             src={copyIcon}
-            width="20"
-            height="20"
+            width='20'
+            height='20'
             onClick={copy}
             style={copied ? { display: 'none' } : {}}
             className={styles['address-info__copy']}
-            alt="copy"
+            alt='copy'
           />
         </div>
       </div>
       <div className={styles.balance}>
         <img
           src={airdaoIcon}
-          width="20"
-          height="20"
+          width='20'
+          height='20'
           className={styles.balance__img}
-          alt="airdao-icon"
+          alt='airdao-icon'
         />
         <span>{balance} AMB</span>
       </div>
       <hr />
       <button className={styles['address-info__disconnect']} onClick={logout}>
-        <img src={logoutIcon} width="20" height="20" alt="logout" />
+        <img src={logoutIcon} width='20' height='20' alt='logout' />
         Disconnect wallet
       </button>
     </div>

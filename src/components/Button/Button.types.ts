@@ -1,4 +1,4 @@
-import {JSX, MouseEventHandler} from "react";
+import { JSX, MouseEventHandler } from 'react';
 
 export interface ButtonProps {
   children?: any;

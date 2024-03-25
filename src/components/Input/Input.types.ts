@@ -1,4 +1,4 @@
-import {ChangeEventHandler, JSX} from "react";
+import { ChangeEventHandler, JSX } from 'react';
 
 export interface InputProps {
   className?: string;

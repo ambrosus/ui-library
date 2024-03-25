@@ -29,7 +29,7 @@ export function Tooltip({
       tooltip.current,
       'top',
       'top',
-      {}
+      {},
     );
     tooltip.current!.style.left = result.position!.left + 'px';
     tooltip.current!.style.top = result.position!.top + 'px';

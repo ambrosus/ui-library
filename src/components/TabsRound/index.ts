@@ -1,1 +1,1 @@
-export * from "./TabsRound";
+export * from './TabsRound';

@@ -1,7 +1,7 @@
 import React from 'react';
-import { TextareaProps } from "./Textarea.types";
-import propTypes from "prop-types";
-import s from "./textarea.module.css";
+import { TextareaProps } from './Textarea.types';
+import propTypes from 'prop-types';
+import s from './textarea.module.css';
 
 export function Textarea({
   className,
@@ -15,7 +15,9 @@ export function Textarea({
   error,
 }: TextareaProps) {
   return (
-    <div className={`${s.container} ${className || ''} ${disabled ? s.disabled : ''} ${error ? s.inputError : ''}`}>
+    <div
+      className={`${s.container} ${className || ''} ${disabled ? s.disabled : ''} ${error ? s.inputError : ''}`}
+    >
       {label && <span className={s.label}>{label}</span>}
       <div className={s.field}>
         {leadIcon || null}
@@ -28,12 +30,11 @@ export function Textarea({
         />
         {tailIcon || null}
       </div>
-      {
-        typeof error === 'string' && error &&
-        (<span className={s.error}>{error}</span>)
-      }
+      {typeof error === 'string' && error && (
+        <span className={s.error}>{error}</span>
+      )}
     </div>
-  )
+  );
 }
 
 Textarea.propTypes = {
@@ -45,8 +46,5 @@ Textarea.propTypes = {
   tailIcon: propTypes.node,
   disabled: propTypes.bool,
   onChange: propTypes.func,
-  error: propTypes.oneOfType([
-    propTypes.string,
-    propTypes.bool,
-  ]),
-}
+  error: propTypes.oneOfType([propTypes.string, propTypes.bool]),
+};

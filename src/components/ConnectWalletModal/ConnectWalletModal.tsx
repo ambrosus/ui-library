@@ -1,14 +1,13 @@
-
-import React from "react";
+import React from 'react';
 import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
-import { Modal } from "../Modal";
-import {ConnectWalletModalProps} from "./ConnectWalletModal.types";
+import { Modal } from '../Modal';
+import { ConnectWalletModalProps } from './ConnectWalletModal.types';
 
-import {ConnectWallet} from "../ConnectWallet";
-import PropTypes from "prop-types";
+import { ConnectWallet } from '../ConnectWallet';
+import PropTypes from 'prop-types';
 
-export function ConnectWalletModal ({
+export function ConnectWalletModal({
   close,
   loginMetamask,
   loginWalletConnect,
@@ -29,4 +28,4 @@ ConnectWalletModal.propTypes = {
   loginMetamask: PropTypes.func,
   loginWalletConnect: PropTypes.func,
   isOpen: PropTypes.bool,
-}
+};

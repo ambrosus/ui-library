@@ -1,2 +1,2 @@
-export * from './Notify'
-export * from './NotificationContainer'
+export * from './Notify';
+export * from './NotificationContainer';
