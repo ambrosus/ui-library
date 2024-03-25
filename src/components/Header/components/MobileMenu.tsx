@@ -20,7 +20,7 @@ export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
     <>
       <div className={s['mobile-menu']} ref={ref}>
         <div className={s['connected-nav__link-arrow']}>
-          <a href="/" className={s['connected-nav__product']}>
+          <a href='/' className={s['connected-nav__product']}>
             Get AMB
           </a>
           <TailArrow />
@@ -69,7 +69,7 @@ export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
                 <a
                   href={social.url}
                   target={social.target}
-                  rel="nofollow"
+                  rel='nofollow'
                   className={s['mobile-menu__socials-link']}
                 >
                   <PrismicImage

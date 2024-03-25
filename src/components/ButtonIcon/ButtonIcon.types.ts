@@ -1,7 +1,7 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from 'react';
 
 export interface ButtonIconProps {
-  children?: any;
+  children?: ReactNode;
   className?: string;
   disabled?: boolean;
   size: 'small' | 'medium' | 'large' | 32 | 40 | 48;

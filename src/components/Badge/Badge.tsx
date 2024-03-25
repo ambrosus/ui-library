@@ -1,9 +1,16 @@
-import React from "react";
+import React from 'react';
 import s from './badge.module.css';
-import PropTypes from "prop-types";
-import BadgeProps from "./Badge.types";
+import PropTypes from 'prop-types';
+import BadgeProps from './Badge.types';
 
-export function Badge({ leadIcon, children, tailIcon, size, type, className }: BadgeProps) {
+export function Badge({
+  leadIcon,
+  children,
+  tailIcon,
+  size,
+  type,
+  className,
+}: BadgeProps) {
   const classNames = [
     s.badge,
     s[size],
@@ -17,13 +24,19 @@ export function Badge({ leadIcon, children, tailIcon, size, type, className }: B
       {children}
       {tailIcon || null}
     </span>
-  )
+  );
 }
 
 Badge.propTypes = {
   leadIcon: PropTypes.node,
   tailIcon: PropTypes.node,
   size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
-  type: PropTypes.oneOf(['neutral', 'destructive', 'warning', 'success', 'white']).isRequired,
+  type: PropTypes.oneOf([
+    'neutral',
+    'destructive',
+    'warning',
+    'success',
+    'white',
+  ]).isRequired,
   className: PropTypes.string,
 };

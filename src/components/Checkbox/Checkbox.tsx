@@ -1,5 +1,5 @@
-import React from "react";
-import {CheckboxProps} from "./Checkbox.types";
+import React from 'react';
+import { CheckboxProps } from './Checkbox.types';
 import s from './checkbox.module.css';
 
 //TODO: need to add sizes and disabled state
@@ -8,11 +8,10 @@ export function Checkbox({
   size = 24,
   disabled = false,
   className = '',
-  checked= false,
-  name='',
-  onChange=(e) => {}
+  checked = false,
+  name = '',
+  onChange = () => {},
 }: CheckboxProps) {
-
   const classNames = [
     s.container,
     s[`size__${size}`],
@@ -23,7 +22,7 @@ export function Checkbox({
   return (
     <label className={classNames}>
       <input
-        type="checkbox"
+        type='checkbox'
         name={name}
         checked={checked}
         disabled={disabled}
@@ -32,5 +31,5 @@ export function Checkbox({
       <span className={s.checkmark} />
       <span className={s.text}>{label}</span>
     </label>
-  )
+  );
 }

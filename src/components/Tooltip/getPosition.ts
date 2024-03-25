@@ -12,7 +12,7 @@ export default function (target, node, place, desiredPlace, offset) {
     targetWidth,
     targetHeight,
     tipWidth,
-    tipHeight
+    tipHeight,
   );
   const { extraOffsetX, extraOffsetY } = calculateOffset(offset);
 

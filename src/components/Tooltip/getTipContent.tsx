@@ -10,7 +10,7 @@ const TipContent = (tip: string, multiline?: boolean | string) => {
   // Multiline tooltip content
   return tip.split(regexp).map((d, i) => {
     return (
-      <span key={i} className="multi-line">
+      <span key={i} className='multi-line'>
         {d}
       </span>
     );

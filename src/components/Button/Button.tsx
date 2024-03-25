@@ -1,7 +1,7 @@
 import React from 'react';
-import {ButtonProps} from "./Button.types";
-import s from './button.module.css'
-import propTypes from "prop-types";
+import { ButtonProps } from './Button.types';
+import s from './button.module.css';
+import propTypes from 'prop-types';
 
 export function Button({
   children,
@@ -32,9 +32,16 @@ Button.propTypes = {
   children: propTypes.node,
   className: propTypes.string,
   size: propTypes.oneOf(['small', 'medium', 'large', 32, 40, 48]).isRequired,
-  type: propTypes.oneOf(['primary', 'secondary', 'tetiary', 'plain', 'destructive', 'gray']).isRequired,
+  type: propTypes.oneOf([
+    'primary',
+    'secondary',
+    'tetiary',
+    'plain',
+    'destructive',
+    'gray',
+  ]).isRequired,
   onClick: propTypes.func,
   disabled: propTypes.bool,
   leadIcon: propTypes.node,
   tailIcon: propTypes.node,
-}
+};

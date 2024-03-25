@@ -94,8 +94,8 @@ function HeaderBody({
         className={`${s.header} ${isFixed ? s.header_fixed : ''}`}
         ref={headerRef}
       >
-        <a href="https://airdao.io/" className={s.header__logo}>
-          <img src={logo} width="160" height="34" alt="logo" />
+        <a href='https://airdao.io/' className={s.header__logo}>
+          <img src={logo} width='160' height='34' alt='logo' />
         </a>
 
         <HeaderNav
@@ -107,7 +107,7 @@ function HeaderBody({
           <>
             <div className={s['header__buttons']}>
               <a href={data.amburl} className={s['header__button-tetiary']}>
-                <Button type="tetiary" size="medium">
+                <Button type='tetiary' size='medium'>
                   <span>Get AMB</span>
                   <TailArrow />
                 </Button>
@@ -122,7 +122,7 @@ function HeaderBody({
               <span className={s['header__address-text']}>
                 {`${address.substring(0, 5)}...${address.substring(
                   address.length - 5,
-                  address.length
+                  address.length,
                 )}`}
               </span>
               <ArrowTop
@@ -136,23 +136,23 @@ function HeaderBody({
           <>
             <div className={s['header__buttons']}>
               <a href={data.amburl} className={s['header__button-tetiary']}>
-                <Button type="tetiary" size="medium">
+                <Button type='tetiary' size='medium'>
                   <span>Get AMB</span>
                   <TailArrow />
                 </Button>
               </a>
               <Button
-                size="medium"
-                type="secondary"
+                size='medium'
+                type='secondary'
                 onClick={handleLoginModal}
                 className={s.connect_button}
                 disabled={disabled}
               >
                 <img
                   src={pocketIcon}
-                  height="20"
-                  width="20"
-                  alt="connect wallet"
+                  height='20'
+                  width='20'
+                  alt='connect wallet'
                   className={s['connect-wallet-img']}
                 />
                 <span className={s['connect-wallet-text']}>Connect wallet</span>
@@ -164,9 +164,9 @@ function HeaderBody({
         <button onClick={handleMobileNav} className={s['hamburger-btn']}>
           <img
             src={isMobileNavOpen ? cross : hamburgerIcon}
-            width="24"
-            height="24"
-            alt="menu"
+            width='24'
+            height='24'
+            alt='menu'
           />
         </button>
 

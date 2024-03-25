@@ -1,5 +1,5 @@
-import React from "react";
-import {RadioProps} from "./Radio.types";
+import React from 'react';
+import { RadioProps } from './Radio.types';
 import s from './radio.module.css';
 
 //TODO: need to add sizes and disabled state
@@ -8,11 +8,10 @@ export function Radio({
   size = 24,
   disabled = false,
   className = '',
-  value='',
-  name='',
-  onChange=(e) => {}
+  value = '',
+  name = '',
+  onChange = (e) => {},
 }: RadioProps) {
-
   const classNames = [
     s.container,
     s[`size__${size}`],
@@ -23,7 +22,7 @@ export function Radio({
   return (
     <label className={classNames}>
       <input
-        type="radio"
+        type='radio'
         name={name}
         value={value}
         disabled={disabled}
@@ -32,5 +31,5 @@ export function Radio({
       <span className={s.checkmark} />
       <span className={s.text}>{label}</span>
     </label>
-  )
+  );
 }

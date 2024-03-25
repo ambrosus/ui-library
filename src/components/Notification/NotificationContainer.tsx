@@ -1,6 +1,6 @@
 import React from 'react';
-import {ToastContainer} from "react-toastify";
-import {CloseButton} from "./components/CloseButton";
+import { ToastContainer } from 'react-toastify';
+import { CloseButton } from './components/CloseButton';
 import 'react-toastify/dist/ReactToastify.css';
 import s from './notification.module.css';
 
@@ -18,5 +18,5 @@ export function NotificationContainer() {
       closeOnClick={false}
       autoClose={false}
     />
-  )
+  );
 }

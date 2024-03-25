@@ -1,14 +1,14 @@
 import React from 'react';
-import {FooterProps} from "./Footer.types";
-import s from './footer.module.css'
+import { FooterProps } from './Footer.types';
+import s from './footer.module.css';
 
-import twitterIcon from './assets/twitter-icon.svg'
-import telegramIcon from './assets/telegram-icon.svg'
-import redditIcon from './assets/reddit-icon.svg'
-import mediumIcon from './assets/medium-icon.svg'
-import youtubeIcon from './assets/youtube-icon.svg'
-import discordIcon from './assets/discord-icon.svg'
-import linkedinIcon from './assets/linkedin-icon.svg'
+import twitterIcon from './assets/twitter-icon.svg';
+import telegramIcon from './assets/telegram-icon.svg';
+import redditIcon from './assets/reddit-icon.svg';
+import mediumIcon from './assets/medium-icon.svg';
+import youtubeIcon from './assets/youtube-icon.svg';
+import discordIcon from './assets/discord-icon.svg';
+import linkedinIcon from './assets/linkedin-icon.svg';
 import githubIcon from './assets/github-icon.svg';
 
 const socials = [
@@ -43,53 +43,52 @@ const socials = [
   {
     icon: githubIcon,
     href: 'https://github.com/ambrosus',
-  }
-]
+  },
+];
 
-export function Footer(props: FooterProps) {
+export function Footer() {
   return (
     <footer className={s.footer}>
       <div className={s.links}>
         <a
           className={s.link}
-          href="https://airdao.io/"
-          target="_blank"
-          rel="noreferrer"
+          href='https://airdao.io/'
+          target='_blank'
+          rel='noreferrer'
         >
           About us
         </a>
         <a
           className={s.link}
-          href="https://airdao.academy/"
-          target="_blank"
-          rel="nofollow"
+          href='https://airdao.academy/'
+          target='_blank'
+          rel='nofollow noreferrer'
         >
           Academy
         </a>
         <a
           className={s.link}
-          href="https://airdao.io/contact-us"
-          target="_blank"
-          rel="noreferrer"
+          href='https://airdao.io/contact-us'
+          target='_blank'
+          rel='noreferrer'
         >
           Contact us
         </a>
       </div>
       <div className={s.version}>Version 2.0</div>
       <div className={s.socials}>
-        {socials.map(({href, icon}, i) => (
+        {socials.map(({ href, icon }, i) => (
           <a
             key={i}
             className={s.icon}
             href={href}
-            target="_blank"
-            rel="nofollow"
+            target='_blank'
+            rel='nofollow noreferrer'
           >
-            <img src={icon} alt="icon"/>
+            <img src={icon} alt='icon' />
           </a>
         ))}
       </div>
     </footer>
   );
-
 }

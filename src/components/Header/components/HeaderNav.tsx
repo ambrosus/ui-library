@@ -15,13 +15,14 @@ export default function HeaderNav({ className, data }: HeaderNavProps) {
   return (
     <div className={`${styles['nav-item-wrapper']} ${className || ''}`}>
       {data &&
-        data.map((product) => {
+        data.map((product, i) => {
           return (
             <a
               href={product.url}
               className={`${styles['nav-item']} ${
                 isActive(asText(product.name)) ? styles['nav-item_active'] : ''
               }`}
+              key={product.name + i}
             >
               <PrismicText field={product.name} />
             </a>
