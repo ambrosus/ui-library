@@ -76,10 +76,11 @@
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
-    top: 8px;
-    left: 8px;
+    top: calc(50% - 4px);
+    left: calc(50% - 4px);
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: white;
+    position: relative;
 }

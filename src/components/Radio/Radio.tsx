@@ -10,7 +10,7 @@ export function Radio({
   className = '',
   value = '',
   name = '',
-  onChange = (e) => {},
+  onChange,
 }: RadioProps) {
   const classNames = [
     s.container,
