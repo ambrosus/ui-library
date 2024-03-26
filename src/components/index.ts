@@ -15,3 +15,4 @@ export * from './ConnectWallet';
 export * from './Badge';
 export * from './Radio';
 export * from './Checkbox';
+export * from './InlineLoader';

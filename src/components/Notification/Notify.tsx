@@ -65,7 +65,7 @@ const notifyLoading = (
   options?: ToastOptions,
 ) => {
   toast(<Content message={message} description={description} />, {
-    icon: Spinner,
+    icon: <Spinner />,
     className: `${s.border} ${s.toast}`,
     ...options,
   });
