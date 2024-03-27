@@ -162,7 +162,7 @@
 .balance span {
   color: #46464d;
   text-align: center;
-  font-family: var(--font-inter);
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -216,7 +216,7 @@
 .address-info__copied {
   display: block;
   color: var(--neutral-300, #a1a6b2);
-  font-family: var(--font-inter);
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -450,7 +450,7 @@
 .address-info__disconnect {
   display: flex;
   color: #ff6767;
-  font-family: var(--font-inter);
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
