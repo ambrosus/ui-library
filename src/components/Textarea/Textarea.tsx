@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextareaProps } from './Textarea.types';
+import { BottomTextProps, TextareaProps } from './Textarea.types';
 import propTypes from 'prop-types';
 import s from './textarea.module.css';
 
@@ -13,6 +13,7 @@ export function Textarea({
   onChange,
   disabled,
   error,
+  helperText,
 }: TextareaProps) {
   return (
     <div
@@ -30,11 +31,20 @@ export function Textarea({
         />
         {tailIcon || null}
       </div>
-      {typeof error === 'string' && error && (
-        <span className={s.error}>{error}</span>
-      )}
+      <span className={s.helperText}></span>
+      <BottomText helperText={helperText} error={error} />
     </div>
   );
+}
+
+function BottomText({ helperText, error }: BottomTextProps) {
+  if (error && typeof error === 'string') {
+    return <span className={`${s.helperText} ${s.errorText}`}>{error}</span>;
+  }
+  if (helperText) {
+    return <span className={s.helperText}>{helperText}</span>;
+  }
+  return null;
 }
 
 Textarea.propTypes = {

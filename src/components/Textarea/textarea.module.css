@@ -75,14 +75,18 @@
     letter-spacing: -0.16px;
 }
 
-.error {
+.helperText {
     position: absolute;
-    bottom: -23px;
-    color: #FF4747;
+    bottom: -24px;
+    color: var(--alpha-black-60, rgba(14, 14, 14, 0.60));
     font-family: Inter, sans-serif;
     font-size: 14px;
     line-height: 20px; /* 142.857% */
     letter-spacing: -0.14px;
+}
+
+.errorText {
+    color: #FF4747;
 }
 
 .inputError .field {

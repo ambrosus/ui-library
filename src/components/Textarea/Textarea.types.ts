@@ -10,4 +10,10 @@ export interface TextareaProps {
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
   error?: string | boolean;
+  helperText?: string;
+}
+
+export interface BottomTextProps {
+  helperText?: string;
+  error?: string | boolean;
 }
