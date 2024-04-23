@@ -22,6 +22,7 @@ import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
 import WalletConnectIcon from '../Icons/WalletConnectIcon';
 import MetaMaskIcon from '../Icons/MetaMaskIcon';
+import useLockBodyScroll from '../../hooks/useBodyScroll';
 
 function HeaderBody({
   disconnect,
@@ -29,6 +30,8 @@ function HeaderBody({
   balance,
   loginMetamask,
   loginWalletConnect,
+  isSupportedChain,
+  switchToAmb,
   connector = 'metamask',
   disabled = false,
 }: HeaderProps) {
@@ -66,15 +69,7 @@ function HeaderBody({
     }
   }, [account]);
 
-  useEffect(() => {
-    if (window.innerWidth < 610) {
-      const body = document.querySelector('body');
-
-      if (body) {
-        body.style.overflow = isMobileNavOpen ? 'hidden' : 'auto';
-      }
-    }
-  }, [isMobileNavOpen]);
+  useLockBodyScroll(isMobileNavOpen);
 
   const handleLogout = () => {
     disconnect();
@@ -113,24 +108,30 @@ function HeaderBody({
                 </Button>
               </a>
             </div>
-            <div className={s.header__address} onClick={handleAddressInfo}>
-              {connector === 'metamask' ? (
-                <MetaMaskIcon />
-              ) : (
-                <WalletConnectIcon />
-              )}
-              <span className={s['header__address-text']}>
-                {`${address.substring(0, 5)}...${address.substring(
-                  address.length - 5,
-                  address.length,
-                )}`}
-              </span>
-              <ArrowTop
-                className={`${s['header__address-arrow']} ${
-                  isAddressInfoOpen ? '' : s['open']
-                }`}
-              />
-            </div>
+            {isSupportedChain ? (
+              <div className={s.header__address} onClick={handleAddressInfo}>
+                {connector === 'metamask' ? (
+                  <MetaMaskIcon />
+                ) : (
+                  <WalletConnectIcon />
+                )}
+                <span className={s['header__address-text']}>
+                  {`${address.substring(0, 5)}...${address.substring(
+                    address.length - 5,
+                    address.length,
+                  )}`}
+                </span>
+                <ArrowTop
+                  className={`${s['header__address-arrow']} ${
+                    isAddressInfoOpen ? '' : s['open']
+                  }`}
+                />
+              </div>
+            ) : (
+              <Button onClick={switchToAmb} size='medium' type='secondary'>
+                Switch to AMB-NET
+              </Button>
+            )}
           </>
         ) : (
           <>

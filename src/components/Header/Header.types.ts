@@ -4,6 +4,8 @@ export interface HeaderProps {
   disconnect: () => void;
   account: string;
   balance: string;
+  isSupportedChain: boolean;
+  switchToAmb: () => void;
   connector: 'metamask' | 'walletconnect';
   disabled?: boolean;
 }
