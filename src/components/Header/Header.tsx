@@ -34,6 +34,12 @@ function HeaderBody({
   switchToAmb,
   connector = 'metamask',
   disabled = false,
+  logotype = {
+    src: logo,
+    href: 'https://airdao.io/',
+    width: 'auto',
+    height: 'auto',
+  },
 }: HeaderProps) {
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -89,8 +95,16 @@ function HeaderBody({
         className={`${s.header} ${isFixed ? s.header_fixed : ''}`}
         ref={headerRef}
       >
-        <a href='https://airdao.io/' className={s.header__logo}>
-          <img src={logo} width='160' height='34' alt='logo' />
+        <a
+          href={logotype.href || 'https://airdao.io/'}
+          className={s.header__logo}
+        >
+          <img
+            src={logotype.src}
+            width={logotype.width || 'auto'}
+            height={logotype.height || 'auto'}
+            alt='logo'
+          />
         </a>
 
         <HeaderNav
