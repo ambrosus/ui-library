@@ -16,3 +16,4 @@ export * from './Badge';
 export * from './Radio';
 export * from './Checkbox';
 export * from './InlineLoader';
+export * from './Header/components/AddressInfo'

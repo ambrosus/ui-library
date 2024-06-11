@@ -12,11 +12,11 @@ import copyIcon from '../assets/copy.svg';
 import logoutIcon from '../assets/logout.svg';
 
 export default function AddressInfo({
-  address,
+  address = '',
   balance,
   logout,
-  close,
-  isOpen,
+  close = () => {},
+  isOpen = false,
 }: AddressInfoProps) {
   const [copied, setCopied] = useState(false);
   const ref = useRef(null);
