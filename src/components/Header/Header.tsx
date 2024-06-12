@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import HeaderNav from './components/HeaderNav';
 
-import AddressInfo from './components/AddressInfo';
+import { AddressInfo } from '../AddressInfo';
 import s from './Header.module.css';
 
 import logo from './assets/logo.svg';

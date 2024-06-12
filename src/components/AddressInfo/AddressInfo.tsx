@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
-import useClickOutside from '../../../hooks/useClickOutside';
+import useClickOutside from '../../hooks/useClickOutside';
 import { useRef } from 'react';
-import styles from '../Header.module.css';
+import styles from '../Header/Header.module.css';
 
-import { AddressInfoProps } from '../Header.types';
+import { AddressInfoProps } from '../Header/Header.types';
 
-import airdaoIcon from '../assets/airdao.svg';
+import airdaoIcon from '../Header/assets/airdao.svg';
 // import circleCheck from '../assets/circle-check.svg';
-import copyIcon from '../assets/copy.svg';
-import logoutIcon from '../assets/logout.svg';
+import copyIcon from '../Header/assets/copy.svg';
+import logoutIcon from '../Header/assets/logout.svg';
 
-export default function AddressInfo({
-  address,
+export function AddressInfo({
+  address = '',
   balance,
   logout,
-  close,
-  isOpen,
+  close = () => {},
+  isOpen = false,
 }: AddressInfoProps) {
   const [copied, setCopied] = useState(false);
   const ref = useRef(null);
