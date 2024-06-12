@@ -8,6 +8,15 @@ export interface HeaderProps {
   switchToAmb: () => void;
   connector: 'metamask' | 'walletconnect';
   disabled?: boolean;
+  logotype?: LogoProps;
+}
+
+export interface LogoProps {
+  src: string;
+  href?: string;
+  width?: string | number;
+  height?: string | number;
+  className?: string;
 }
 
 export interface AddressInfoProps {
