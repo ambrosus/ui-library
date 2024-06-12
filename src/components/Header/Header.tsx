@@ -39,6 +39,7 @@ function HeaderBody({
     href: 'https://airdao.io/',
     width: 'auto',
     height: 'auto',
+    className: undefined,
   },
 }: HeaderProps) {
   const [address, setAddress] = useState('');
@@ -97,7 +98,11 @@ function HeaderBody({
       >
         <a
           href={logotype.href || 'https://airdao.io/'}
-          className={s.header__logo}
+          className={
+            logotype.className
+              ? `${logotype.className} ${s.header__logo}`
+              : s.header__logo
+          }
         >
           <img
             src={logotype.src}

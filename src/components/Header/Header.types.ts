@@ -16,6 +16,7 @@ export interface LogoProps {
   href?: string;
   width?: string | number;
   height?: string | number;
+  className?: string;
 }
 
 export interface AddressInfoProps {
