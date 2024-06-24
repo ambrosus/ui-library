@@ -1,5 +1,4 @@
 import React from 'react';
-import { FooterProps } from './Footer.types';
 import s from './footer.module.css';
 
 import twitterIcon from './assets/twitter-icon.svg';
@@ -18,7 +17,7 @@ const socials = [
   },
   {
     icon: telegramIcon,
-    href: 'https://t.me/airDAO_official',
+    href: 'https://t.me/airdao',
   },
   {
     icon: redditIcon,

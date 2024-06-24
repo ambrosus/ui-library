@@ -33,21 +33,24 @@
 }
 
 .header__logo {
+  line-height: 0;
+  
   @media screen and (max-width: 1305px) {
     margin-right: auto;
   }
 }
 
 .header__logo img {
-  height: 48px;
+  max-height: 48px;
+  max-width: 160px;
 
   @media screen and (max-width: 1210px) {
-    width: 122px;
+    max-width: 122px;
     margin-right: auto;
   }
 
   @media screen and (max-width: 610px) {
-    width: 100px;
+    max-width: 100px;
   }
 }
 

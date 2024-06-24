@@ -4,6 +4,7 @@ export interface TabsRoundProps {
   tabsList: string[];
   onChange: (value: string) => void;
   className?: string;
+  initialTab?: string;
 }
 
 export interface TabProps {

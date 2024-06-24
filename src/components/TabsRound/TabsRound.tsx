@@ -1,12 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { TabProps, TabsRoundProps } from './TabsRound.types';
 import propTypes from 'prop-types';
 import s from './tabs-round.module.css';
 
-export function TabsRound({ tabsList, onChange, className }: TabsRoundProps) {
-  const [activeTab, setActiveTab] = useState(0);
+export function TabsRound({
+  tabsList,
+  onChange,
+  className,
+  initialTab,
+}: TabsRoundProps) {
+  const [activeTab, setActiveTab] = useState(() => {
+    if (!initialTab) return 0;
+    const initialTabIndex = tabsList.indexOf(initialTab);
+    return initialTabIndex === -1 ? 0 : initialTabIndex;
+  });
 
-  useEffect(() => onChange(tabsList[activeTab]), [activeTab]);
+  const handleTabChange = useCallback(
+    (index: number) => {
+      setActiveTab(index);
+      onChange(tabsList[index]);
+    },
+    [tabsList, onChange, setActiveTab],
+  );
 
   return (
     <div className={`${s.tabs} ${className || ''}`}>
@@ -14,7 +29,7 @@ export function TabsRound({ tabsList, onChange, className }: TabsRoundProps) {
         <Tab
           name={name}
           isActive={activeTab === index}
-          onClick={() => setActiveTab(index)}
+          onClick={() => handleTabChange(index)}
           key={`${name}-${index}`}
         />
       ))}
