@@ -26,7 +26,7 @@
     border: none;
 }
 
-.login-modal__btn:last-child {
+.login-modal__btn:last-child, .login-modal__btn:nth-child(2) {
     margin-top: 16px;
 }
 
