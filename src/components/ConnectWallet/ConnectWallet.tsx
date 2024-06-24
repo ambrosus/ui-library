@@ -42,7 +42,7 @@ export function ConnectWallet({
           alt='arrow'
         />
       </button>
-      <button className={s['login-modal__btn']} style={{marginBottom: 16}} onClick={loginSafepal}>
+      <button className={s['login-modal__btn']} style={{marginTop: 16}} onClick={loginSafepal}>
         <img
           src={safepal}
           width='28'
