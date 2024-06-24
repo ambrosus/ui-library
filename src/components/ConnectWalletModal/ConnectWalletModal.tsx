@@ -11,6 +11,7 @@ export function ConnectWalletModal({
   close,
   loginMetamask,
   loginWalletConnect,
+  loginSafepal,
   isOpen,
 }: ConnectWalletModalProps) {
   const ref = useRef(null);
@@ -18,7 +19,7 @@ export function ConnectWalletModal({
 
   return (
     <Modal close={close} passRef={ref}>
-      <ConnectWallet {...{ loginMetamask, loginWalletConnect }} />
+      <ConnectWallet {...{ loginMetamask, loginWalletConnect, loginSafepal }} />
     </Modal>
   );
 }

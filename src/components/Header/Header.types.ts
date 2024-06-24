@@ -1,5 +1,6 @@
 export interface HeaderProps {
   loginMetamask: () => void;
+  loginSafepal: () => void;
   loginWalletConnect: () => void;
   disconnect: () => void;
   account: string;

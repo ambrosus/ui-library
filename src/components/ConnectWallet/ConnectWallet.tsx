@@ -4,6 +4,7 @@ import { ConnectWalletProps } from './ConnectWallet.types';
 
 import airdaoIcon from './assets/airdao-icon.svg';
 import metamaskIcon from './assets/metamask.svg';
+import safepal from './assets/safepal.svg';
 import walletConnectIcon from './assets/wallet-connect.svg';
 import arrowIcon from './assets/arrow.svg';
 import PropTypes from 'prop-types';
@@ -11,6 +12,7 @@ import PropTypes from 'prop-types';
 export function ConnectWallet({
   loginMetamask,
   loginWalletConnect,
+  loginSafepal,
 }: ConnectWalletProps) {
   return (
     <div className={s['login-modal']}>
@@ -30,6 +32,28 @@ export function ConnectWallet({
           <p className={s['login-modal__title']}>MetaMask</p>
           <p className={s['login-modal__text']}>
             Connect using your browser wallet
+          </p>
+        </div>
+        <img
+          src={arrowIcon}
+          width='16'
+          height='16'
+          className={s['login-modal__arrow']}
+          alt='arrow'
+        />
+      </button>
+      <button className={s['login-modal__btn']} onClick={loginSafepal}>
+        <img
+          src={safepal}
+          width='28'
+          height='25'
+          className={s['login-modal__img']}
+          alt='metamask'
+        />
+        <div className={s['login-modal__block']}>
+          <p className={s['login-modal__title']}>SafePal</p>
+          <p className={s['login-modal__text']}>
+            Connect using your SafePal wallet
           </p>
         </div>
         <img
