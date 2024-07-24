@@ -59,7 +59,7 @@ export function Footer() {
         </a>
         <a
           className={s.link}
-          href='https://airdao.academy/'
+          href='https://airdao.io/academy'
           target='_blank'
           rel='nofollow noreferrer'
         >
