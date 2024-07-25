@@ -29,7 +29,7 @@ const socials = [
   },
   {
     icon: youtubeIcon,
-    href: 'https://www.youtube.com/c/AmbrosusEcosystem',
+    href: 'https://www.youtube.com/@airdao_official',
   },
   {
     icon: discordIcon,
