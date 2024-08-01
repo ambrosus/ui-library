@@ -30,7 +30,9 @@ export interface AddressInfoProps {
 
 export interface HeaderNavProps {
   className?: string;
-  data?: [any];
+  headerInfo?: any;
+  isOpen?: boolean;
+  close?: () => void;
 }
 
 export interface MobileMenuProps {
