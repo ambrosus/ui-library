@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import HeaderNav from './components/HeaderNav';
 
@@ -12,11 +12,9 @@ import pocketIcon from './assets/pocket.svg';
 import { Button } from '../Button';
 import { HeaderProps } from './Header.types';
 import { ConnectWalletModal } from '../ConnectWalletModal/ConnectWalletModal';
-import { MobileMenu } from './components/MobileMenu';
-import { PrismicProvider } from '@prismicio/react';
+import { PrismicProvider, useSinglePrismicDocument } from '@prismicio/react';
 
 import { client } from './prismic';
-import { usePrismicData } from './usePrismicData';
 import propTypes from 'prop-types';
 import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
@@ -43,6 +41,7 @@ function HeaderBody({
     className: undefined,
   },
 }: HeaderProps) {
+  const [isNavOpen, setIsNavOpen] = useState(true);
   const [address, setAddress] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isAddressInfoOpen, setIsAddressInfoOpen] = useState(false);
@@ -51,9 +50,12 @@ function HeaderBody({
 
   const headerRef = useRef(null);
 
-  const data = usePrismicData();
+  // const header = usePrismicData();
+  const [document] = useSinglePrismicDocument('header');
+  const header = useMemo(() => document?.data || null, [document]);
 
   useEffect(() => {
+    if (!document) return;
     // @ts-ignore
     const headerOffsetTop = headerRef.current.offsetTop;
 
@@ -68,14 +70,14 @@ function HeaderBody({
 
     window.addEventListener('scroll', handleFixed);
     return () => window.removeEventListener('scroll', handleFixed);
-  }, []);
+  }, [document]);
 
   useEffect(() => {
-    if (account) {
+    if (account && document) {
       setAddress(account);
       setIsLoginModalOpen(false);
     }
-  }, [account]);
+  }, [account, document]);
 
   useLockBodyScroll(isMobileNavOpen);
 
@@ -89,6 +91,9 @@ function HeaderBody({
   const handleLoginModal = () => setIsLoginModalOpen((state) => !state);
   const handleAddressInfo = () => setIsAddressInfoOpen((state) => !state);
   const handleMobileNav = () => setIsMobileNavOpen((state) => !state);
+  const handleNav = () => setIsNavOpen((state) => !state);
+
+  if (!header) return null;
 
   return (
     <>
@@ -97,120 +102,162 @@ function HeaderBody({
         className={`${s.header} ${isFixed ? s.header_fixed : ''}`}
         ref={headerRef}
       >
-        <a
-          href={logotype.href || 'https://airdao.io/'}
-          className={
-            logotype.className
-              ? `${logotype.className} ${s.header__logo}`
-              : s.header__logo
-          }
-        >
-          <img
-            src={logotype.src}
-            width={logotype.width || 'auto'}
-            height={logotype.height || 'auto'}
-            alt='logo'
-          />
-        </a>
-
-        <HeaderNav
-          className={s['nav-item-wrapper_desktop']}
-          data={data.products}
-        />
-
-        {address ? (
-          <>
-            <div className={s['header__buttons']}>
-              <a href={data.amburl} className={s['header__button-tetiary']}>
-                <Button type='tetiary' size='medium'>
-                  <span>Get AMB</span>
-                  <TailArrow />
-                </Button>
-              </a>
-            </div>
-            {isSupportedChain ? (
-              <div className={s.header__address} onClick={handleAddressInfo}>
-                {connector === 'metamask' ? (
-                  <MetaMaskIcon />
+        <div className={s['header-container']}>
+          <a
+            href={logotype.href || 'https://airdao.io/'}
+            className={
+              logotype.className
+                ? `${logotype.className} ${s.header__logo}`
+                : s.header__logo
+            }
+          >
+            <img
+              src={logotype.src}
+              width={logotype.width || 'auto'}
+              height={logotype.height || 'auto'}
+              alt='logo'
+            />
+          </a>
+          {address ? (
+            <>
+              <HeaderNav
+                close={handleNav}
+                headerInfo={header}
+                className='nav-item-wrapper_desktop'
+                isOpen={isNavOpen}
+              />
+              <div className={s['header__buttons']}>
+                <a
+                  href={header?.amburl.url}
+                  className={s['header__button-tetiary']}
+                >
+                  <Button type='tetiary' size='medium'>
+                    <span>Get AMB</span>
+                    <TailArrow />
+                  </Button>
+                </a>
+                {isSupportedChain ? (
+                  <div
+                    className={s.header__address}
+                    onClick={handleAddressInfo}
+                  >
+                    {connector === 'metamask' ? (
+                      <MetaMaskIcon />
+                    ) : (
+                      <WalletConnectIcon />
+                    )}
+                    <span className={s['header__address-text']}>
+                      {`${address.substring(0, 5)}...${address.substring(
+                        address.length - 5,
+                        address.length,
+                      )}`}
+                    </span>
+                    <ArrowTop
+                      className={`${s['header__address-arrow']} ${
+                        isAddressInfoOpen ? '' : s['open']
+                      }`}
+                    />
+                  </div>
                 ) : (
-                  <WalletConnectIcon />
+                  <Button onClick={switchToAmb} size='medium' type='secondary'>
+                    Switch to AMB-NET
+                  </Button>
                 )}
-                <span className={s['header__address-text']}>
-                  {`${address.substring(0, 5)}...${address.substring(
-                    address.length - 5,
-                    address.length,
-                  )}`}
-                </span>
-                <ArrowTop
-                  className={`${s['header__address-arrow']} ${
-                    isAddressInfoOpen ? '' : s['open']
-                  }`}
-                />
+                <button
+                  onClick={handleMobileNav}
+                  className={s['hamburger-btn']}
+                >
+                  <img
+                    src={isMobileNavOpen ? cross : hamburgerIcon}
+                    width='24'
+                    height='24'
+                    alt='menu'
+                  />
+                </button>
               </div>
-            ) : (
-              <Button onClick={switchToAmb} size='medium' type='secondary'>
-                Switch to AMB-NET
-              </Button>
-            )}
-          </>
-        ) : (
-          <>
-            <div className={s['header__buttons']}>
-              <a href={data.amburl} className={s['header__button-tetiary']}>
-                <Button type='tetiary' size='medium'>
-                  <span>Get AMB</span>
-                  <TailArrow />
-                </Button>
-              </a>
-              <Button
-                size='medium'
-                type='secondary'
-                onClick={handleLoginModal}
-                className={s.connect_button}
-                disabled={disabled}
-              >
-                <img
-                  src={pocketIcon}
-                  height='20'
-                  width='20'
-                  alt='connect wallet'
-                  className={s['connect-wallet-img']}
+
+              {isAddressInfoOpen && (
+                <AddressInfo
+                  isOpen={isAddressInfoOpen}
+                  balance={balance}
+                  logout={handleLogout}
+                  address={address}
+                  close={handleAddressInfo}
                 />
-                <span className={s['connect-wallet-text']}>Connect wallet</span>
-              </Button>
-            </div>
-          </>
-        )}
+              )}
 
-        <button onClick={handleMobileNav} className={s['hamburger-btn']}>
-          <img
-            src={isMobileNavOpen ? cross : hamburgerIcon}
-            width='24'
-            height='24'
-            alt='menu'
-          />
-        </button>
+              {isMobileNavOpen && (
+                <HeaderNav
+                  isOpen={isMobileNavOpen}
+                  close={handleMobileNav}
+                  headerInfo={header}
+                  className='nav-item-wrapper_not-desktop'
+                />
+              )}
+            </>
+          ) : (
+            <>
+              <HeaderNav
+                close={handleNav}
+                headerInfo={header}
+                className='nav-item-wrapper_desktop'
+                isOpen={isNavOpen}
+              />
 
-        {isAddressInfoOpen && (
-          <AddressInfo
-            isOpen={isAddressInfoOpen}
-            balance={balance}
-            logout={handleLogout}
-            address={address}
-            close={handleAddressInfo}
-          />
-        )}
+              <div className={s['header__buttons']}>
+                <a
+                  href={header?.amburl.url}
+                  className={s['header__button-tetiary']}
+                >
+                  <Button type='tetiary' size='medium'>
+                    <span>Get AMB</span>
+                    <TailArrow />
+                  </Button>
+                </a>
+                <Button
+                  size='medium'
+                  type='secondary'
+                  onClick={handleLoginModal}
+                  className={s.connect_button}
+                  disabled={disabled}
+                >
+                  <img
+                    src={pocketIcon}
+                    height='20'
+                    width='20'
+                    alt='connect wallet'
+                    className={s['connect-wallet-img']}
+                  />
+                  <span className={s['connect-wallet-text']}>
+                    Connect wallet
+                  </span>
+                </Button>
 
-        {isMobileNavOpen && (
-          <MobileMenu
-            close={handleMobileNav}
-            isOpen={isMobileNavOpen}
-            data={data}
-            balance={balance}
-          />
-        )}
+                <button
+                  onClick={handleMobileNav}
+                  className={s['hamburger-btn']}
+                >
+                  <img
+                    src={isMobileNavOpen ? cross : hamburgerIcon}
+                    width='24'
+                    height='24'
+                    alt='menu'
+                  />
+                </button>
+              </div>
+
+              {isMobileNavOpen && (
+                <HeaderNav
+                  isOpen={isMobileNavOpen}
+                  close={handleMobileNav}
+                  headerInfo={header}
+                  className='nav-item-wrapper_not-desktop'
+                />
+              )}
+            </>
+          )}
+        </div>
       </header>
-
       {isLoginModalOpen && (
         <ConnectWalletModal
           isOpen={isLoginModalOpen}
