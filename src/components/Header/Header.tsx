@@ -53,7 +53,6 @@ function HeaderBody({
   // const header = usePrismicData();
   const [document] = useSinglePrismicDocument('header');
   const header = useMemo(() => document?.data || null, [document]);
-  console.log('header', { header, document });
 
   useEffect(() => {
     if (!document) return;
