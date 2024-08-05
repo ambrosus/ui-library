@@ -50,12 +50,11 @@ function HeaderBody({
 
   const headerRef = useRef(null);
 
-  // const header = usePrismicData();
   const [document] = useSinglePrismicDocument('header');
   const header = useMemo(() => document?.data || null, [document]);
 
   useEffect(() => {
-    if (!document) return;
+    if (!header) return;
     // @ts-ignore
     const headerOffsetTop = headerRef.current.offsetTop;
 
@@ -70,14 +69,14 @@ function HeaderBody({
 
     window.addEventListener('scroll', handleFixed);
     return () => window.removeEventListener('scroll', handleFixed);
-  }, [document]);
+  }, [header]);
 
   useEffect(() => {
-    if (account && document) {
+    if (account && header) {
       setAddress(account);
       setIsLoginModalOpen(false);
     }
-  }, [account, document]);
+  }, [account, header]);
 
   useLockBodyScroll(isMobileNavOpen);
 
