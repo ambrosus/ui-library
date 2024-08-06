@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import s from '../Header.module.css';
 import useClickOutside from '../../../hooks/useClickOutside';
 import { MobileMenuProps } from '../Header.types';
-import { PrismicImage, PrismicLink, PrismicText } from '@prismicio/react';
+import { PrismicImage, PrismicText } from '@prismicio/react';
 import { asText } from '@prismicio/client';
-// import airdaoIcon from '../assets/airdao.svg';
 import TailArrow from '../../Icons/TailArrow';
 
-export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
+export function MobileMenu({ close, isOpen, data }: MobileMenuProps) {
   const ref = useRef(null);
+
   useClickOutside(ref, close, isOpen);
 
   const isActive = (productName: string) => {
@@ -26,22 +26,25 @@ export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
           <TailArrow />
         </div>
         {data &&
-          data.products.map((product) => (
-            <a
-              href={product?.url}
-              className={`${s['mobile-menu__link']} ${
-                isActive(asText(product.name))
-                  ? s['mobile-menu__link_active']
-                  : ''
-              }`}
-            >
-              <PrismicText field={product.name} />
-            </a>
-          ))}
+          data.products.map((product) => {
+            return (
+              <a
+                key={product?.url}
+                href={product?.url}
+                className={`${s['mobile-menu__link']} ${
+                  isActive(asText(product?.name) || '')
+                    ? s['mobile-menu__link_active']
+                    : ''
+                }`}
+              >
+                <PrismicText field={product.name} />
+              </a>
+            );
+          })}
 
         {data &&
           data.submenus.map((submenu) => (
-            <div className={s['mobile-menu__sublist']}>
+            <div className={s['mobile-menu__sublist']} key={submenu.name}>
               <div className={s['mobile-menu__sublist-name']}>
                 <PrismicText field={submenu.name} />
               </div>
@@ -67,6 +70,7 @@ export function MobileMenu({ close, isOpen, data, balance }: MobileMenuProps) {
             {data &&
               data.socials.map((social) => (
                 <a
+                  key={social.url}
                   href={social.url}
                   target={social.target}
                   rel='nofollow'

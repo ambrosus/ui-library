@@ -72,11 +72,11 @@ function HeaderBody({
   }, [header]);
 
   useEffect(() => {
-    if (account && header) {
+    if (account) {
       setAddress(account);
       setIsLoginModalOpen(false);
     }
-  }, [account, header]);
+  }, [account]);
 
   useLockBodyScroll(isMobileNavOpen);
 
