@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-
-import useClickOutside from '../../hooks/useClickOutside';
+import { useOnClickOutside } from 'usehooks-ts';
 import { useRef } from 'react';
 import styles from '../Header/Header.module.css';
 
 import { AddressInfoProps } from '../Header/Header.types';
 
 import airdaoIcon from '../Header/assets/airdao.svg';
-// import circleCheck from '../assets/circle-check.svg';
 import copyIcon from '../Header/assets/copy.svg';
 import logoutIcon from '../Header/assets/logout.svg';
 
 export function AddressInfo({
+  accountInfoRef,
   address = '',
   balance,
   logout,
@@ -19,8 +18,15 @@ export function AddressInfo({
   isOpen = false,
 }: AddressInfoProps) {
   const [copied, setCopied] = useState(false);
+
   const ref = useRef(null);
-  useClickOutside(ref, close, isOpen);
+
+  const clickOutsideHandler = () => {
+    if (!isOpen) return;
+    close();
+  };
+
+  useOnClickOutside([ref, accountInfoRef], clickOutsideHandler);
 
   const copy = () => {
     navigator.clipboard.writeText(address);

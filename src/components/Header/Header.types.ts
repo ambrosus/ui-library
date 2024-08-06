@@ -21,6 +21,7 @@ export interface LogoProps {
 }
 
 export interface AddressInfoProps {
+  accountInfoRef: any;
   address?: string;
   isOpen?: boolean;
   logout?: () => void;
@@ -29,6 +30,7 @@ export interface AddressInfoProps {
 }
 
 export interface HeaderNavProps {
+  hamburgerButtonRef: any;
   headerInfo: any;
   isOpen: boolean;
   close: () => void;

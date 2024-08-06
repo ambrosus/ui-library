@@ -492,7 +492,7 @@
   max-height: 70vh;
   overflow: auto;
 }
-@media screen and (min-width: 611px) {
+@media screen and (min-width: 1100px) {
   .connected-nav {
     padding: 32px;
     background: #fff;
@@ -501,6 +501,11 @@
     right: 0;
     top: 90px;
     width: 296px;
+ }
+}
+@media screen and (min-width: 610px) and (max-width: 1099px) {
+  .connected-nav {
+    top: 110px;
  }
 }
 @media screen and (max-width: 1100px) {

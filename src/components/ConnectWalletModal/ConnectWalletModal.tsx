@@ -1,5 +1,5 @@
 import React from 'react';
-import useClickOutside from '../../hooks/useClickOutside';
+import { useOnClickOutside } from 'usehooks-ts';
 import { useRef } from 'react';
 import { Modal } from '../Modal';
 import { ConnectWalletModalProps } from './ConnectWalletModal.types';
@@ -15,7 +15,13 @@ export function ConnectWalletModal({
   isOpen,
 }: ConnectWalletModalProps) {
   const ref = useRef(null);
-  useClickOutside(ref, close, isOpen);
+
+  const clickOutsideHandler = () => {
+    if (!isOpen) return;
+    close();
+  };
+
+  useOnClickOutside(ref, clickOutsideHandler);
 
   return (
     <Modal close={close} passRef={ref}>

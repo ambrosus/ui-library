@@ -48,7 +48,9 @@ function HeaderBody({
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
 
+  const accountInfoRef = useRef(null);
   const headerRef = useRef(null);
+  const hamburgerButtonRef = useRef(null);
 
   const [document] = useSinglePrismicDocument('header');
   const header = useMemo(() => document?.data || null, [document]);
@@ -120,6 +122,7 @@ function HeaderBody({
           {address ? (
             <>
               <HeaderNav
+                hamburgerButtonRef={hamburgerButtonRef}
                 close={handleNav}
                 headerInfo={header}
                 className='nav-item-wrapper_desktop'
@@ -137,6 +140,7 @@ function HeaderBody({
                 </a>
                 {isSupportedChain ? (
                   <div
+                    ref={accountInfoRef}
                     className={s.header__address}
                     onClick={handleAddressInfo}
                   >
@@ -163,6 +167,7 @@ function HeaderBody({
                   </Button>
                 )}
                 <button
+                  ref={hamburgerButtonRef}
                   onClick={handleMobileNav}
                   className={s['hamburger-btn']}
                 >
@@ -177,6 +182,7 @@ function HeaderBody({
 
               {isAddressInfoOpen && (
                 <AddressInfo
+                  accountInfoRef={accountInfoRef}
                   isOpen={isAddressInfoOpen}
                   balance={balance}
                   logout={handleLogout}
@@ -187,6 +193,7 @@ function HeaderBody({
 
               {isMobileNavOpen && (
                 <HeaderNav
+                  hamburgerButtonRef={hamburgerButtonRef}
                   isOpen={isMobileNavOpen}
                   close={handleMobileNav}
                   headerInfo={header}
@@ -197,6 +204,7 @@ function HeaderBody({
           ) : (
             <>
               <HeaderNav
+                hamburgerButtonRef={hamburgerButtonRef}
                 close={handleNav}
                 headerInfo={header}
                 className='nav-item-wrapper_desktop'
@@ -233,6 +241,7 @@ function HeaderBody({
                 </Button>
 
                 <button
+                  ref={hamburgerButtonRef}
                   onClick={handleMobileNav}
                   className={s['hamburger-btn']}
                 >
@@ -247,6 +256,7 @@ function HeaderBody({
 
               {isMobileNavOpen && (
                 <HeaderNav
+                  hamburgerButtonRef={hamburgerButtonRef}
                   isOpen={isMobileNavOpen}
                   close={handleMobileNav}
                   headerInfo={header}
