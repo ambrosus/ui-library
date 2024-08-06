@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
 import styles from '../Header.module.css';
 import { asText } from '@prismicio/client';
-import useClickOutside from '../../../hooks/useClickOutside';
 import { HeaderNavProps } from '../Header.types';
 import TailArrow from '../../Icons/TailArrow';
 import ArrowRight from '../../Icons/ArrowRight';
 import ArrowTail from '../../Icons/ArrowTail';
 
 const HeaderNav = ({
+  hamburgerButtonRef,
   close,
   headerInfo,
   className,
@@ -15,16 +16,15 @@ const HeaderNav = ({
 }: HeaderNavProps) => {
   const [activeList, setActiveList] = useState('');
 
-  const ref = useRef(null);
+  const outsideClickHandler = () => {
+    if (!isOpen) return;
 
-  useClickOutside(
-    ref,
-    () => {
-      close();
-      setActiveList('');
-    },
-    isOpen,
-  );
+    close();
+    setActiveList('');
+  };
+
+  const ref = useRef(null);
+  useOnClickOutside([ref, hamburgerButtonRef], outsideClickHandler);
 
   const handleList = (key: string) => {
     setActiveList((state) => (state === key ? '' : key));
