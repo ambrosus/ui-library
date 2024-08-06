@@ -13,7 +13,7 @@ function useLockBodyScroll(lock: boolean = true) {
       return;
     }
 
-    if (window.innerWidth > 610) return;
+    if (window.innerWidth > 1100) return;
 
     const originalStyle = window.getComputedStyle(document.body).overflow;
     if (lock) {

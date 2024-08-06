@@ -33,7 +33,7 @@ const HeaderNav = ({
   return (
     <div
       ref={ref}
-      className={`${styles['nav-item-wrapper']} ${styles[className]}`}
+      className={`${styles['nav-item-wrapper']} ${styles[className || '']}`}
     >
       <div className={styles['connected-nav__link-arrow']}>
         <a
@@ -55,7 +55,7 @@ const HeaderNav = ({
         >
           <span
             className={styles['nav-item__label']}
-            onClick={() => handleList(asText(el.primary.navlabel))}
+            onClick={() => handleList(asText(el.primary.navlabel) || '')}
           >
             {asText(el.primary.navlabel)}
             <ArrowTail />
@@ -67,7 +67,7 @@ const HeaderNav = ({
                 ${
                   styles[
                     'nav-item__list_' +
-                      asText(el.primary.navlabel)
+                      (asText(el.primary.navlabel) || '')
                         .toLocaleLowerCase()
                         .replace(' ', '-')
                   ]

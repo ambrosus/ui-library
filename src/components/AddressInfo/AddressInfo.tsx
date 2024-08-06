@@ -56,7 +56,7 @@ export function AddressInfo({
           />
         </div>
       </div>
-      <div className={styles.balance}>
+      <div className={styles['header__balance']}>
         <img
           src={airdaoIcon}
           width='20'
