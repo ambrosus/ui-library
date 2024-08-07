@@ -149,10 +149,18 @@
 
   .nav-item:hover span svg {
       transform: rotate(180deg);
+    }
   }
-}
+  
+  @media screen and (max-width: 1100px) {
+  .nav-item_active span svg {
+    transform: rotate(180deg);
+  }
 
-@media screen and (max-width: 1100px) {
+  .nav-item_active .nav-item__label {
+    color: var(--primary-500-base, #3668dd);
+  }
+
   .nav-item_active .nav-item__list-wrapper {
     margin: 8px 0;
     max-height: 800px;
