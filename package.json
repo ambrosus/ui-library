@@ -1,6 +1,6 @@
 {
   "name": "@airdao/ui-library",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types.d.ts",
@@ -32,7 +32,9 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "usehooks-ts": "^3.1.0"
+
   },
   "peerDependencies": {
     "react": "^18.2.0"
