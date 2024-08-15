@@ -20,6 +20,7 @@ import TailArrow from '../Icons/TailArrow';
 import ArrowTop from '../Icons/ArrowTop';
 import WalletConnectIcon from '../Icons/WalletConnectIcon';
 import MetaMaskIcon from '../Icons/MetaMaskIcon';
+import bitgetIcon from '../ConnectWallet/assets/bitget.png';
 import useLockBodyScroll from '../../hooks/useBodyScroll';
 
 function HeaderBody({
@@ -32,7 +33,7 @@ function HeaderBody({
   loginWalletConnect,
   isSupportedChain,
   switchToAmb,
-  connector = 'metamask',
+  connector = 'MetaMask',
   disabled = false,
   logotype = {
     src: logo,
@@ -97,6 +98,14 @@ function HeaderBody({
 
   if (!header) return null;
 
+  let connectorIcon = <WalletConnectIcon />;
+
+  if (connector === 'MetaMask') {
+    connectorIcon = <MetaMaskIcon />
+  } else if (connector === 'BitKeep') {
+    connectorIcon = <img src={bitgetIcon} alt="bitget" className={s["header__bitget"]}/>
+  }
+
   return (
     <>
       {isLoginModalOpen && <div className={s['blur-overlay']} />}
@@ -145,11 +154,7 @@ function HeaderBody({
                     className={s.header__address}
                     onClick={handleAddressInfo}
                   >
-                    {connector === 'metamask' ? (
-                      <MetaMaskIcon />
-                    ) : (
-                      <WalletConnectIcon />
-                    )}
+                    {connectorIcon}
                     <span className={s['header__address-text']}>
                       {`${address.substring(0, 5)}...${address.substring(
                         address.length - 5,

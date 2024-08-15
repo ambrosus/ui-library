@@ -8,7 +8,7 @@ export interface HeaderProps {
   balance: string;
   isSupportedChain: boolean;
   switchToAmb: () => void;
-  connector: 'metamask' | 'walletconnect';
+  connector: string;
   disabled?: boolean;
   logotype?: LogoProps;
 }
