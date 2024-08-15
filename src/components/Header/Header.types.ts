@@ -8,7 +8,7 @@ export interface HeaderProps {
   balance: string;
   isSupportedChain: boolean;
   switchToAmb: () => void;
-  connector: string;
+  connector: any;
   disabled?: boolean;
   logotype?: LogoProps;
 }

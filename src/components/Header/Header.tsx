@@ -100,10 +100,10 @@ function HeaderBody({
 
   let connectorIcon = <WalletConnectIcon />;
 
-  if (connector === 'MetaMask') {
-    connectorIcon = <MetaMaskIcon />
-  } else if (connector === 'BitKeep') {
+  if (connector?.provider?.isBitKeep) {
     connectorIcon = <img src={bitgetIcon} alt="bitget" className={s["header__bitget"]}/>
+  } else if (connector?.provider?.isMetaMask) {
+    connectorIcon = <MetaMaskIcon />
   }
 
   return (
