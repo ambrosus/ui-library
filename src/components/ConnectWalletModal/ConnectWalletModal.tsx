@@ -12,6 +12,7 @@ export function ConnectWalletModal({
   loginMetamask,
   loginWalletConnect,
   loginSafepal,
+  loginBitget,
   isOpen,
 }: ConnectWalletModalProps) {
   const ref = useRef(null);
@@ -19,7 +20,7 @@ export function ConnectWalletModal({
 
   return (
     <Modal close={close} passRef={ref}>
-      <ConnectWallet {...{ loginMetamask, loginWalletConnect, loginSafepal }} />
+      <ConnectWallet {...{ loginMetamask, loginWalletConnect, loginSafepal, loginBitget }} />
     </Modal>
   );
 }
@@ -28,5 +29,7 @@ ConnectWalletModal.propTypes = {
   close: PropTypes.func,
   loginMetamask: PropTypes.func,
   loginWalletConnect: PropTypes.func,
+  loginSafepal: PropTypes.func,
+  loginBitget: PropTypes.func,
   isOpen: PropTypes.bool,
 };

@@ -28,6 +28,7 @@ function HeaderBody({
   balance,
   loginMetamask,
   loginSafepal,
+  loginBitget,
   loginWalletConnect,
   isSupportedChain,
   switchToAmb,
@@ -264,6 +265,7 @@ function HeaderBody({
           close={handleLoginModal}
           loginMetamask={loginMetamask}
           loginSafepal={loginSafepal}
+          loginBitget={loginBitget}
           loginWalletConnect={loginWalletConnect}
         />
       )}
