@@ -4,6 +4,7 @@
   color: #222426;
   position: relative;
   background: white;
+  box-sizing: border-box;
   border-bottom: 1px solid var(--Neutrals-100, #f2f2f3);
 }
 
@@ -15,6 +16,7 @@
   min-height: 70px;
   max-width: 1360px;
   align-items: center;
+  box-sizing: border-box;
   justify-content: space-between;
 }
 
@@ -24,12 +26,14 @@
 
 @media screen and (max-width: 1100px) {
   .header-container {
+    padding: 16px 20px;
     min-height: 86.06px;
- }
+  }
 }
 
 @media screen and (max-width: 610px) {
   .header-container {
+    padding: 16px;
     min-height: 62.16px;
     width: calc(100% - 36px);
  }
@@ -145,18 +149,18 @@
 
   .nav-item:hover span svg {
       transform: rotate(180deg);
+    }
   }
-}
+  
+  @media screen and (max-width: 1100px) {
+  .nav-item_active span svg {
+    transform: rotate(180deg);
+  }
 
-.nav-item_active span {
-  color: var(--primary-500-base, #3668dd);
-}
+  .nav-item_active .nav-item__label {
+    color: var(--primary-500-base, #3668dd);
+  }
 
-.nav-item_active svg {
-  transform: rotate(180deg);
-}
-
-@media screen and (max-width: 1100px) {
   .nav-item_active .nav-item__list-wrapper {
     margin: 8px 0;
     max-height: 800px;
@@ -273,6 +277,15 @@
     max-width: 100%;
     grid-template-columns: repeat(3, 1fr);
  }
+ 
+ .nav-item__list_community > div a img {
+    width: 28px;
+    height: auto;
+  }
+
+  .nav-item__list_community > div a:hover img {
+    filter: brightness(0.3);
+  }
 }
 
 @media screen and (max-width: 1100px) and (min-width: 609px) {
@@ -388,6 +401,10 @@
   align-items: center;
   margin-right: 32px;
 }
+.header__balance img {
+  margin-right: 8px;
+}
+
 @media screen and (max-width: 650px) {
   .header__balance {
     margin-right: 12px;
@@ -483,15 +500,20 @@
   max-height: 70vh;
   overflow: auto;
 }
-@media screen and (min-width: 611px) {
+@media screen and (min-width: 1100px) {
   .connected-nav {
     padding: 32px;
     background: #fff;
     box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);
     position: absolute;
     right: 0;
-    top: 110px;
+    top: 90px;
     width: 296px;
+ }
+}
+@media screen and (min-width: 610px) and (max-width: 1099px) {
+  .connected-nav {
+    top: 110px;
  }
 }
 @media screen and (max-width: 1100px) {
@@ -546,7 +568,7 @@
     width: 340px;
     position: absolute;
     right: 0;
-    top: 110px;
+    top: 90px;
     padding: 24px;
     background: #fff;
     box-shadow: 0px 12px 36px rgba(47, 43, 67, 0.12);

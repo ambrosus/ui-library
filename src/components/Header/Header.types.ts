@@ -22,6 +22,7 @@ export interface LogoProps {
 }
 
 export interface AddressInfoProps {
+  accountInfoRef: any;
   address?: string;
   isOpen?: boolean;
   logout?: () => void;
@@ -30,15 +31,16 @@ export interface AddressInfoProps {
 }
 
 export interface HeaderNavProps {
+  hamburgerButtonRef: any;
+  headerInfo: any;
+  isOpen: boolean;
+  close: () => void;
   className?: string;
-  headerInfo?: any;
-  isOpen?: boolean;
-  close?: () => void;
 }
 
 export interface MobileMenuProps {
-  close?: () => void;
-  isOpen?: boolean;
+  close: () => void;
+  isOpen: boolean;
+  balance: string;
   data?: { [key: string]: any };
-  balance: any;
 }

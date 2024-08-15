@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
 import styles from '../Header.module.css';
 import { asText } from '@prismicio/client';
-import useClickOutside from '../../../hooks/useClickOutside';
 import { HeaderNavProps } from '../Header.types';
 import TailArrow from '../../Icons/TailArrow';
 import ArrowRight from '../../Icons/ArrowRight';
 import ArrowTail from '../../Icons/ArrowTail';
 
 const HeaderNav = ({
+  hamburgerButtonRef,
   close,
   headerInfo,
   className,
@@ -15,16 +16,15 @@ const HeaderNav = ({
 }: HeaderNavProps) => {
   const [activeList, setActiveList] = useState('');
 
-  const ref = useRef(null);
+  const outsideClickHandler = () => {
+    if (!isOpen) return;
 
-  useClickOutside(
-    ref,
-    () => {
-      close();
-      setActiveList('');
-    },
-    isOpen,
-  );
+    close();
+    setActiveList('');
+  };
+
+  const ref = useRef(null);
+  useOnClickOutside([ref, hamburgerButtonRef], outsideClickHandler);
 
   const handleList = (key: string) => {
     setActiveList((state) => (state === key ? '' : key));
@@ -33,7 +33,7 @@ const HeaderNav = ({
   return (
     <div
       ref={ref}
-      className={`${styles['nav-item-wrapper']} ${styles[className]}`}
+      className={`${styles['nav-item-wrapper']} ${styles[className || '']}`}
     >
       <div className={styles['connected-nav__link-arrow']}>
         <a
@@ -55,7 +55,7 @@ const HeaderNav = ({
         >
           <span
             className={styles['nav-item__label']}
-            onClick={() => handleList(asText(el.primary.navlabel))}
+            onClick={() => handleList(asText(el.primary.navlabel) || '')}
           >
             {asText(el.primary.navlabel)}
             <ArrowTail />
@@ -67,7 +67,7 @@ const HeaderNav = ({
                 ${
                   styles[
                     'nav-item__list_' +
-                      asText(el.primary.navlabel)
+                      (asText(el.primary.navlabel) || '')
                         .toLocaleLowerCase()
                         .replace(' ', '-')
                   ]
