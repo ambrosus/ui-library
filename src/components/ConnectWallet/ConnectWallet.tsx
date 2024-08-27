@@ -75,7 +75,7 @@ export function ConnectWallet({
           alt='bitget'
         />
         <div className={s['login-modal__block']}>
-          <p className={s['login-modal__title']}>Bitget</p>
+          <p className={s['login-modal__title']}>Bitget Wallet</p>
           <p className={s['login-modal__text']}>
             Connect using your Bitget wallet
           </p>
