@@ -10,7 +10,7 @@ export * from './Notification';
 export * from './Spinner';
 export * from './Tooltip';
 export * from './Textarea';
-export * from './ConnectWalletModal';
+export * from './ConnectWalletModal_old';
 export * from './ConnectWallet';
 export * from './Badge';
 export * from './Radio';

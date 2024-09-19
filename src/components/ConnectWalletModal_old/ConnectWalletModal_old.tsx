@@ -4,10 +4,10 @@ import { useRef } from 'react';
 import { Modal } from '../Modal';
 import { ConnectWalletModalProps } from './ConnectWalletModal.types';
 
-import { ConnectWallet } from '../ConnectWallet';
+import { ConnectWallet_old } from '../ConnectWallet_old';
 import PropTypes from 'prop-types';
 
-export function ConnectWalletModal({
+export function ConnectWalletModal_old({
   close,
   loginMetamask,
   loginWalletConnect,
@@ -19,12 +19,14 @@ export function ConnectWalletModal({
 
   return (
     <Modal close={close} passRef={ref}>
-      <ConnectWallet {...{ loginMetamask, loginWalletConnect, loginSafepal }} />
+      <ConnectWallet_old
+        {...{ loginMetamask, loginWalletConnect, loginSafepal }}
+      />
     </Modal>
   );
 }
 
-ConnectWalletModal.propTypes = {
+ConnectWalletModal_old.propTypes = {
   close: PropTypes.func,
   loginMetamask: PropTypes.func,
   loginWalletConnect: PropTypes.func,

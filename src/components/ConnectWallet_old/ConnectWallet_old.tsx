@@ -9,7 +9,7 @@ import walletConnectIcon from './assets/wallet-connect.svg';
 import arrowIcon from './assets/arrow.svg';
 import PropTypes from 'prop-types';
 
-export function ConnectWallet({
+export function ConnectWallet_old({
   loginMetamask,
   loginWalletConnect,
   loginSafepal,
@@ -42,7 +42,11 @@ export function ConnectWallet({
           alt='arrow'
         />
       </button>
-      <button className={s['login-modal__btn']} style={{marginTop: 16}} onClick={loginSafepal}>
+      <button
+        className={s['login-modal__btn']}
+        style={{ marginTop: 16 }}
+        onClick={loginSafepal}
+      >
         <img
           src={safepal}
           width='28'
@@ -88,7 +92,7 @@ export function ConnectWallet({
   );
 }
 
-ConnectWallet.propTypes = {
+ConnectWallet_old.propTypes = {
   loginMetamask: PropTypes.func,
   loginWalletConnect: PropTypes.func,
 };

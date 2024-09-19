@@ -11,7 +11,7 @@ import cross from './assets/cross.svg';
 import pocketIcon from './assets/pocket.svg';
 import { Button } from '../Button';
 import { HeaderProps } from './Header.types';
-import { ConnectWalletModal } from '../ConnectWalletModal/ConnectWalletModal';
+import { ConnectWalletModal_old } from '../ConnectWalletModal/ConnectWalletModal_old';
 import { MobileMenu } from './components/MobileMenu';
 import { PrismicProvider } from '@prismicio/react';
 
@@ -212,7 +212,7 @@ function HeaderBody({
       </header>
 
       {isLoginModalOpen && (
-        <ConnectWalletModal
+        <ConnectWalletModal_old
           isOpen={isLoginModalOpen}
           close={handleLoginModal}
           loginMetamask={loginMetamask}

@@ -39,7 +39,7 @@ export default [
       }),
       image(),
     ],
-    external: ['react', 'react-dom', 'process'],
+    external: ['react', 'react-dom', 'process', 'viem', 'wagmi', 'ethers'],
   },
   {
     input: 'src/index.ts',
