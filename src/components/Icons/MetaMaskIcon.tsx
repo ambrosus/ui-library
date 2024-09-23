@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MetaMaskIcon = (props: React.SVGAttributes<{}>) => {
+const MetaMaskIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width='21'

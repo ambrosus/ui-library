@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArrowTop: React.FC<React.SVGAttributes<{}>> = ({ ...props }) => {
+const ArrowTop: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width='21'

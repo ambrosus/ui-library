@@ -19,7 +19,7 @@ export function WalletModal({ closeModal }: { closeModal: () => unknown }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleBlock}>
-        <img src={Airdao.src} alt='AIRDAO logo' className={styles.logo} />
+        <img src={Airdao} alt='AIRDAO logo' className={styles.logo} />
         <h3 className={styles.title}>Connect a wallet to use AirDAO</h3>
       </div>
       <div className={styles.list}>
@@ -42,7 +42,7 @@ const Option = ({
   const { isConnecting, isReconnecting } = useAccount();
   const icon = CONNECTOR_ICONS[connector.name] ?? connector.icon;
   const isDisabled = isConnecting || isReconnecting;
-  const isWalletInstalled = connector.isPredefined;
+  const isWalletInstalled = connector?.isPredefined;
   const IsWalletConnect = connector?.name === 'WalletConnect';
 
   const handleConnect = async (connector: Connector) => {
@@ -60,18 +60,18 @@ const Option = ({
       onClick={() => handleConnect(connector)}
       className={styles.connector}
     >
-      <img src={icon.src} alt={connector.name} className={styles.walletIcon} />
+      <img src={icon} alt={connector.name} className={styles.walletIcon} />
       <div className={styles.walletInfo}>
         <h3 className={styles.title}>{connector.name}</h3>
         <span className={styles.sunTitle}>
           {!isWalletInstalled
             ? `Connect using ${!IsWalletConnect ? 'your' : ''} ${connector.name}`
-            : `${connector?.name}`}
+            : `${connector.name}`}
         </span>
       </div>
       <img
         className={styles.arrowIcon}
-        src={ArrowRightIcon.src}
+        src={ArrowRightIcon}
         alt='arrow-right'
       />
     </button>

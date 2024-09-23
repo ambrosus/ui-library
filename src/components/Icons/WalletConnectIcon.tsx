@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WalletConnectIcon = (props: React.SVGAttributes<{}>) => {
+const WalletConnectIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width='21'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TailArrow: React.FC<React.SVGAttributes<{}>> = ({ ...props }) => {
+const TailArrow: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width='20'
