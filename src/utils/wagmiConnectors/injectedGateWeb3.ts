@@ -1,8 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-
-// TODO: Import the GateWeb3 icon
-import GATEWEB3_ICON from '@/assets/wallets/gateweb3-icon.svg';
+import GATEWEB3_ICON from './walletIcons/gateweb3-icon.svg';
 
 // TODO: use deeplink
 export function injectedGateWeb3() {

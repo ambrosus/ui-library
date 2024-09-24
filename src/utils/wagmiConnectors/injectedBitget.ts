@@ -1,8 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-
-//TODO: Import the Bitget icon
-import BITGET_ICON from '@/assets/wallets/bitget-icon.svg';
+import BITGET_ICON from './walletIcons/bitget-icon.svg';
 
 //TODO: use deeplink
 export function injectedBitget() {

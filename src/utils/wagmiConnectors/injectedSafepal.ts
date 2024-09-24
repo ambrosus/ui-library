@@ -1,8 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-
-// TODO: Import the SafePal icon
-import SAFEPAL_ICON from '@/assets/wallets/safepal-icon.svg';
+import SAFEPAL_ICON from './walletIcons/safepal-icon.svg';
 
 // TODO: use deeplink
 export function injectedSafepal() {

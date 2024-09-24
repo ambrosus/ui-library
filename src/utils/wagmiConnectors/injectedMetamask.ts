@@ -1,8 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-
-// TODO: Import the MetaMask icon
-import METAMASK_ICON from '@/assets/wallets/metamask-icon.svg';
+import METAMASK_ICON from './walletIcons/metamask-icon.svg';
 
 // TODO: use deeplink
 export function injectedMetaMask() {
