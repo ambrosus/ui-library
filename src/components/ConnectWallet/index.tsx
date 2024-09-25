@@ -13,7 +13,7 @@ import WALLETCONNECT_ICON from './assets/walletconnect-icon.svg';
 import BITGET_ICON from './assets/bitget-icon.svg';
 import GATEWALLET_ICON from './assets/gateweb3-icon.svg';
 
-export function WalletModal({ closeModal }: { closeModal: () => unknown }) {
+export function WalletList({ closeModal }: { closeModal: () => unknown }) {
   const connectors = useFilteredConnectors();
 
   return (
