@@ -28,7 +28,7 @@ export const airdaoMainnet = {
 } as const satisfies Chain;
 
 export const airdaoTestnet = {
-  id: ChainId.AirdaoMainnet,
+  id: ChainId.AirdaoTestnet,
   name: 'AirDAO Testnet',
   nativeCurrency: {
     name: 'Amber',
@@ -49,7 +49,7 @@ export const airdaoTestnet = {
 } as const satisfies Chain;
 
 export const airdaoDevnet = {
-  id: ChainId.AirdaoMainnet,
+  id: ChainId.AirdaoDevnet,
   name: 'AirDAO Devnet',
   nativeCurrency: {
     name: 'Amber',

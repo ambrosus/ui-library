@@ -12,6 +12,7 @@ export * from './Tooltip';
 export * from './Textarea';
 export * from './ConnectWalletModal_old';
 export * from './ConnectWallet';
+export * from './ConnectWalletModal';
 export * from './Badge';
 export * from './Radio';
 export * from './Checkbox';

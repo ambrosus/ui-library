@@ -55,8 +55,8 @@ function HeaderBody({
   const data = usePrismicData();
 
   useEffect(() => {
-    // @ts-ignore
-    const headerOffsetTop = headerRef.current.offsetTop;
+    const headerOffsetTop =
+      (headerRef.current as HTMLElement | null)?.offsetTop || 0;
 
     const handleFixed = () => {
       if (window.scrollY >= headerOffsetTop - 20) {

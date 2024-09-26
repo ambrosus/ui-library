@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '../Modal_V2';
 import { WalletList } from '../ConnectWallet';
+import { ConnectWalletModalTypes } from './ConnectWalletModal.types';
 
-export function ConnectWalletModal() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
+export function ConnectWalletModal({
+  isOpen,
+  onClose,
+}: ConnectWalletModalTypes) {
   return (
-    <>
-      <button onClick={openModal}>Connect Wallet</button>
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <WalletList closeModal={closeModal} />
-      </Modal>
-    </>
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <WalletList onClose={onClose} />
+    </Modal>
   );
 }

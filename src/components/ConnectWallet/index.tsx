@@ -13,7 +13,7 @@ import WALLETCONNECT_ICON from './assets/walletconnect-icon.svg';
 import BITGET_ICON from './assets/bitget-icon.svg';
 import GATEWALLET_ICON from './assets/gateweb3-icon.svg';
 
-export function WalletList({ closeModal }: { closeModal: () => unknown }) {
+export function WalletList({ onClose }: { onClose: () => void }) {
   const connectors = useFilteredConnectors();
 
   return (
@@ -24,7 +24,7 @@ export function WalletList({ closeModal }: { closeModal: () => unknown }) {
       </div>
       <div className={styles.list}>
         {connectors.map((c) => (
-          <Option connector={c} key={c.uid} closeModal={closeModal} />
+          <Option connector={c} key={c.uid} onClose={onClose} />
         ))}
       </div>
     </div>
@@ -33,10 +33,10 @@ export function WalletList({ closeModal }: { closeModal: () => unknown }) {
 
 const Option = ({
   connector,
-  closeModal,
+  onClose,
 }: {
   connector: Connector;
-  closeModal: () => unknown;
+  onClose: () => void;
 }) => {
   const { connect } = useConnect();
   const { isConnecting, isReconnecting } = useAccount();
@@ -48,7 +48,7 @@ const Option = ({
   const handleConnect = async (connector: Connector) => {
     try {
       connect({ connector });
-      closeModal();
+      onClose();
     } catch (error) {
       console.error('Failed to connect:', error);
     }
