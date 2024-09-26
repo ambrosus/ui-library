@@ -1,5 +1,6 @@
 .wrapper {
     padding: 32px;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 750px) {
@@ -33,6 +34,7 @@
     line-height: 24px;
     color: #0e0e0e;
     font-size: 16px;
+    font-family: inherit;
 }
 
 .list {
@@ -90,12 +92,14 @@
     font-weight: 600;
     color: #0e0e0e;
     line-height: 20px;
+    font-family: inherit;
 }
 
 .walletInfo .sunTitle {
     font-size: 14px;
     color: #a4bbf0;
     line-height: 20px;
+    font-family: inherit;
 }
 
 .arrowIcon {

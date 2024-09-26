@@ -12,7 +12,7 @@
 }
 
 .content {
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 24px;
   position: relative;
   z-index: 1001;
