@@ -11,8 +11,8 @@ import cross from './assets/cross.svg';
 import pocketIcon from './assets/pocket.svg';
 import { Button } from '../Button';
 import { HeaderProps } from './Header.types';
-// import { ConnectWalletModal_old } from '../ConnectWalletModal/ConnectWalletModal_old';
-import { ConnectWalletModal_old } from '../ConnectWalletModal_old';
+// import { ConnectWalletModal_old } from '../ConnectWalletModal_old';
+import { ConnectWalletModal } from '../ConnectWalletModal';
 import { MobileMenu } from './components/MobileMenu';
 import { PrismicProvider } from '@prismicio/react';
 
@@ -29,9 +29,10 @@ function HeaderBody({
   disconnect,
   account,
   balance,
-  loginMetamask,
-  loginSafepal,
-  loginWalletConnect,
+  // loginMetamask,
+  // loginSafepal,
+  // loginWalletConnect,
+  connectors,
   isSupportedChain,
   switchToAmb,
   connector = 'metamask',
@@ -212,13 +213,21 @@ function HeaderBody({
         )}
       </header>
 
+      {/*{isLoginModalOpen && (*/}
+      {/*  <ConnectWalletModal_old*/}
+      {/*    isOpen={isLoginModalOpen}*/}
+      {/*    close={handleLoginModal}*/}
+      {/*    loginMetamask={loginMetamask}*/}
+      {/*    loginSafepal={loginSafepal}*/}
+      {/*    loginWalletConnect={loginWalletConnect}*/}
+      {/*  />*/}
+      {/*)}*/}
+
       {isLoginModalOpen && (
-        <ConnectWalletModal_old
+        <ConnectWalletModal
           isOpen={isLoginModalOpen}
-          close={handleLoginModal}
-          loginMetamask={loginMetamask}
-          loginSafepal={loginSafepal}
-          loginWalletConnect={loginWalletConnect}
+          onClose={handleLoginModal}
+          connectors={connectors}
         />
       )}
     </>

@@ -46,7 +46,7 @@ const Modal = ({ children, onClose, isOpen }: ModalProps) => {
     <div className={styles.overlay} role='dialog' aria-modal='true'>
       <div className={styles.content} ref={modalRef}>
         <span className={styles.close} onClick={onClose}>
-          <img src={Close} alt='close icon' />
+          <Close />
         </span>
         {children}
       </div>
