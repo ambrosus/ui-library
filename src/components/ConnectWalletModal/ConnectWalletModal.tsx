@@ -6,10 +6,11 @@ import { ConnectWalletModalTypes } from './ConnectWalletModal.types';
 export function ConnectWalletModal({
   isOpen,
   onClose,
+  connectors,
 }: ConnectWalletModalTypes) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <WalletList onClose={onClose} />
+      <WalletList onClose={onClose} connectors={connectors} />
     </Modal>
   );
 }

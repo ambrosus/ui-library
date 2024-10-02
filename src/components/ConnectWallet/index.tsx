@@ -1,10 +1,11 @@
 import React from 'react';
-import { useFilteredConnectors } from '../../hooks/useFilteredConnectors';
+import { Connector, useAccount, useConnect } from 'wagmi';
+import { WalletListProps } from './WalletList.types';
+// import { useFilteredConnectors } from '../../hooks/useFilteredConnectors';
 import styles from './connect-wallet.module.css';
 import Airdao from '@/assets/svg/airdao.svg';
-
-import { Connector, useAccount, useConnect } from 'wagmi';
 import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
+
 import { CONNECTOR_NAME } from '../../constants';
 
 import METAMASK_ICON from './assets/metamask-icon.svg';
@@ -13,8 +14,8 @@ import WALLETCONNECT_ICON from './assets/walletconnect-icon.svg';
 import BITGET_ICON from './assets/bitget-icon.svg';
 import GATEWALLET_ICON from './assets/gateweb3-icon.svg';
 
-export function WalletList({ onClose }: { onClose: () => void }) {
-  const connectors = useFilteredConnectors();
+export function WalletList({ connectors, onClose }: WalletListProps) {
+  // const connectors = useFilteredConnectors();
 
   return (
     <div className={styles.wrapper}>
