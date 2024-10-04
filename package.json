@@ -1,8 +1,7 @@
 {
   "name": "@kishkoigor/ui-library",
-  "version": "2.0.2",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.mjs",
+  "version": "2.0.8",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
