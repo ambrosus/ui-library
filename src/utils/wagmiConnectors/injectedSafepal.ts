@@ -1,6 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import SAFEPAL_ICON from './walletIcons/safepal-icon.svg';
+// import SAFEPAL_ICON from './walletIcons/safepal-icon.svg';
 
 // TODO: use deeplink
 export function injectedSafepal() {
@@ -14,7 +14,7 @@ export function injectedSafepal() {
         return Promise.reject('SafePal is not detected');
       },
       get icon() {
-        return SAFEPAL_ICON;
+        return '';
       },
       get name() {
         return 'SafePal';

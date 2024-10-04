@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
-import Close from './assets/close-icon.svg';
+// import Close from './assets/close-icon.svg';
 import { ModalProps } from './Modal.types';
 
+// TODO: uncomment icon
 const Modal = ({ children, onClose, isOpen }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,7 +47,7 @@ const Modal = ({ children, onClose, isOpen }: ModalProps) => {
     <div className={styles.overlay} role='dialog' aria-modal='true'>
       <div className={styles.content} ref={modalRef}>
         <span className={styles.close} onClick={onClose}>
-          <Close />
+          {/*<Close />*/}
         </span>
         {children}
       </div>

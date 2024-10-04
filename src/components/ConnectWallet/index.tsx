@@ -4,7 +4,7 @@ import { WalletListProps } from './WalletList.types';
 // import { useFilteredConnectors } from '../../hooks/useFilteredConnectors';
 import styles from './connect-wallet.module.css';
 // import Airdao from '@/assets/svg/airdao.svg';
-// import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
+import ArrowRightIcon from './assets/metamask-icon.svg';
 
 // import { CONNECTOR_NAME } from '../../constants';
 //
@@ -72,7 +72,7 @@ const Option = ({
       </div>
       <img
         className={styles.arrowIcon}
-        // src={ArrowRightIcon}
+        src={ArrowRightIcon}
         alt='arrow-right'
       />
     </button>

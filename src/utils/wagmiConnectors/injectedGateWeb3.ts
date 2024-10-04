@@ -1,6 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import GATEWEB3_ICON from './walletIcons/gateweb3-icon.svg';
+// import GATEWEB3_ICON from './walletIcons/gateweb3-icon.svg';
 
 // TODO: use deeplink
 export function injectedGateWeb3() {
@@ -14,7 +14,7 @@ export function injectedGateWeb3() {
         return Promise.reject('GateWallet is not detected');
       },
       get icon() {
-        return GATEWEB3_ICON;
+        return '';
       },
       get name() {
         return 'GateWallet';

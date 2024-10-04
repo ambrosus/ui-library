@@ -1,6 +1,6 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import BITGET_ICON from './walletIcons/bitget-icon.svg';
+// import BITGET_ICON from './walletIcons/bitget-icon.svg';
 
 //TODO: use deeplink
 export function injectedBitget() {
@@ -14,7 +14,7 @@ export function injectedBitget() {
         return Promise.reject('Bitget is not detected');
       },
       get icon() {
-        return BITGET_ICON;
+        return '';
       },
       get name() {
         return 'Bitget Wallet';
