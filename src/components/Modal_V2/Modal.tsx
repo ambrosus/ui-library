@@ -4,6 +4,7 @@ import styles from './Modal.module.css';
 // import Close from './assets/close-icon.svg';
 import { ModalProps } from './Modal.types';
 
+// TODO: uncomment icon
 const Modal = ({ children, onClose, isOpen }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
