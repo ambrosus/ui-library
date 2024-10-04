@@ -1,10 +1,9 @@
 import React from 'react';
 import { Connector, useAccount, useConnect } from 'wagmi';
 import { WalletListProps } from './WalletList.types';
-// import { useFilteredConnectors } from '../../hooks/useFilteredConnectors';
 import styles from './connect-wallet.module.css';
-// import Airdao from '@/assets/svg/airdao.svg';
-// import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
+import Airdao from '@/assets/svg/airdao.svg';
+import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
 
 import { CONNECTOR_NAME } from '../../constants';
 
@@ -15,12 +14,10 @@ import BITGET_ICON from './assets/bitget-icon.svg';
 import GATEWALLET_ICON from './assets/gateweb3-icon.svg';
 
 export function WalletList({ connectors, onClose }: WalletListProps) {
-  // const connectors = useFilteredConnectors();
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleBlock}>
-        {/*<img src={Airdao} alt='AIRDAO logo' className={styles.logo} />*/}
+        <img src={Airdao} alt='AIRDAO logo' className={styles.logo} />
         <h3 className={styles.title}>Connect a wallet to use AirDAO</h3>
       </div>
       <div className={styles.list}>
@@ -72,7 +69,7 @@ const Option = ({
       </div>
       <img
         className={styles.arrowIcon}
-        // src={ArrowRightIcon}
+        src={ArrowRightIcon}
         alt='arrow-right'
       />
     </button>
@@ -80,9 +77,9 @@ const Option = ({
 };
 
 export const CONNECTOR_ICONS: { [key: string]: string } = {
-  [CONNECTOR_NAME.WalletConnect]: WALLETCONNECT_ICON,
-  [CONNECTOR_NAME.MetaMask]: METAMASK_ICON,
-  [CONNECTOR_NAME.SafePal]: SAFEPAL_ICON,
-  [CONNECTOR_NAME.Bitget]: BITGET_ICON,
-  [CONNECTOR_NAME.GateWallet]: GATEWALLET_ICON,
+  [CONNECTOR_NAME.WalletConnect]: WALLETCONNECT_ICON as string,
+  [CONNECTOR_NAME.MetaMask]: METAMASK_ICON as string,
+  [CONNECTOR_NAME.SafePal]: SAFEPAL_ICON as string,
+  [CONNECTOR_NAME.Bitget]: BITGET_ICON as string,
+  [CONNECTOR_NAME.GateWallet]: GATEWALLET_ICON as string,
 };
