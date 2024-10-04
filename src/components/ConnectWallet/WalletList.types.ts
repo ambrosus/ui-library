@@ -1,4 +1,6 @@
+import { Connector } from 'wagmi';
+
 export interface WalletListProps {
   onClose: () => void;
-  connectors: object;
+  connectors: Connector[];
 }

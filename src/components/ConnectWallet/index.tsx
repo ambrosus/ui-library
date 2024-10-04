@@ -3,8 +3,8 @@ import { Connector, useAccount, useConnect } from 'wagmi';
 import { WalletListProps } from './WalletList.types';
 // import { useFilteredConnectors } from '../../hooks/useFilteredConnectors';
 import styles from './connect-wallet.module.css';
-import Airdao from '@/assets/svg/airdao.svg';
-import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
+// import Airdao from '@/assets/svg/airdao.svg';
+// import ArrowRightIcon from '@/assets/svg/arrow-right.svg';
 
 import { CONNECTOR_NAME } from '../../constants';
 
@@ -20,7 +20,7 @@ export function WalletList({ connectors, onClose }: WalletListProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleBlock}>
-        <img src={Airdao} alt='AIRDAO logo' className={styles.logo} />
+        {/*<img src={Airdao} alt='AIRDAO logo' className={styles.logo} />*/}
         <h3 className={styles.title}>Connect a wallet to use AirDAO</h3>
       </div>
       <div className={styles.list}>
@@ -72,7 +72,7 @@ const Option = ({
       </div>
       <img
         className={styles.arrowIcon}
-        src={ArrowRightIcon}
+        // src={ArrowRightIcon}
         alt='arrow-right'
       />
     </button>
