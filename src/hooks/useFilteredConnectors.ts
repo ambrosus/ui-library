@@ -40,13 +40,6 @@ export function useFilteredConnectors() {
 
     const orderedConnectors = findAndFilterConnectors(connectors, searchParams);
 
-    // const walletConnectConnector = orderedConnectors.find((c) =>
-    //   c.name.includes(CONNECTOR_NAME.WalletConnect),
-    // );
-    // const metaMaskConnector = orderedConnectors.find((c) =>
-    //   c.name.includes(CONNECTOR_NAME.MetaMask),
-    // );
-
     if (isMobile) {
       return connectors.filter(
         (c) =>
