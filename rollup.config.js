@@ -19,7 +19,7 @@ export default [
         sourcemap: true,
       },
       {
-        file: packageJson.exports['.'].require,
+        file: packageJson.exports['.']['import'],
         format: 'esm',
         sourcemap: true,
       },
