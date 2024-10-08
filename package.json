@@ -1,6 +1,6 @@
 {
   "name": "@kishkoigor/ui-library",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "exports": {
     ".": {
       "import": "./dist/esm/index.mjs",
@@ -10,7 +10,8 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs"
+    "build": "rollup -c --bundleConfigAsCjs",
+    "watch": "rollup -c --bundleConfigAsCjs -w & chokidar 'dist/**/*' -c 'yalc publish --push'"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
