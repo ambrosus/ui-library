@@ -1,3 +1,5 @@
+import { Connector } from 'wagmi';
+
 export interface HeaderProps {
   loginMetamask: () => void;
   loginSafepal: () => void;
@@ -10,6 +12,7 @@ export interface HeaderProps {
   connector: 'metamask' | 'walletconnect';
   disabled?: boolean;
   logotype?: LogoProps;
+  connectors: Connector[];
 }
 
 export interface LogoProps {
