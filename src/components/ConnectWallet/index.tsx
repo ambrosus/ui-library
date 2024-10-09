@@ -17,9 +17,7 @@ export function WalletList({ connectors, onClose }: WalletListProps) {
     <div className={styles.wrapper}>
       <div className={styles.titleBlock}>
         <img src={Airdao} alt='AIRDAO logo' className={styles.logo} />
-        <h3 className={styles.title}>
-          Connect a wallet to use AirDAO TEST v13
-        </h3>
+        <h3 className={styles.title}>Connect a wallet to use AirDAO</h3>
       </div>
       <div className={styles.list}>
         {connectors.map((c) => (

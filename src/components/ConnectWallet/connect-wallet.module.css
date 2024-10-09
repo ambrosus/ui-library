@@ -45,9 +45,8 @@
 
 @media screen and (max-width: 750px), screen and (max-height: 750px) {
     .list {
-        padding-bottom: 24px;
-        overflow-y: auto;
-        max-height: 400px;
+        overflow-y: scroll;
+        max-height: calc(90vh - 250px);
         -ms-overflow-style: none;
         scrollbar-width: none;
     }

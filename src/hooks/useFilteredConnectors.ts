@@ -41,7 +41,7 @@ export function useFilteredConnectors() {
     const orderedConnectors = findAndFilterConnectors(connectors, searchParams);
 
     if (isMobile) {
-      return connectors.filter(
+      return orderedConnectors.filter(
         (c) =>
           c.name.includes(CONNECTOR_NAME.MetaMask) ||
           c.name.includes(CONNECTOR_NAME.WalletConnect),
