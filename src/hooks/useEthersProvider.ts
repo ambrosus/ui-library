@@ -12,11 +12,14 @@ export function clientToSigner(client: Client<Transport, Chain, Account>) {
   };
   const provider = new providers.Web3Provider(transport, network);
   const signer = provider.getSigner(account.address);
-  return signer;
+  return { provider, signer };
 }
 
 /** Hook to convert a Viem Client to an ethers.js Signer. */
-export function useEthersSigner({ chainId }: { chainId?: number } = {}) {
+export function useEthersAdapter({ chainId }: { chainId?: number } = {}) {
   const { data: client } = useConnectorClient<Config>({ chainId });
-  return useMemo(() => (client ? clientToSigner(client) : undefined), [client]);
+  return useMemo(
+    () => (client ? clientToSigner(client) : { provider: null, signer: null }),
+    [client],
+  );
 }
