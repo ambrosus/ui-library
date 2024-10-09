@@ -4,14 +4,27 @@ import { ModalProps } from './Modal.types';
 import styles from './Modal.module.css';
 import Close from './assets/close-icon.svg';
 
-const Modal = ({ children, onClose, isOpen }: ModalProps) => {
+const Modal = ({
+  children,
+  onClose,
+  isOpen,
+  modalRootId = 'connect-wallet-modal',
+}: ModalProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   const modalRoot = useMemo(() => {
-    return (
-      typeof window !== 'undefined' && document.getElementById('modal-root')
-    );
-  }, []);
+    const root =
+      typeof window !== 'undefined' && document.getElementById(modalRootId);
+
+    if (!root) {
+      const modalRoot = document.createElement('div');
+      modalRoot.id = modalRootId;
+      document.body.appendChild(modalRoot);
+      return modalRoot;
+    }
+
+    return root;
+  }, [modalRootId]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
