@@ -8,7 +8,7 @@ const Modal = ({
   children,
   onClose,
   isOpen,
-  modalRootId = 'connect-wallet-modal',
+  modalRootId = 'modal-root',
 }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
 
