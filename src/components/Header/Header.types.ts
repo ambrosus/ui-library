@@ -3,13 +3,14 @@ import { Connector } from 'wagmi';
 export interface HeaderProps {
   loginMetamask: () => void;
   loginSafepal: () => void;
+  loginBitget: () => void;
   loginWalletConnect: () => void;
   disconnect: () => void;
   account: string;
   balance: string;
   isSupportedChain: boolean;
   switchToAmb: () => void;
-  connector: 'metamask' | 'walletconnect';
+  connector: any;
   disabled?: boolean;
   logotype?: LogoProps;
   connectors: Connector[];
@@ -24,6 +25,7 @@ export interface LogoProps {
 }
 
 export interface AddressInfoProps {
+  accountInfoRef: any;
   address?: string;
   isOpen?: boolean;
   logout?: () => void;
@@ -32,13 +34,16 @@ export interface AddressInfoProps {
 }
 
 export interface HeaderNavProps {
+  hamburgerButtonRef: any;
+  headerInfo: any;
+  isOpen: boolean;
+  close: () => void;
   className?: string;
-  data?: [any];
 }
 
 export interface MobileMenuProps {
-  close?: () => void;
-  isOpen?: boolean;
+  close: () => void;
+  isOpen: boolean;
+  balance: string;
   data?: { [key: string]: any };
-  balance: any;
 }
