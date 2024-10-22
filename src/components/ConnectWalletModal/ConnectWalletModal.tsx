@@ -18,7 +18,7 @@ export function ConnectWalletModal({
 }
 
 ConnectWalletModal.propTypes = {
-  close: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  connectors: PropTypes.array.isRequired
+  connectors: PropTypes.array.isRequired,
 };

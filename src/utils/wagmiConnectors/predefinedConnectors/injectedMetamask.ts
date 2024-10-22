@@ -1,23 +1,24 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-// import SAFEPAL_ICON from './walletIcons/safepal-icon.svg';
+import { CONNECTOR_NAME } from '../names';
+import { CONNECTOR_ICONS } from '../icons';
 
 // TODO: use deeplink
-export function injectedSafepal() {
+export function injectedMetaMask() {
   return createConnector((config) => {
     const injectedConnector = injected()(config);
 
     return {
       ...injectedConnector,
       connect() {
-        window.open('https://www.safepal.com/download?product=2');
-        return Promise.reject('SafePal is not detected');
+        window.open('https://metamask.io/');
+        return Promise.reject('MetaMask is not detected');
       },
       get icon() {
-        return '';
+        return CONNECTOR_ICONS[CONNECTOR_NAME.MetaMask];
       },
       get name() {
-        return 'SafePal';
+        return CONNECTOR_NAME.MetaMask;
       },
       get predefined() {
         return true;

@@ -1,23 +1,24 @@
 import { createConnector } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-// import GATEWEB3_ICON from './walletIcons/gateweb3-icon.svg';
+import { CONNECTOR_NAME } from '../names';
+import { CONNECTOR_ICONS } from '../icons';
 
 // TODO: use deeplink
-export function injectedGateWeb3() {
+export function injectedSafepal() {
   return createConnector((config) => {
     const injectedConnector = injected()(config);
 
     return {
       ...injectedConnector,
       connect() {
-        window.open('https://www.gate.io/web3');
-        return Promise.reject('GateWallet is not detected');
+        window.open('https://www.safepal.com/download?product=2');
+        return Promise.reject('SafePal is not detected');
       },
       get icon() {
-        return '';
+        return CONNECTOR_ICONS[CONNECTOR_NAME.SafePal];
       },
       get name() {
-        return 'GateWallet';
+        return CONNECTOR_NAME.SafePal;
       },
       get predefined() {
         return true;

@@ -5,7 +5,6 @@ import { ConnectWalletProps } from './ConnectWallet.types';
 import airdaoIcon from './assets/airdao-icon.svg';
 import metamaskIcon from './assets/metamask.svg';
 import safepal from './assets/safepal.svg';
-import bitget from './assets/bitget.png';
 import walletConnectIcon from './assets/wallet-connect.svg';
 import arrowIcon from './assets/arrow.svg';
 import PropTypes from 'prop-types';
@@ -70,9 +69,14 @@ export function ConnectWallet_old({
           alt='arrow'
         />
       </button>
-      <button className={s['login-modal__btn']} style={{marginTop: 16}} onClick={loginBitget}>
+      <button
+        className={s['login-modal__btn']}
+        style={{ marginTop: 16 }}
+        onClick={loginBitget}
+      >
         <img
-          src={bitget}
+          // src={bitget}
+          src={metamaskIcon}
           width='28'
           height='25'
           className={s['login-modal__img']}

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Connector, useConnect } from 'wagmi';
 import useIsMobilePlatform from './useIsMobilePlatform';
-import { CONNECTOR_NAME } from '../constants';
+import { CONNECTOR_NAME, overrideIconInConnector } from '../utils';
 
 function findAndFilterConnectors(
   connectors: readonly Connector[],
@@ -18,7 +18,7 @@ function findAndFilterConnectors(
       matchingConnectors.find((c) => !c.predefined) || matchingConnectors[0];
 
     if (connector) {
-      filteredConnectors.push(connector);
+      filteredConnectors.push(overrideIconInConnector(connector));
     }
   });
 

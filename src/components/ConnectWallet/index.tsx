@@ -5,13 +5,6 @@ import styles from './connect-wallet.module.css';
 import Airdao from './assets/airdao.svg';
 import ArrowRightIcon from './assets/arrow-right.svg';
 
-import { CONNECTOR_NAME } from '../../constants';
-import METAMASK_ICON from './assets/metamask-icon.svg';
-import SAFEPAL_ICON from './assets/safepal-icon.svg';
-import WALLETCONNECT_ICON from './assets/walletconnect-icon.svg';
-import BITGET_ICON from './assets/bitget-icon.svg';
-import GATEWALLET_ICON from './assets/gateweb3-icon.svg';
-
 export function WalletList({ connectors, onClose }: WalletListProps) {
   return (
     <div className={styles.wrapper}>
@@ -39,7 +32,7 @@ const Option = ({
 }) => {
   const { connect } = useConnect();
   const { isConnecting, isReconnecting } = useAccount();
-  const icon = CONNECTOR_ICONS[connector.name] ?? connector.icon;
+  const icon = connector.icon;
   const isDisabled = isConnecting || isReconnecting;
   const isWalletInstalled = connector?.isPredefined;
   const IsWalletConnect = connector?.name === 'WalletConnect';
@@ -75,12 +68,4 @@ const Option = ({
       />
     </button>
   );
-};
-
-export const CONNECTOR_ICONS: { [key: string]: string } = {
-  [CONNECTOR_NAME.WalletConnect]: WALLETCONNECT_ICON,
-  [CONNECTOR_NAME.MetaMask]: METAMASK_ICON,
-  [CONNECTOR_NAME.SafePal]: SAFEPAL_ICON,
-  [CONNECTOR_NAME.Bitget]: BITGET_ICON,
-  [CONNECTOR_NAME.GateWallet]: GATEWALLET_ICON,
 };

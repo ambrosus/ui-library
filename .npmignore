@@ -2,3 +2,8 @@
 rollup.config.js
 tsconfig.json
 .idea
+.github
+.gitignore
+.prettierrc.json
+.eslintrc.json
+.env

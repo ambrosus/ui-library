@@ -1,10 +1,10 @@
 import { allNetworks } from '../constants';
 import { Config, createConfig, http } from 'wagmi';
 import { createClient } from 'viem';
-import { injectedMetaMask } from './wagmiConnectors/injectedMetamask';
-import { injectedGateWeb3 } from './wagmiConnectors/injectedGateWeb3';
-import { injectedSafepal } from './wagmiConnectors/injectedSafepal';
-import { injectedBitget } from './wagmiConnectors/injectedBitget';
+import { injectedMetaMask } from './wagmiConnectors/predefinedConnectors/injectedMetamask';
+import { injectedGateWeb3 } from './wagmiConnectors/predefinedConnectors/injectedGateWeb3';
+import { injectedSafepal } from './wagmiConnectors/predefinedConnectors/injectedSafepal';
+import { injectedBitget } from './wagmiConnectors/predefinedConnectors/injectedBitget';
 import { walletConnect, WalletConnectParameters } from 'wagmi/connectors';
 
 export function createAirdaoConfig(
