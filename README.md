@@ -31,6 +31,7 @@ const WC_PARAMS = {
     name: "Project name",
     description: "Project description",
     url: "project url",
+    icons: ["https://airdao.io/favicon.svg"]
   },
 };
 
@@ -134,3 +135,53 @@ function Layout() {
 ```
 #### After
 ```jsx
+import { Header } from "@airdao/ui-library";
+
+const { REACT_APP_CHAIN_ID: chainId } = process.env;
+
+function Layout() {
+  return (
+    <main>
+      <Header
+        chainId={+chainId} //number
+      />
+      ...
+    </main>
+  )
+```
+
+Note: Despite that new version of Header implements all the necessary logic under the hood, you can override it passing additional props to it.
+Here is the list of props that you can pass to Header:
+```jsx
+export interface HeaderProps {
+  disabled?: boolean;
+  logotype?: LogoProps;
+  chainId: number;
+  balance?: string; 
+  isSupportedChain?: boolean; 
+  connectors?: Connector[]; // list of connectors to use in ConnectWalletModal
+  currentConnector?: Connector;
+  disconnect?: () => void;
+  switchToAmb?: () => void;
+}
+```
+
+For more info check ./src/components/Header/Header.types.ts
+
+### Replace old 'airdao-components-and-tools' utils
+
+#### Before
+
+```jsx
+import { switchToAmb } from "airdao-components-and-tools/utils";
+switchToAmb(chainId);
+```
+
+#### After
+
+```jsx
+import { useSwitchToConfiguredChain } from "@airdao/ui-library";
+
+const switchToAmb = useSwitchToConfiguredChain();
+switchToAmb();
+```

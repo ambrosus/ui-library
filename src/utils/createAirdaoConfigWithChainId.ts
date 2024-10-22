@@ -8,9 +8,13 @@ import { injectedGateWeb3 } from './wagmiConnectors/predefinedConnectors/injecte
 import { createClient } from 'viem';
 
 export function createAirdaoConfigWithChainId(
-  chainId: ChainIdValues,
+  chainId: number,
   walletconnectConfig: WalletConnectParameters,
 ): Config {
+  if (!networkById[chainId as ChainIdValues]) {
+    throw new Error(`There's no AirDAO network with chainId ${chainId}`);
+  }
+
   return createConfig({
     chains: [networkById[chainId]],
     multiInjectedProviderDiscovery: true,
