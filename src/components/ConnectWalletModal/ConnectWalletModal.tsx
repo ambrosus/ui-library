@@ -11,7 +11,11 @@ export function ConnectWalletModal({
   connectors,
 }: ConnectWalletModalTypes) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      modalRootId={'connect-wallet-modal'}
+    >
       <WalletList onClose={onClose} connectors={connectors} />
     </Modal>
   );
