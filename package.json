@@ -5,7 +5,8 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types.d.ts"
     },
     "./package.json": "./package.json"
   },
