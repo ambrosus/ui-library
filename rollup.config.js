@@ -35,7 +35,14 @@ export default [
       typescript({ tsconfig: './tsconfig.json' }),
       terser({ keep_fnames: true }),
       postcss({
+        exclude: ['src/components/Header/*', 'src/components/ConnectWallet/*'],
         modules: true,
+      }),
+      postcss({
+        include: ['src/components/Header/*', 'src/components/ConnectWallet/*'],
+        modules: {
+          generateScopedName: 'airdao___[folder]__[local]',
+        },
       }),
       image(),
     ],
