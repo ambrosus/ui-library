@@ -34,6 +34,7 @@
     color: #0e0e0e;
     font-size: 16px;
     font-family: inherit;
+    margin: 0;
 }
 
 .list {
@@ -66,6 +67,7 @@
     border-radius: 16px;
     box-shadow: 0 16px 32px rgba(105, 142, 226, .2);
     cursor: pointer;
+    border: 0;
 }
 
 @media screen and (max-width: 750px), screen and (max-height: 750px) {
