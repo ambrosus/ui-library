@@ -1,16 +1,26 @@
+import { Connector } from 'wagmi';
+
 export interface HeaderProps {
-  loginMetamask: () => void;
-  loginSafepal: () => void;
-  loginBitget: () => void;
-  loginWalletConnect: () => void;
-  disconnect: () => void;
-  account: string;
-  balance: string;
-  isSupportedChain: boolean;
-  switchToAmb: () => void;
-  connector: any;
   disabled?: boolean;
   logotype?: LogoProps;
+  chainId: number;
+  balance?: string;
+  isSupportedChain?: boolean;
+  connectors?: Connector[];
+  currentConnector?: Connector;
+  disconnect?: () => void;
+  switchToAmb?: () => void;
+}
+
+export interface HeaderBodyProps extends Omit<HeaderProps, 'chainId'> {
+  // wallet managing related props below
+  account: string | undefined;
+  balance: string;
+  isSupportedChain: boolean;
+  connectors: Connector[];
+  currentConnector?: Connector;
+  disconnect: () => void;
+  switchToAmb?: () => void;
 }
 
 export interface LogoProps {

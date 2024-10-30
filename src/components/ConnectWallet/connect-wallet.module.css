@@ -1,56 +1,109 @@
-.login-modal {
+.wrapper {
+    padding: 32px;
+}
+
+@media screen and (max-width: 750px) {
+    .wrapper {
+        padding: 16px;
+    }
+}
+
+.titleBlock {
+    margin-top: 48px;
     display: flex;
     flex-direction: column;
+    gap: 24px;
     align-items: center;
-    padding-top: 48px;
-    width: 407px;
-    max-width: calc(100vw - 80px);
+    justify-content: center;
 }
 
-.login-modal__subtitle {
+@media screen and (max-width: 750px) {
+    .titleBlock {
+        margin-top: 24px;
+    }
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+}
+
+.title {
     font-weight: 600;
     line-height: 24px;
-    margin: 24px 0;
-    color: #0E0E0E;
+    color: #0e0e0e;
+    font-size: 16px;
+    font-family: inherit;
+    margin: 0;
 }
 
-.login-modal__btn {
+.list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+@media screen and (max-width: 750px), screen and (max-height: 750px) {
+    .list {
+        overflow-y: scroll;
+        max-height: calc(90vh - 250px);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .list::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.connector {
     display: flex;
     align-items: center;
+    gap: 16px;
     width: 100%;
-    background: #FFFFFF;
+    background-color: #ffffff;
     padding: 16px;
-    box-shadow: 0px 16px 32px rgba(105, 142, 226, 0.2);
     border-radius: 16px;
-
-    border: none;
+    box-shadow: 0 16px 32px rgba(105, 142, 226, .2);
+    cursor: pointer;
+    border: 0;
 }
 
-.login-modal__btn:last-child {
-    margin-top: 16px;
+@media screen and (max-width: 750px), screen and (max-height: 750px) {
+    .connector {
+        box-shadow: unset;
+        border: 1px solid rgba(105, 142, 226, .2);
+    }
 }
 
-.login-modal__img {
-    margin-right: 16px;
+.walletIcon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 25px;
 }
 
-.login-modal__block {
+.walletInfo {
     text-align: left;
+}
+
+.walletInfo .title {
     font-size: 14px;
-    line-height: 20px;
-}
-
-.login-modal__title {
     font-weight: 600;
-    color: #0E0E0E;
-    margin: 0;
+    color: #0e0e0e;
+    line-height: 20px;
+    font-family: inherit;
 }
 
-.login-modal__text {
-    color: #A4BBF0;
-    margin: 0;
+.walletInfo .sunTitle {
+    font-size: 14px;
+    color: #a4bbf0;
+    line-height: 20px;
+    font-family: inherit;
 }
 
-.login-modal__arrow {
+.arrowIcon {
     margin-left: auto;
+    width: 16px;
+    height: 16px;
 }

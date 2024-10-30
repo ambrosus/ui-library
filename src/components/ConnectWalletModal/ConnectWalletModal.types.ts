@@ -1,8 +1,7 @@
-export interface ConnectWalletModalProps {
-  close: () => void;
-  loginMetamask?: () => void;
-  loginSafepal?: () => void;
-  loginBitget?: () => void;
-  loginWalletConnect?: () => void;
-  isOpen: boolean;
+import { Connector } from 'wagmi';
+
+export interface ConnectWalletModalTypes {
+  onClose: () => void;
+  isOpen?: boolean;
+  connectors: Connector[];
 }

@@ -14,12 +14,12 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: packageJson.main,
+        file: packageJson.exports['.'].require,
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: packageJson.module,
+        file: packageJson.exports['.']['import'],
         format: 'esm',
         sourcemap: true,
       },
@@ -35,11 +35,18 @@ export default [
       typescript({ tsconfig: './tsconfig.json' }),
       terser({ keep_fnames: true }),
       postcss({
+        exclude: ['src/components/Header/*', 'src/components/ConnectWallet/*'],
         modules: true,
+      }),
+      postcss({
+        include: ['src/components/Header/*', 'src/components/ConnectWallet/*'],
+        modules: {
+          generateScopedName: 'airdao___[folder]__[local]',
+        },
       }),
       image(),
     ],
-    external: ['react', 'react-dom', 'process'],
+    external: ['react', 'react-dom', 'process', 'viem', 'wagmi', 'ethers'],
   },
   {
     input: 'src/index.ts',

@@ -1,0 +1,51 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.content {
+  background-color: white;
+  border-radius: 24px;
+  position: relative;
+  z-index: 1001;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+}
+
+@media screen and (max-height: 750px) {
+  .content {
+    height: 90vh;
+    overflow-y: hidden;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .content {
+    max-width: unset;
+    width: 90%;
+    height: 90vh;
+    overflow-y: hidden;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.close:hover {
+  opacity: 0.75;
+}

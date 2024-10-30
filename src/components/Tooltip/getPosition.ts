@@ -2,6 +2,7 @@
  * Calculate the position of tooltip
  *
  */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 export default function (target, node, place, desiredPlace, offset) {
   const { width: tipWidth, height: tipHeight } = getDimensions(node);

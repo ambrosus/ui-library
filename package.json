@@ -1,11 +1,18 @@
 {
   "name": "@airdao/ui-library",
-  "version": "1.7.6",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types.d.ts",
+  "version": "2.0.0",
+  "types": "./dist/types.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs"
+    "build": "rollup -c --bundleConfigAsCjs",
+    "watch": "rollup -c --bundleConfigAsCjs -w & chokidar 'dist/**/*' -c 'yalc publish --push'"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -16,8 +23,10 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^20.6.2",
     "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
@@ -34,10 +43,13 @@
     "tslib": "^2.6.2",
     "typescript": "^5.4.3",
     "usehooks-ts": "^3.1.0"
-
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "ethers": "^5.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18",
+    "viem": "^2.21.15",
+    "wagmi": "^2.12.16"
   },
   "dependencies": {
     "@prismicio/client": "^7.1.1",
