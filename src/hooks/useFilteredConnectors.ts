@@ -1,28 +1,31 @@
 import { useMemo } from 'react';
 import { Connector, useConnect } from 'wagmi';
 import useIsMobilePlatform from './useIsMobilePlatform';
-import { CONNECTOR_NAME, overrideIconInConnector } from '../utils';
+import {
+  CONNECTOR_NAME_LIST,
+  MOBILE_CONNECTOR_NAME_LIST,
+  overrideIconInConnector,
+  mockedConnectorsByName,
+} from '../utils';
 
-function findAndFilterConnectors(
+function getConnectorByName(
   connectors: readonly Connector[],
-  searchParams: { name: string }[],
-) {
-  const filteredConnectors: Connector[] = [];
+  name: string,
+): Connector | undefined {
+  return connectors.find((connector) => connector.name === name);
+}
 
-  searchParams.forEach((searchParam) => {
-    const matchingConnectors = connectors.filter((connector) =>
-      connector.name.includes(searchParam.name),
-    );
+function mergeConnectors(
+  detectedConnectors: readonly Connector[],
+  desiredConnectorNames: string[],
+): Connector[] {
+  return desiredConnectorNames.map((name) => {
+    const connector = getConnectorByName(detectedConnectors, name);
 
-    const connector =
-      matchingConnectors.find((c) => !c.predefined) || matchingConnectors[0];
-
-    if (connector) {
-      filteredConnectors.push(overrideIconInConnector(connector));
-    }
+    return connector
+      ? overrideIconInConnector(connector)
+      : mockedConnectorsByName[name];
   });
-
-  return filteredConnectors;
 }
 
 export function useFilteredConnectors() {
@@ -30,24 +33,10 @@ export function useFilteredConnectors() {
   const { isMobile } = useIsMobilePlatform();
 
   return useMemo(() => {
-    const searchParams = [
-      { name: CONNECTOR_NAME.MetaMask },
-      { name: CONNECTOR_NAME.Bitget },
-      { name: CONNECTOR_NAME.GateWallet },
-      { name: CONNECTOR_NAME.SafePal },
-      { name: CONNECTOR_NAME.WalletConnect },
-    ];
-
-    const orderedConnectors = findAndFilterConnectors(connectors, searchParams);
-
     if (isMobile) {
-      return orderedConnectors.filter(
-        (c) =>
-          c.name.includes(CONNECTOR_NAME.MetaMask) ||
-          c.name.includes(CONNECTOR_NAME.WalletConnect),
-      );
+      return mergeConnectors(connectors, MOBILE_CONNECTOR_NAME_LIST);
     }
 
-    return orderedConnectors;
+    return mergeConnectors(connectors, CONNECTOR_NAME_LIST);
   }, [connectors, isMobile]);
 }

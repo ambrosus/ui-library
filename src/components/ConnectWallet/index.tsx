@@ -1,5 +1,5 @@
 import React from 'react';
-import { Connector, useAccount, useConnect } from 'wagmi';
+import { Connector, useAccount } from 'wagmi';
 import { WalletListProps } from './WalletList.types';
 import styles from './connect-wallet.module.css';
 import Airdao from './assets/airdao.svg';
@@ -30,7 +30,6 @@ const Option = ({
   connector: Connector;
   onClose: () => void;
 }) => {
-  const { connect } = useConnect();
   const { isConnecting, isReconnecting } = useAccount();
   const icon = connector.icon;
   const isDisabled = isConnecting || isReconnecting;
@@ -39,10 +38,11 @@ const Option = ({
 
   const handleConnect = async (connector: Connector) => {
     try {
-      connect({ connector });
-      onClose();
+      await connector.connect();
     } catch (error) {
       console.error('Failed to connect:', error);
+    } finally {
+      onClose();
     }
   };
 
