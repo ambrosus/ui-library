@@ -13,6 +13,7 @@ import cross from '../assets/cross.svg';
 import hamburgerIcon from '../assets/hamburger.svg';
 import { AddressInfo } from '../../AddressInfo';
 import { ConnectWalletModal } from '../../ConnectWalletModal';
+import { CONNECTOR_ICONS } from '../../../utils';
 
 export function HeaderBody({
   disconnect,
@@ -157,7 +158,11 @@ export function HeaderBody({
                 onClick={handleAddressInfo}
               >
                 <img
-                  src={currentConnector.icon}
+                  src={
+                    currentConnector.icon
+                      ? CONNECTOR_ICONS[currentConnector.icon]
+                      : ''
+                  }
                   alt={currentConnector.name + 'icon'}
                   className={s['header__address-icon']}
                 />

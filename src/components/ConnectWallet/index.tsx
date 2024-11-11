@@ -38,6 +38,7 @@ const Option = ({
 
   const handleConnect = async (connector: Connector) => {
     try {
+      //TODO: fix this
       await connector.connect();
     } catch (error) {
       console.error('Failed to connect:', error);
