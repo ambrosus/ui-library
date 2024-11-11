@@ -159,8 +159,8 @@ export function HeaderBody({
               >
                 <img
                   src={
-                    currentConnector.icon
-                      ? CONNECTOR_ICONS[currentConnector.icon]
+                    currentConnector.name
+                      ? CONNECTOR_ICONS[currentConnector.name]
                       : ''
                   }
                   alt={currentConnector.name + 'icon'}
