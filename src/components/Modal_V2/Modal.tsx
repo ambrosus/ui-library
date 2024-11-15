@@ -13,8 +13,9 @@ const Modal = ({
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   const modalRoot = useMemo(() => {
-    const root =
-      typeof window !== 'undefined' && document.getElementById(modalRootId);
+    if (typeof document === 'undefined') return;
+
+    const root = document.getElementById(modalRootId);
 
     if (!root) {
       const modalRoot = document.createElement('div');
