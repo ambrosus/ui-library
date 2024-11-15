@@ -12,14 +12,15 @@ export function ConnectWalletModalProvider({
     setIsOpen((prev) => !prev);
   }, [setIsOpen]);
 
-  const connectors = useFilteredConnectors();
+  const { filteredConnectors, mockedConnectors } = useFilteredConnectors();
 
   return (
     <ConnectWalletModalContext.Provider value={{ isOpen, toggleModal }}>
       {children}
       <ConnectWalletModal
         onClose={toggleModal}
-        connectors={connectors}
+        connectors={filteredConnectors}
+        promoConnectors={mockedConnectors}
         isOpen={isOpen}
       />
     </ConnectWalletModalContext.Provider>
