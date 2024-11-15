@@ -1,4 +1,5 @@
 import { Connector } from 'wagmi';
+import { MockedConnector } from '../../utils';
 
 export interface HeaderProps {
   disabled?: boolean;
@@ -18,6 +19,7 @@ export interface HeaderBodyProps extends Omit<HeaderProps, 'chainId'> {
   balance: string;
   isSupportedChain: boolean;
   connectors: Connector[];
+  promoConnectors?: MockedConnector[];
   currentConnector?: Connector;
   disconnect: () => void;
   switchToAmb?: () => void;

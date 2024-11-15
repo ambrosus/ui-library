@@ -1,11 +1,10 @@
 import { CONNECTOR_ICONS } from './icons';
 import { CONNECTOR_NAME } from './names';
 
-interface MockedConnector {
+export interface MockedConnector {
   connect(): void;
   icon: string;
   name: string;
-  predefined: boolean;
 }
 
 export const metamaskMockedConnector: MockedConnector = {
@@ -14,7 +13,6 @@ export const metamaskMockedConnector: MockedConnector = {
   },
   icon: CONNECTOR_ICONS[CONNECTOR_NAME.MetaMask],
   name: CONNECTOR_NAME.MetaMask,
-  predefined: true,
 };
 
 export const bitgetMockedConnector: MockedConnector = {
@@ -23,7 +21,6 @@ export const bitgetMockedConnector: MockedConnector = {
   },
   icon: CONNECTOR_ICONS[CONNECTOR_NAME.Bitget],
   name: CONNECTOR_NAME.Bitget,
-  predefined: true,
 };
 
 export const gateMockedConnector: MockedConnector = {
@@ -32,7 +29,6 @@ export const gateMockedConnector: MockedConnector = {
   },
   icon: CONNECTOR_ICONS[CONNECTOR_NAME.GateWallet],
   name: CONNECTOR_NAME.GateWallet,
-  predefined: true,
 };
 
 export const safepalMockedConnector: MockedConnector = {
@@ -41,7 +37,6 @@ export const safepalMockedConnector: MockedConnector = {
   },
   icon: CONNECTOR_ICONS[CONNECTOR_NAME.SafePal],
   name: CONNECTOR_NAME.SafePal,
-  predefined: true,
 };
 
 export const mockedConnectorsByName = {

@@ -6,6 +6,7 @@ import {
   MOBILE_CONNECTOR_NAME_LIST,
   overrideIconInConnector,
   mockedConnectorsByName,
+  MockedConnector,
 } from '../utils';
 
 function getConnectorByName(
@@ -18,17 +19,24 @@ function getConnectorByName(
 function mergeConnectors(
   detectedConnectors: readonly Connector[],
   desiredConnectorNames: string[],
-): Connector[] {
-  return desiredConnectorNames.map((name) => {
+): FilteredConnectors {
+  const filteredConnectors: Connector[] = [];
+  const mockedConnectors: MockedConnector[] = [];
+
+  for (const name of desiredConnectorNames) {
     const connector = getConnectorByName(detectedConnectors, name);
 
-    return connector
-      ? overrideIconInConnector(connector)
-      : mockedConnectorsByName[name];
-  });
+    if (connector) {
+      filteredConnectors.push(overrideIconInConnector(connector));
+    } else {
+      mockedConnectors.push(mockedConnectorsByName[name]);
+    }
+  }
+
+  return { filteredConnectors, mockedConnectors };
 }
 
-export function useFilteredConnectors() {
+export function useFilteredConnectors(): FilteredConnectors {
   const { connectors } = useConnect();
   const { isMobile } = useIsMobilePlatform();
 
@@ -39,4 +47,9 @@ export function useFilteredConnectors() {
 
     return mergeConnectors(connectors, CONNECTOR_NAME_LIST);
   }, [connectors, isMobile]);
+}
+
+interface FilteredConnectors {
+  filteredConnectors: Connector[];
+  mockedConnectors: MockedConnector[];
 }

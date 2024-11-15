@@ -20,6 +20,7 @@ export function HeaderBody({
   account,
   balance,
   connectors,
+  promoConnectors,
   currentConnector,
   isSupportedChain,
   switchToAmb,
@@ -222,6 +223,7 @@ export function HeaderBody({
           isOpen={isLoginModalOpen}
           onClose={handleLoginModal}
           connectors={connectors}
+          promoConnectors={promoConnectors}
         />
       )}
     </>
