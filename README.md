@@ -1,9 +1,13 @@
-## Installation checklist
-- [ ] Install peer dependencies
-- [ ] Wrap app with WagmiProvider and TanstackProvider
-- [ ] Swap all occurences of useWeb3React with wagmi's useAccount for read data
-- [ ] Use useEthersProvider for write actions
-- [ ] (optional) use new Header props
+# @airdao/ui-library
+
+## Install library to dapp:
+### Install package
+```bash
+yarn add @airdao/ui-library
+```
+```bash
+npm install @airdao/ui-library
+```
 
 ### Install peer dependencies
 ```bash
@@ -13,175 +17,28 @@ yarn add wagmi@2.12.16 viem@2.21.15 @tanstack/react-query@5.51.24
 npm install wagmi@2.12.16 viem@2.21.15 @tanstack/react-query@5.51.24
 ```
 
-### Wrap app with WagmiProvider and TanstackProvider
-```jsx
-import { WagmiProvider } from "wagmi";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { createAirdaoConfigWithChainId, createAirdaoConfig } from "@airdao/ui-library";
+## Development
+> Note: Use `npm` to install library dependencies or make sure to install peer dependencies
 
-const queryClient = new QueryClient();
+### Installation and testing
+```bash
+# Install Yalc globally if not installed
+yarn add global yalc 
 
-// store this in env variables
-const { REACT_APP_WC_PROJECT_ID: projectId, REACT_APP_CHAIN_ID: chainId } =
-  process.env;
+# Build library before linking
+yarn build
 
-const WC_PARAMS = {
-  projectId: projectId,
-  metadata: {
-    name: "Project name",
-    description: "Project description",
-    url: "project url",
-    icons: ["https://airdao.io/favicon.svg"]
-  },
-};
+# Publish library to Yalc
+yalc publish
 
-// for specific chain
-const config = createAirdaoConfigWithChainId(+chainId, WC_PARAMS); //chainId must be a number
-
-// for all AirDAO chains (mainnet, testnet, devnet)
-const allNetworksConfig = createAirdaoConfig(WC_PARAMS);
-
-export default function ConfiguredWagmiProvider({ children }) {
-  return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </WagmiProvider>
-  );
-}
+# Add library to dapp
+yalc add @airdao/ui-library
 ```
 
-### Use Wagmi hooks instead of useWeb3React
-#### Before
-```jsx
-import { useWeb3React } from "@web3-react/core";
-
-function MyComponent() {
-  const { 
-    connector, 
-    chainId, 
-    accounts, 
-    isActivating,
-    account, 
-    isActive,
-  } = useWeb3React();
-  
-  return (...)
-}
-```
-
-
-#### After
-```jsx
-import { useAccount } from "wagmi";
-import { useEthersSigner } from "@airdao/ui-library";
-
-const {
-  address, // account
-  addresses, // accounts
-  chainId,
-  connector,
-  isConnecting, // isActivating
-  isConnected, // isActive
-  ...
-} = useAccount()
-
-const signer = useEthersSigner({ chainId }) //chainId optional
-```
-https://wagmi.sh/react/api/hooks/useAccount
-
-### Update Header
-#### Before
-```jsx
-import { Header } from "@airdao/ui-library";
-
-import {
-  useAutoLogin,
-  useAuthorization,
-} from "airdao-components-and-tools/hooks";
-
-import {
-  switchToAmb,
-  metamaskConnector,
-  walletconnectConnector,
-  bitgetWalletConnector,
-} from "airdao-components-and-tools/utils";
-
-function Layout() {
-
-  const { account, connector, provider, isActive, chainId } = useWeb3React();
-
-  const { loginMetamask, loginWalletConnect, loginSafepal, loginBitget, logout } = useAuthorization(
-    metamaskConnector,
-    walletconnectConnector,
-    bitgetWalletConnector,
-  );
-  
-  return (
-    <main>
-      <Header
-        loginSafepal={loginSafepal}
-        loginMetamask={loginMetamask}
-        loginBitget={loginBitget}
-        loginWalletConnect={loginWalletConnect}
-        disconnect={logout}
-        account={account}
-        connector={connector}
-        ... // other props
-      />
-      ...
-    </main>
-  )
-}
-```
-#### After
-```jsx
-import { Header } from "@airdao/ui-library";
-
-const { REACT_APP_CHAIN_ID: chainId } = process.env;
-
-function Layout() {
-  return (
-    <main>
-      <Header
-        chainId={+chainId} //number
-      />
-      ...
-    </main>
-  )
-```
-
-Note: Despite that new version of Header implements all the necessary logic under the hood, you can override it passing additional props to it.
-Here is the list of props that you can pass to Header:
-```jsx
-export interface HeaderProps {
-  disabled?: boolean;
-  logotype?: LogoProps;
-  chainId: number;
-  balance?: string; 
-  isSupportedChain?: boolean; 
-  connectors?: Connector[]; // list of connectors to use in ConnectWalletModal
-  currentConnector?: Connector;
-  disconnect?: () => void;
-  switchToAmb?: () => void;
-}
-```
-
-For more info check ./src/components/Header/Header.types.ts
-
-### Replace old 'airdao-components-and-tools' utils
-
-#### Before
-
-```jsx
-import { switchToAmb } from "airdao-components-and-tools/utils";
-switchToAmb(chainId);
-```
-
-#### After
-
-```jsx
-import { useSwitchToConfiguredChain } from "@airdao/ui-library";
-
-const switchToAmb = useSwitchToConfiguredChain();
-switchToAmb();
-```
+### Before release
+#### For library
+- Build before pushing to make sure it works
+- Bump version in `package.json`
+#### For dapp
+- Remove .yalc library from dapp (or add it to .gitignore)
+- Reinstall library from npm
