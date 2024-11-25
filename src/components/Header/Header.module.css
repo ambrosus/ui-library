@@ -447,6 +447,7 @@
   margin-left: 8px;
   line-height: 24px;
   font-family: Inter, sans-serif;
+  font-size: 16px;
 }
 @media screen and (max-width: 365px) {
   .header__address-text {
