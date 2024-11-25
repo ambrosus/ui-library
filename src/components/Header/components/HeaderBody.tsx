@@ -123,7 +123,7 @@ export function HeaderBody({
               className={s['header__button-tetiary']}
             >
               <Button type='tetiary' size='medium' tailIcon={<TailArrow />}>
-                <span>Get AMB</span>
+                Get AMB
               </Button>
             </a>
 
