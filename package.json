@@ -1,6 +1,6 @@
 {
   "name": "@airdao/ui-library",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "types": "./dist/types.d.ts",
   "exports": {
     ".": {
