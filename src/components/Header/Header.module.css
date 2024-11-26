@@ -166,6 +166,10 @@
     max-height: 800px;
   }
 
+  .nav-item_active .nav-item__label svg path {
+    fill: #3668dd;
+  }
+
   .nav-item_active .nav-item__list-wrapper div div {
     gap: 8px;
   }
