@@ -15,7 +15,7 @@ export function Header({ chainId, ...props }: HeaderProps) {
   const { address, chainId: currentChainId, connector } = useAccount();
 
   const isSupportedChain = chainId === currentChainId;
-  const connectors = useFilteredConnectors();
+  const { filteredConnectors, mockedConnectors } = useFilteredConnectors();
 
   const { data: balance, isSuccess: isBalanceLoaded } = useBalance({
     address,
@@ -29,7 +29,8 @@ export function Header({ chainId, ...props }: HeaderProps) {
         switchToAmb={() => switchChain({ chainId })}
         currentConnector={connector}
         isSupportedChain={isSupportedChain}
-        connectors={connectors}
+        connectors={filteredConnectors}
+        promoConnectors={mockedConnectors}
         balance={isBalanceLoaded ? formatAmountString(balance.formatted) : '0'}
         {...props}
       />
@@ -42,6 +43,7 @@ Header.propTypes = {
   account: propTypes.string,
   balance: propTypes.string,
   connectors: propTypes.array,
+  promoConnectors: propTypes.array,
   currentConnector: propTypes.object,
   isSupportedChain: propTypes.bool,
   switchToAmb: propTypes.func,

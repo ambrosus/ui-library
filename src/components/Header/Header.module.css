@@ -18,6 +18,7 @@
   align-items: center;
   box-sizing: border-box;
   justify-content: space-between;
+  position: relative;
 }
 
 .header-container > a {
@@ -35,7 +36,6 @@
   .header-container {
     padding: 16px;
     min-height: 62.16px;
-    width: calc(100% - 36px);
  }
 }
 
@@ -164,6 +164,10 @@
   .nav-item_active .nav-item__list-wrapper {
     margin: 8px 0;
     max-height: 800px;
+  }
+
+  .nav-item_active .nav-item__label svg path {
+    fill: #3668dd;
   }
 
   .nav-item_active .nav-item__list-wrapper div div {
@@ -447,6 +451,7 @@
   margin-left: 8px;
   line-height: 24px;
   font-family: Inter, sans-serif;
+  font-size: 16px;
 }
 @media screen and (max-width: 365px) {
   .header__address-text {

@@ -9,6 +9,7 @@ export function ConnectWalletModal({
   isOpen,
   onClose,
   connectors,
+  promoConnectors,
 }: ConnectWalletModalTypes) {
   return (
     <Modal
@@ -16,7 +17,11 @@ export function ConnectWalletModal({
       onClose={onClose}
       modalRootId={'connect-wallet-modal'}
     >
-      <WalletList onClose={onClose} connectors={connectors} />
+      <WalletList
+        onClose={onClose}
+        connectors={connectors}
+        promoConnectors={promoConnectors}
+      />
     </Modal>
   );
 }
@@ -25,4 +30,5 @@ ConnectWalletModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   connectors: PropTypes.array.isRequired,
+  promoConnectors: PropTypes.array,
 };

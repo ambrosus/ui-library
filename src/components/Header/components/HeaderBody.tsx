@@ -13,12 +13,14 @@ import cross from '../assets/cross.svg';
 import hamburgerIcon from '../assets/hamburger.svg';
 import { AddressInfo } from '../../AddressInfo';
 import { ConnectWalletModal } from '../../ConnectWalletModal';
+import { CONNECTOR_ICONS } from '../../../utils';
 
 export function HeaderBody({
   disconnect,
   account,
   balance,
   connectors,
+  promoConnectors,
   currentConnector,
   isSupportedChain,
   switchToAmb,
@@ -121,7 +123,7 @@ export function HeaderBody({
               className={s['header__button-tetiary']}
             >
               <Button type='tetiary' size='medium' tailIcon={<TailArrow />}>
-                <span>Get AMB</span>
+                Get AMB
               </Button>
             </a>
 
@@ -157,7 +159,11 @@ export function HeaderBody({
                 onClick={handleAddressInfo}
               >
                 <img
-                  src={currentConnector.icon}
+                  src={
+                    currentConnector.name
+                      ? CONNECTOR_ICONS[currentConnector.name]
+                      : ''
+                  }
                   alt={currentConnector.name + 'icon'}
                   className={s['header__address-icon']}
                 />
@@ -217,6 +223,7 @@ export function HeaderBody({
           isOpen={isLoginModalOpen}
           onClose={handleLoginModal}
           connectors={connectors}
+          promoConnectors={promoConnectors}
         />
       )}
     </>

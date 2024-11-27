@@ -12,3 +12,20 @@ export const CONNECTOR_ICONS: { [key: string]: string } = {
   [CONNECTOR_NAME.Bitget]: BITGET_ICON,
   [CONNECTOR_NAME.GateWallet]: GATEWALLET_ICON,
 };
+
+export function getConnectorIcon(name: string) {
+  switch (name) {
+    case CONNECTOR_NAME.WalletConnect:
+      return WALLETCONNECT_ICON;
+    case CONNECTOR_NAME.MetaMask:
+      return METAMASK_ICON;
+    case CONNECTOR_NAME.SafePal:
+      return SAFEPAL_ICON;
+    case CONNECTOR_NAME.Bitget:
+      return BITGET_ICON;
+    case CONNECTOR_NAME.GateWallet:
+      return GATEWALLET_ICON;
+    default:
+      return '';
+  }
+}
