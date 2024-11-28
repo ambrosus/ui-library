@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 /**
  * `useLockBodyScroll` is a hook to lock the scrolling of the body, typically used in modals and overlays.
@@ -8,22 +8,28 @@ import { useLayoutEffect } from 'react';
  */
 
 function useLockBodyScroll(lock: boolean = true) {
-  useLayoutEffect(() => {
-    if (typeof document === 'undefined') {
-      return;
-    }
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
 
-    if (window.innerWidth > 1100) return;
+    const handleResize = () => {
+      if (window.innerWidth > 1100) {
+        document.body.style.overflow = '';
+        return;
+      }
 
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-    if (lock) {
-      document.body.style.overflow = 'hidden';
-    }
+      if (lock) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      if (lock) {
-        document.body.style.overflow = originalStyle;
-      }
+      document.body.style.overflow = '';
+      window.removeEventListener('resize', handleResize);
     };
   }, [lock]);
 }
