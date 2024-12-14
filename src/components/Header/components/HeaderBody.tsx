@@ -32,6 +32,7 @@ export function HeaderBody({
     height: 'auto',
     className: undefined,
   },
+  customComponent,
 }: HeaderBodyProps) {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -118,6 +119,7 @@ export function HeaderBody({
           />
 
           <div className={s['header__buttons']}>
+            {customComponent && customComponent}
             <a
               href={header?.amburl.url}
               className={s['header__button-tetiary']}

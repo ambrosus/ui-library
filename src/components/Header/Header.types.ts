@@ -23,6 +23,7 @@ export interface HeaderBodyProps extends Omit<HeaderProps, 'chainId'> {
   currentConnector?: Connector;
   disconnect: () => void;
   switchToAmb?: () => void;
+  customComponent?: React.ReactNode;
 }
 
 export interface LogoProps {
