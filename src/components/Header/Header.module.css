@@ -96,7 +96,7 @@
     gap: 0;
     height: unset;
     overflow: auto;
-    max-height: calc(100dvh - 86.05px);
+    max-height: calc(100dvh - 140px);
   }
 }
 
