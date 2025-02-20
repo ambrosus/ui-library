@@ -3,6 +3,7 @@ import METAMASK_ICON from './icons/metamask-icon.svg';
 import SAFEPAL_ICON from './icons/safepal-icon.svg';
 import BITGET_ICON from './icons/bitget-icon.svg';
 import GATEWALLET_ICON from './icons/gateweb3-icon.svg';
+import AIRDAO_ICON from './icons/airdao-icon.svg';
 import { CONNECTOR_NAME } from './names';
 
 export const CONNECTOR_ICONS: { [key: string]: string } = {
@@ -11,6 +12,7 @@ export const CONNECTOR_ICONS: { [key: string]: string } = {
   [CONNECTOR_NAME.SafePal]: SAFEPAL_ICON,
   [CONNECTOR_NAME.Bitget]: BITGET_ICON,
   [CONNECTOR_NAME.GateWallet]: GATEWALLET_ICON,
+  [CONNECTOR_NAME.AirDAO]: AIRDAO_ICON,
 };
 
 export function getConnectorIcon(name: string) {
@@ -25,6 +27,8 @@ export function getConnectorIcon(name: string) {
       return BITGET_ICON;
     case CONNECTOR_NAME.GateWallet:
       return GATEWALLET_ICON;
+    case CONNECTOR_NAME.AirDAO:
+      return AIRDAO_ICON;
     default:
       return '';
   }

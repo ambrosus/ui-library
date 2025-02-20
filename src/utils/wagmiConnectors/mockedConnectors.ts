@@ -39,9 +39,18 @@ export const safepalMockedConnector: MockedConnector = {
   name: CONNECTOR_NAME.SafePal,
 };
 
+export const airdaoMockedConnector: MockedConnector = {
+  connect: () => {
+    window.open('https://airdao.io/app');
+  },
+  icon: CONNECTOR_ICONS[CONNECTOR_NAME.AirDAO],
+  name: CONNECTOR_NAME.AirDAO,
+};
+
 export const mockedConnectorsByName = {
   [CONNECTOR_NAME.MetaMask]: metamaskMockedConnector,
   [CONNECTOR_NAME.Bitget]: bitgetMockedConnector,
   [CONNECTOR_NAME.SafePal]: safepalMockedConnector,
   [CONNECTOR_NAME.GateWallet]: gateMockedConnector,
+  [CONNECTOR_NAME.AirDAO]: airdaoMockedConnector,
 };

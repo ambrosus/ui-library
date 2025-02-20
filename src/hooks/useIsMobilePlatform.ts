@@ -27,6 +27,8 @@ export const useIsMobilePlatform = (breakpoint = 1024) => {
       setIsAndroid(true);
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (/iPad|iPhone|iPod/.test(userAgent) && !window?.MSStream) {
       setIsMobile(true);
       setIsIOS(true);
