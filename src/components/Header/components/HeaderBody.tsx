@@ -125,7 +125,8 @@ export function HeaderBody({
               className={s['header__button-tetiary']}
             >
               <Button type='tetiary' size='medium' tailIcon={<TailArrow />}>
-                Get AMB
+                {/* This span is important for Astra! */}
+                <span>Get AMB</span>
               </Button>
             </a>
 
