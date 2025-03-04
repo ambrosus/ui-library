@@ -5,6 +5,7 @@ export const CONNECTOR_NAME = {
   Bitget: 'Bitget Wallet',
   GateWallet: 'GateWallet',
   AirDAO: 'AirDAO Wallet',
+  Injected: 'Injected',
 } as const;
 
 export const CONNECTOR_NAME_LIST = [
@@ -16,7 +17,8 @@ export const CONNECTOR_NAME_LIST = [
 ];
 
 export const MOBILE_CONNECTOR_NAME_LIST = [
-  CONNECTOR_NAME.MetaMask,
+  CONNECTOR_NAME.Injected,
+  // CONNECTOR_NAME.MetaMask,
   CONNECTOR_NAME.AirDAO,
   CONNECTOR_NAME.WalletConnect,
 ];

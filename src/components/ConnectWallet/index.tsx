@@ -38,6 +38,9 @@ const Option = ({ connector, onClose, mocked }: OptionProps) => {
   const IsWalletConnect = connector?.name === 'WalletConnect';
 
   const handleConnect = async () => {
+    console.log('handleConnect(): ', connector);
+    console.log('mocked: ', mocked);
+
     try {
       if (mocked) {
         connector.connect();

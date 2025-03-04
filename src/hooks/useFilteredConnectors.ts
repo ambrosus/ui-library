@@ -38,6 +38,8 @@ function mergeConnectors(
 
 export function useFilteredConnectors(): FilteredConnectors {
   const { connectors } = useConnect();
+  console.log(connectors);
+
   const { isMobile } = useIsMobilePlatform();
 
   return useMemo(() => {
