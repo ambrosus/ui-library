@@ -6,6 +6,8 @@
 /dist
 
 yarn.lock
+yalc.lock
+.yalc
 
 .DS_Store
 .env

@@ -9,7 +9,7 @@ export interface MockedConnector {
 
 export const metamaskMockedConnector: MockedConnector = {
   connect: () => {
-    window.open('https://metamask.io/');
+    window.open(`https://metamask.app.link/dapp/${window.location.href}/`);
   },
   icon: CONNECTOR_ICONS[CONNECTOR_NAME.MetaMask],
   name: CONNECTOR_NAME.MetaMask,

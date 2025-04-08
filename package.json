@@ -1,6 +1,6 @@
 {
   "name": "@airdao/ui-library",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "types": "./dist/types.d.ts",
   "exports": {
     ".": {
@@ -52,6 +52,7 @@
     "wagmi": "^2.12.16"
   },
   "dependencies": {
+    "@airdao/ui-library": "file:.yalc/@airdao/ui-library",
     "@prismicio/client": "^7.1.1",
     "@prismicio/react": "^2.5.0",
     "react-toastify": "^9.1.3"
