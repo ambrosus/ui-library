@@ -1,7 +1,7 @@
 import { allNetworks, ChainIdValues, networkById } from '../constants';
 import { Config, createConfig, http } from 'wagmi';
 import { createClient } from 'viem';
-import { walletConnect, WalletConnectParameters } from 'wagmi/connectors';
+import { metaMask, walletConnect, WalletConnectParameters } from 'wagmi/connectors';
 
 export function createAirdaoConfig(
   walletconnectConfig: WalletConnectParameters,
@@ -25,6 +25,6 @@ export function createAirdaoConfig(
     client({ chain }) {
       return createClient({ chain, transport: http() });
     },
-    connectors: [walletConnect(walletconnectConfig)],
+    connectors: [walletConnect(walletconnectConfig), metaMask()],
   });
 }

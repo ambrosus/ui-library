@@ -7,14 +7,6 @@ export interface MockedConnector {
   name: string;
 }
 
-export const metamaskMockedConnector: MockedConnector = {
-  connect: () => {
-    window.open(`https://metamask.app.link/dapp/${window.location.href}/`);
-  },
-  icon: CONNECTOR_ICONS[CONNECTOR_NAME.MetaMask],
-  name: CONNECTOR_NAME.MetaMask,
-};
-
 export const bitgetMockedConnector: MockedConnector = {
   connect: () => {
     window.open('https://web3.bitget.com/en?source=bitget');
@@ -48,7 +40,6 @@ export const airdaoMockedConnector: MockedConnector = {
 };
 
 export const mockedConnectorsByName = {
-  [CONNECTOR_NAME.MetaMask]: metamaskMockedConnector,
   [CONNECTOR_NAME.Bitget]: bitgetMockedConnector,
   [CONNECTOR_NAME.SafePal]: safepalMockedConnector,
   [CONNECTOR_NAME.GateWallet]: gateMockedConnector,
