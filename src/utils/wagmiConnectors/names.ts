@@ -16,7 +16,6 @@ export const CONNECTOR_NAME_LIST = [
 ];
 
 export const MOBILE_CONNECTOR_NAME_LIST = [
-  CONNECTOR_NAME.MetaMask,
   CONNECTOR_NAME.AirDAO,
   CONNECTOR_NAME.WalletConnect,
 ];
