@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Connector, useConnect } from 'wagmi';
 import useIsMobilePlatform from './useIsMobilePlatform';
 import {
+  CONNECTOR_NAME,
   CONNECTOR_NAME_LIST,
   MOBILE_CONNECTOR_NAME_LIST,
   overrideIconInConnector,
@@ -42,7 +43,16 @@ export function useFilteredConnectors(): FilteredConnectors {
 
   return useMemo(() => {
     if (isMobile) {
-      return mergeConnectors(connectors, MOBILE_CONNECTOR_NAME_LIST);
+      const isMetaMaskInjected = Boolean(
+        typeof window !== 'undefined' && window.ethereum?.isMetaMask,
+      );
+
+      return mergeConnectors(
+        connectors,
+        isMetaMaskInjected
+          ? [...MOBILE_CONNECTOR_NAME_LIST, CONNECTOR_NAME.MetaMask]
+          : MOBILE_CONNECTOR_NAME_LIST,
+      );
     }
 
     return mergeConnectors(connectors, CONNECTOR_NAME_LIST);
