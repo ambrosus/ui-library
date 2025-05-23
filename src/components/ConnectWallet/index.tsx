@@ -10,6 +10,7 @@ export function WalletList({
   connectors,
   promoConnectors,
   onClose,
+  chainIdToConnect,
 }: WalletListProps) {
   return (
     <div className={styles.wrapper}>
@@ -19,18 +20,34 @@ export function WalletList({
       </div>
       <div className={styles.list}>
         {connectors.map((c) => (
-          <Option connector={c} onClose={onClose} key={c.uid} />
+          <Option
+            connector={c}
+            onClose={onClose}
+            chainIdToConnect={chainIdToConnect}
+            key={c.uid}
+          />
         ))}
         {promoConnectors &&
           promoConnectors.map((c) => (
-            <Option connector={c} mocked onClose={onClose} key={c.name} />
+            <Option
+              connector={c}
+              mocked
+              onClose={onClose}
+              key={c.name}
+              chainIdToConnect={undefined}
+            />
           ))}
       </div>
     </div>
   );
 }
 
-const Option = ({ connector, onClose, mocked }: OptionProps) => {
+const Option = ({
+  connector,
+  onClose,
+  mocked,
+  chainIdToConnect,
+}: OptionProps) => {
   const { isConnecting, isReconnecting } = useAccount();
   const { connect } = useConnect();
   const icon = connector.icon;
@@ -42,7 +59,7 @@ const Option = ({ connector, onClose, mocked }: OptionProps) => {
       if (mocked) {
         connector.connect();
       } else {
-        connect({ connector });
+        connect({ connector, chainId: chainIdToConnect });
       }
     } catch (error) {
       console.error('Failed to connect:', error);
@@ -79,10 +96,12 @@ type OptionProps =
   | {
       onClose: () => void;
       connector: Connector;
+      chainIdToConnect?: number;
       mocked?: false;
     }
   | {
       onClose: () => void;
       connector: MockedConnector;
       mocked: true;
+      chainIdToConnect: undefined;
     };

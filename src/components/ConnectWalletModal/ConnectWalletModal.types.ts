@@ -6,4 +6,5 @@ export interface ConnectWalletModalTypes {
   isOpen?: boolean;
   connectors: Connector[];
   promoConnectors?: MockedConnector[];
+  chainIdToConnect?: number;
 }

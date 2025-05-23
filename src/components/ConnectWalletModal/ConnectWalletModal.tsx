@@ -10,6 +10,7 @@ export function ConnectWalletModal({
   onClose,
   connectors,
   promoConnectors,
+  chainIdToConnect,
 }: ConnectWalletModalTypes) {
   return (
     <Modal
@@ -21,6 +22,7 @@ export function ConnectWalletModal({
         onClose={onClose}
         connectors={connectors}
         promoConnectors={promoConnectors}
+        chainIdToConnect={chainIdToConnect}
       />
     </Modal>
   );
@@ -31,4 +33,5 @@ ConnectWalletModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   connectors: PropTypes.array.isRequired,
   promoConnectors: PropTypes.array,
+  chainIdToConnect: PropTypes.number,
 };
